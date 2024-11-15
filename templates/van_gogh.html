@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent Van Gogh</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Vincent Van Gogh</h1>
+        <p>Learn about the life and work of Vincent Van Gogh.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фото художника слева -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/van-gogh.jpg') }}" alt="Vincent Van Gogh">
+        </div>
+
+        <!-- Информация о художнике справа -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Vincent Van Gogh was a Dutch post-impressionist painter, whose work had a far-reaching influence on 20th-century art. He is known for his emotional intensity, bold color choices, and innovative techniques, which helped shape modern art.</p>
+            <p>He is among the most famous and influential figures in the history of Western art, with iconic works such as *Starry Night*, *Sunflowers*, and *The Bedroom*.</p>
+
+            <h3>Famous Paintings by Van Gogh</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/van-gogh1.jpg') }}" alt="Van Gogh Artwork 1">
+                <img src="{{ url_for('static', filename='images/van-gogh2.jpg') }}" alt="Van Gogh Artwork 2">
+                <!-- Add more images here if necessary -->
+            </div>
+        </div>
+    </section>
+
+    <section class="famous-artists"> 
+        <h2 class="section-title">Vincent van Gogh - Famous Paintings</h2>
+        
+        <!-- Card: Starry Night -->
+        <div class="painting-card">
+            <h3>Starry Night</h3>
+            <img src="{{ url_for('static', filename='images/vangogh11.jpg') }}" alt="Starry Night">
+        </div>
+        
+        <!-- Card: Sunflowers -->
+        <div class="painting-card">
+            <h3>Sunflowers</h3>
+            <img src="{{ url_for('static', filename='images/vangogh12.jpg') }}" alt="Sunflowers">
+        </div>
+        
+        <!-- Card: The Bedroom -->
+        <div class="painting-card">
+            <h3>The Bedroom</h3>
+            <img src="{{ url_for('static', filename='images/vangogh13.jpg') }}" alt="The Bedroom">
+        </div>
+        
+        <!-- Card: Wheatfield with Crows -->
+        <div class="painting-card">
+            <h3>Wheatfield with Crows</h3>
+            <img src="{{ url_for('static', filename='images/vangogh14.jpg') }}" alt="Wheatfield with Crows">
+        </div>
+        
+        <!-- Card: Irises -->
+        <div class="painting-card">
+            <h3>Irises</h3>
+            <img src="{{ url_for('static', filename='images/vangogh15.jpg') }}" alt="Irises">
+        </div>
+        
+        <!-- Card: Café Terrace at Night -->
+        <div class="painting-card">
+            <h3>Café Terrace at Night</h3>
+            <img src="{{ url_for('static', filename='images/vangogh16.jpg') }}" alt="Café Terrace at Night">
+        </div>
+        
+        <!-- Card: Self-Portrait -->
+        <div class="painting-card">
+            <h3>Self-Portrait</h3>
+            <img src="{{ url_for('static', filename='images/vangogh17.jpg') }}" alt="Self-Portrait">
+        </div>
+        
+        <!-- Card: Almond Blossom -->
+        <div class="painting-card">
+            <h3>Almond Blossom</h3>
+            <img src="{{ url_for('static', filename='images/vangogh18.jpg') }}" alt="Almond Blossom">
+        </div>
+    </section>
+    
+    <h1>Vincent Van Gogh's Locations</h1>
+    <p>Explore the places related to Vincent Van Gogh's life and work.</p>
+    <!-- Main container for map and side panel -->
+    <div class="container">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Side panel to show information -->
+        <div id="side-panel">
+            <h3 id="place-title">Click a location on the map</h3>
+            <p id="place-description">Select a point on the map to see more details.</p>
+            <img id="place-image" src="" alt="Artwork image" />
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.9200, 4.4818], 6);
+
+        // Add a tile layer (background map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations related to Van Gogh with full information
+        var locations = [
+            {
+                name: "Zundert (Birthplace)",
+                lat: 51.5895,
+                lon: 4.5800,
+                description: "<b>Zundert, Netherlands</b><br>Birthplace of Vincent Van Gogh. Born on March 30, 1853.",
+                full_description: "Vincent Van Gogh was born in Zundert, Netherlands. He spent his early years in this quiet town. Later, he would travel around Europe, creating some of the most iconic works in art history.",
+                image: "{{ url_for('static', filename='images/van-gogh111.jpg') }}"
+            },
+            {
+                name: "Arles (Studio in the South of France)",
+                lat: 43.8333,
+                lon: 4.6277,
+                description: "<b>Arles, France</b><br>Van Gogh spent some of the most creative years of his life here, painting masterpieces like 'Sunflowers'.",
+                full_description: "In Arles, Van Gogh rented a house known as the Yellow House, where he created some of his most famous works. He also painted several portraits and experimented with color theory during his time in the South of France.",
+                image: "{{ url_for('static', filename='images/van-gogh112.jpg') }}"
+            },
+            {
+                name: "Saint-Rémy-de-Provence (Mental Hospital)",
+                lat: 43.8341,
+                lon: 4.6277,
+                description: "<b>Saint-Rémy-de-Provence, France</b><br>Van Gogh admitted himself to an asylum here in 1889. He painted 'The Starry Night' during his stay.",
+                full_description: "During his time in the asylum at Saint-Rémy-de-Provence, Van Gogh painted his iconic 'Starry Night'. The swirling skies and bright stars are reflective of his emotional state, and the landscape around the asylum became an important subject of his works.",
+                image: "{{ url_for('static', filename='images/van-gogh113.jpg') }}"
+            },
+            {
+                name: "Auvers-sur-Oise (Final Home)",
+                lat: 49.0575,
+                lon: 2.2312,
+                description: "<b>Auvers-sur-Oise, France</b><br>Van Gogh lived here in 1890 and painted his last works before his death.",
+                full_description: "Van Gogh spent his final days in Auvers-sur-Oise, where he painted nearly 80 works in just 70 days. He passed away in July 1890, just weeks after completing many of his famous works, such as 'Wheatfield with Crows' and 'The Church at Auvers'.",
+                image: "{{ url_for('static', filename='images/van-gogh114.jpg') }}"
+            }
+        ];
+
+        // Add markers and popup events
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+
+            // Add a click event for each marker to update the side panel
+            marker.on('click', function() {
+                // Update the content in the side panel
+                document.getElementById('place-title').innerHTML = location.name;
+                document.getElementById('place-description').innerHTML = location.full_description;
+                document.getElementById('place-image').src = location.image;
+            });
+        });
+    </script>
+
+
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

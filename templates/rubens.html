@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Paul Rubens</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Peter Paul Rubens</h1>
+        <p>Discover the baroque beauty of Peter Paul Rubens' dynamic works and powerful compositions.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фото художника слева -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/rubens.jpg') }}" alt="Peter Paul Rubens">
+        </div>
+
+        <!-- Информация о художнике справа -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Peter Paul Rubens (1577–1640) was a Flemish Baroque painter, known for his dramatic and sensual works, including *The Descent from the Cross*. His work combines the grandeur of Baroque with the sensuality of the human form, often depicting mythological and religious themes.</p>
+
+            <h3>Famous Paintings</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/descent_from_the_cross.jpg') }}" alt="The Descent from the Cross">
+                <img src="{{ url_for('static', filename='images/venus_at_a_mirror.jpg') }}" alt="Venus at a Mirror">
+            </div>
+        </div>
+    </section>
+    <section class="famous-artists"> 
+        <h2 class="section-title">Peter Paul Rubens - Famous Paintings</h2>
+        
+        <!-- Card: The Descent from the Cross -->
+        <div class="painting-card">
+            <h3>The Descent from the Cross</h3>
+            <img src="{{ url_for('static', filename='images/rubens11.jpg') }}" alt="The Descent from the Cross">
+        </div>
+        
+        <!-- Card: The Massacre of the Innocents -->
+        <div class="painting-card">
+            <h3>The Massacre of the Innocents</h3>
+            <img src="{{ url_for('static', filename='images/rubens12.jpg') }}" alt="The Massacre of the Innocents">
+        </div>
+        
+        <!-- Card: The Judgement of Paris -->
+        <div class="painting-card">
+            <h3>The Judgement of Paris</h3>
+            <img src="{{ url_for('static', filename='images/rubens13.jpg') }}" alt="The Judgement of Paris">
+        </div>
+        
+        <!-- Card: The Garden of Love -->
+        <div class="painting-card">
+            <h3>The Garden of Love</h3>
+            <img src="{{ url_for('static', filename='images/rubens14.jpg') }}" alt="The Garden of Love">
+        </div>
+        
+        <!-- Card: The Adoration of the Magi -->
+        <div class="painting-card">
+            <h3>The Adoration of the Magi</h3>
+            <img src="{{ url_for('static', filename='images/rubens15.jpg') }}" alt="The Adoration of the Magi">
+        </div>
+        
+        <!-- Card: The Three Graces -->
+        <div class="painting-card">
+            <h3>The Three Graces</h3>
+            <img src="{{ url_for('static', filename='images/rubens16.jpg') }}" alt="The Three Graces">
+        </div>
+        
+        <!-- Card: Samson and Delilah -->
+        <div class="painting-card">
+            <h3>Samson and Delilah</h3>
+            <img src="{{ url_for('static', filename='images/rubens17.jpg') }}" alt="Samson and Delilah">
+        </div>
+        
+        <!-- Card: The Raising of the Cross -->
+        <div class="painting-card">
+            <h3>The Raising of the Cross</h3>
+            <img src="{{ url_for('static', filename='images/rubens18.jpg') }}" alt="The Raising of the Cross">
+        </div>
+    </section>
+    
+        <h1>Peter Paul Rubens' Locations</h1>
+        <p>Explore the places related to Rubens' life and work.</p>
+    
+
+    <!-- Main container for map and side panel -->
+    <div class="container" style="display: flex; align-items: stretch;">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Side panel to show information -->
+        <div id="side-panel">
+            <h3 id="place-title">Click a location on the map</h3>
+            <p id="place-description">Select a point on the map to see more details.</p>
+            <img id="place-image" src="" alt="Artwork image" style="width: 100%; max-height: 200px; object-fit: cover;" />
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.2194, 4.4025], 6); // Centered on Antwerp, Belgium
+
+        // Add a tile layer (background map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations related to Rubens' life and work with full information
+        var locations = [
+            {
+                name: "Antwerp (Birthplace & Studio)",
+                lat: 51.2194,
+                lon: 4.4025,
+                description: "<b>Antwerp, Belgium</b><br>Rubens was born here and established his famous studio.",
+                full_description: "Peter Paul Rubens was born in Antwerp in 1577. He became one of the most prominent Flemish Baroque artists and established a thriving workshop in the city, where he produced numerous masterpieces.",
+                image: "{{ url_for('static', filename='images/rubens1.jpg') }}"
+            },
+            {
+                name: "Madrid (Royal Commission)",
+                lat: 40.4168,
+                lon: -3.7038,
+                description: "<b>Madrid, Spain</b><br>Rubens received several important commissions from the Spanish Royal Court.",
+                full_description: "In Madrid, Rubens worked on significant royal commissions for King Philip IV, including his famous portrait series and works such as 'The Three Graces'. These works solidified his reputation as a master portraitist.",
+                image: "{{ url_for('static', filename='images/rubens2.jpg') }}"
+            },
+            {
+                name: "Rome (Artistic Growth)",
+                lat: 41.9028,
+                lon: 12.4964,
+                description: "<b>Rome, Italy</b><br>Rubens spent time in Rome, studying and gaining inspiration from the masters of Italian Renaissance and Baroque art.",
+                full_description: "In Rome, Rubens studied the works of Italian Renaissance artists like Michelangelo and Raphael. His time in Italy deeply influenced his use of color, light, and composition, which became key elements of his later works.",
+                image: "{{ url_for('static', filename='images/rubens3.jpg') }}"
+            },
+            {
+                name: "London (Court Painter)",
+                lat: 51.5074,
+                lon: -0.1278,
+                description: "<b>London, England</b><br>Rubens worked as a court painter for King Charles I of England.",
+                full_description: "Rubens traveled to London to work for King Charles I. He produced several key works, including portraits of the king and his family, as well as historical paintings that depicted the king's reign.",
+                image: "{{ url_for('static', filename='images/rubens4.jpg') }}"
+            },
+            {
+                name: "Siegen (Birthplace of his wife)",
+                lat: 50.8833,
+                lon: 8.0333,
+                description: "<b>Siegen, Germany</b><br>Rubens' wife, Isabella Brant, was from here.",
+                full_description: "Although Rubens himself was born in Antwerp, his wife, Isabella Brant, was from Siegen, Germany. Their marriage was an important event in Rubens' life and career, influencing his personal and professional world.",
+                image: "{{ url_for('static', filename='images/rubens5.jpg') }}"
+            }
+        ];
+
+        // Add markers and popup events
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+
+            // Add a click event for each marker to update the side panel
+            marker.on('click', function() {
+                // Update the content in the side panel
+                document.getElementById('place-title').innerHTML = location.name;
+                document.getElementById('place-description').innerHTML = location.full_description;
+                document.getElementById('place-image').src = location.image;
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

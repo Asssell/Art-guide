@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Scream - Painting by Edvard Munch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>The Scream</h1>
+        <p>Painting by Edvard Munch</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Edvard Munch</p>
+        <p><strong>Year of Creation:</strong> 1893</p>
+        <p><strong>Medium:</strong> Oil on canvas (also created in other versions with tempera and lithograph)</p>
+        <p><strong>Dimensions:</strong> 91 x 73.5 cm (original painting)</p>
+        <p><strong>Location:</strong> The National Gallery, Oslo, Norway (for the 1893 tempera-on-canvas version)</p>
+        <p><strong>Description:</strong> "The Scream" is one of the most iconic images in the history of art. The painting depicts a figure standing on a bridge, with a dramatically contorted face and hands raised to the head in anguish. The background features swirling skies, symbolizing an emotional eruption. Munch created several versions of "The Scream" using different media, including oil, tempera, and lithograph. It is often interpreted as an expression of existential dread and anxiety, reflecting the human condition. The painting's distorted imagery and vivid color palette evoke a sense of tension and despair, making it one of the most powerful visual representations of anxiety in modern art.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/the_scream.jpg') }}" alt="The Scream">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>"The Scream" is one of the masterpieces of Expressionism, a movement that sought to convey emotional experiences rather than physical reality. Munch’s work captured raw, human emotion, and his ability to convey psychological states through art made him a pioneer of modern emotional expression in painting. The swirling skies and exaggerated forms of the figure reflect a deep sense of existential dread, which was influenced by Munch’s own life experiences, including childhood trauma, family death, and struggles with mental health.</p>
+        <p>The painting's popularity grew over time, and it has been reproduced and parodied countless times. "The Scream" has become a universal symbol of anxiety, fear, and alienation, echoing the anxiety of modern existence. It is often used in popular culture as an emblem of emotional turmoil, and its influence can be seen in the works of later artists such as German Expressionists and even in contemporary digital art.</p>
+        <p>Additionally, the painting’s distorted visual style and emotive power had a lasting impact on the development of psychological realism in art, which later inspired movements like Surrealism and Abstract Expressionism.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of the National Gallery, Oslo</h2>
+        <p>If you want to see "The Scream" in its original context, you can take a virtual tour of the National Gallery in Oslo, where the painting is housed. Experience this masterpiece in high resolution and explore other works by Edvard Munch.</p>
+        <a href="https://www.nasjonalmuseet.no/en/collections/objects/NG.M.01482" target="_blank">
+            <button>Start the Virtual Tour of the National Gallery</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of The Scream</h2>
+            <p>Edvard Munch painted "The Scream" in 1893, during a period of deep personal reflection and psychological turmoil. Munch’s own struggles with mental illness, the loss of his mother at an early age, and the trauma of growing up in a family touched by illness and death, deeply influenced the emotional intensity of the painting. The figure in "The Scream" is often seen as a representation of Munch himself, reflecting the internal distress and isolation he experienced. The swirling sky symbolizes the mental anguish and emotional chaos that Munch sought to express in his art.</p>
+            <p>The painting has been recreated in various formats and styles, from oil paintings to lithographs, and has become a symbol of the anxiety and alienation of modern life. Today, "The Scream" is housed in the National Gallery in Oslo, though other versions are held in private collections and museums around the world. The most famous version, painted in 1893, was stolen in 1994 and later recovered, increasing its fame as an iconic symbol of modern existential dread.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([59.9127, 10.7461], 13); // Initial map view centered on National Gallery, Oslo, Norway
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to The Scream
+        var locations = [
+            {
+                name: "National Gallery, Oslo, Norway",
+                coordinates: [59.9127, 10.7461],
+                info: "The original version of The Scream by Edvard Munch is housed in the National Gallery of Oslo. It is one of the most famous paintings in the world, symbolizing human anxiety and existential fear."
+            },
+            {
+                name: "Munch Museum, Oslo, Norway",
+                coordinates: [59.9225, 10.7452],
+                info: "The Munch Museum in Oslo holds several versions of The Scream, as well as a large collection of Edvard Munch’s works. The museum offers an extensive look at the artist’s life and contributions to modern art."
+            },
+            {
+                name: "The Scream (stolen version), Norway",
+                coordinates: [59.9120, 10.7396],
+                info: "The version of The Scream painted in 1893 was famously stolen in 1994 but was later recovered. This incident contributed to the painting’s global iconic status."
+            },
+            {
+                name: "Museum of Modern Art (MoMA), New York, USA",
+                coordinates: [40.7614, -73.9776],
+                info: "MoMA in New York holds a lithograph version of The Scream, offering a different perspective on the work and its emotional impact."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

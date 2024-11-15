@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Persistence of Memory - Painting by Salvador Dalí</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>The Persistence of Memory</h1>
+        <p>Painting by Salvador Dalí</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Salvador Dalí</p>
+        <p><strong>Year of Creation:</strong> 1931</p>
+        <p><strong>Medium:</strong> Oil on canvas</p>
+        <p><strong>Dimensions:</strong> 24 x 33 cm</p>
+        <p><strong>Location:</strong> Museum of Modern Art (MoMA), New York City, USA</p>
+        <p><strong>Description:</strong> "The Persistence of Memory" is one of Salvador Dalí’s most famous works, known for its surrealist depiction of melting clocks draped over various objects in a desolate landscape. The painting explores themes of time, memory, and the relativity of human experience. The soft, melting clocks are often interpreted as symbols of the malleability and subjective nature of time. The painting is a hallmark of Dalí's skill in blending realistic detail with fantastical imagery. The dreamlike landscape features distorted perspectives, further enhancing the sense of unreality. "The Persistence of Memory" is considered one of the most iconic works of Surrealism and a major contribution to 20th-century art.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/the_persistence_of_memory.jpg') }}" alt="The Persistence of Memory">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>"The Persistence of Memory" was created during the height of Dalí’s involvement with the Surrealist movement, which sought to express the unconscious mind and challenge conventional perceptions of reality. The painting is often seen as a visual representation of the elasticity of time, drawing inspiration from Einstein's theory of relativity, which had a significant influence on artists during the early 20th century. Dalí’s depiction of time as fluid and malleable reflected his interest in the subconscious and the fluidity of human perception.</p>
+        <p>The painting’s surrealistic elements—such as the melting clocks and the dreamlike landscape—demonstrate Dalí’s unique ability to combine precision and absurdity. His meticulous technique contrasts with the strange, almost nightmarish imagery, creating a powerful psychological impact. The influence of "The Persistence of Memory" extends beyond Surrealism, inspiring various artists, writers, and filmmakers, and continuing to shape the conversation about time, memory, and the subconscious mind in contemporary culture.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of the Museum of Modern Art</h2>
+        <p>If you want to see "The Persistence of Memory" in its original context, you can take a virtual tour of the Museum of Modern Art (MoMA) in New York City, where the painting is housed. Discover more about Dalí’s work and the surrealist movement through this immersive experience.</p>
+        <a href="https://www.moma.org/collection/works/79018" target="_blank">
+            <button>Start the Virtual Tour of MoMA</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of The Persistence of Memory</h2>
+            <p>"The Persistence of Memory" was created in 1931 and is one of Dalí’s early masterpieces. The painting has been interpreted in many ways, but it is generally seen as a depiction of the relativity of time, drawing influence from Albert Einstein’s theory of relativity. The distorted, melting clocks suggest that time is not as fixed and measurable as it seems in the everyday experience. Dalí’s use of melting objects in a barren landscape also alludes to his interest in dreams, unconscious thoughts, and the fluid nature of reality.</p>
+            <p>The painting was first exhibited in 1931 and quickly gained recognition for its unique surrealist imagery and deep psychological themes. Over time, "The Persistence of Memory" became an iconic work of 20th-century art, widely regarded as one of Dalí’s defining contributions to the Surrealist movement. The work continues to be celebrated for its imaginative approach to time and space, challenging viewers to question their perceptions of reality and the passage of time.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([40.7614, -73.9776], 13); // Initial map view centered on MoMA, New York City
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to The Persistence of Memory
+        var locations = [
+            {
+                name: "Museum of Modern Art (MoMA), New York, USA",
+                coordinates: [40.7614, -73.9776],
+                info: "The Persistence of Memory is housed in the Museum of Modern Art in New York City. It is one of Salvador Dalí's most famous paintings and a defining work of Surrealism."
+            },
+            {
+                name: "Dalí Theatre-Museum, Figueres, Spain",
+                coordinates: [42.2673, 3.2003],
+                info: "The Dalí Theatre-Museum in Dalí's hometown of Figueres, Spain, features an extensive collection of the artist's works. It offers insight into Dalí’s unique artistic evolution and his surrealist masterpieces."
+            },
+            {
+                name: "The Met Cloisters, New York, USA",
+                coordinates: [40.8665, -73.9313],
+                info: "The Met Cloisters has displayed Dalí’s works as part of their surrealist exhibitions, exploring the intersections of surrealism and historical contexts."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

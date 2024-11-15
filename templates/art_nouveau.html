@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Nouveau</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Art Nouveau</h1>
+        <p>Learn about the Art Nouveau style and discover famous artworks.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Art Nouveau</h2>
+<p>Art Nouveau, which flourished between the 1890s and the First World War, is a distinctive and influential artistic movement that sought to break away from traditional academic art forms and embrace organic, flowing designs inspired by nature. The style was characterized by its use of curving lines, asymmetrical shapes, and intricate, often fantastical patterns drawn from plant life, flowers, and other natural elements. Art Nouveau was a reaction against the industrial revolution’s mechanization, aiming to reintroduce beauty, craftsmanship, and nature into design.</p>
+
+<p>The term "Art Nouveau" is French for "new art," reflecting the movement’s innovative and forward-thinking approach to art and design. It emerged in several European countries, with significant development in Belgium, France, and Austria, and spread across the world, influencing architecture, interior design, jewelry, glassware, and graphic arts. One of the defining features of Art Nouveau was its desire to integrate art into everyday life, bringing beauty into functional objects, and blurring the boundaries between fine art and applied art.</p>
+
+<p>In architecture, Art Nouveau is most noticeable in the use of flowing, curved lines, ornate decorative motifs, and the blending of interior and exterior design. Buildings featured sinuous lines that mimicked the organic forms found in nature, as well as intricate wrought iron details and stained glass windows. The movement rejected the rigid, classical styles of the past, instead embracing fluidity and natural beauty in every aspect of design. Some of the most notable examples of Art Nouveau architecture include the works of architect Antoni Gaudí in Barcelona, such as the famous Casa Batlló and La Pedrera, which feature undulating facades and organic, nature-inspired forms.</p>
+
+<p>Art Nouveau also had a significant impact on interior design, with intricate furniture, lighting fixtures, and wallpaper designs all featuring the movement’s signature organic shapes. Artists like Hector Guimard designed iconic Metro entrances in Paris, which are now emblematic of Art Nouveau’s connection to urban design and public space. The movement’s focus on craftsmanship and decorative arts led to the creation of exquisitely detailed objects, such as jewelry, vases, and glasswork, often using new techniques such as pâte de verre and enamelwork.</p>
+
+<p>In visual arts, the works of artists like Gustav Klimt, Alphonse Mucha, and Egon Schiele exemplify Art Nouveau’s unique aesthetic. Mucha’s posters, for example, often feature elegant, flowing lines and beautifully stylized representations of women, surrounded by lush, decorative patterns. These works embraced the decorative potential of art, often combining natural imagery with a symbolic use of color and form. Klimt’s use of gold leaf and intricate patterns in his portraits, especially in "The Kiss," highlights the movement’s focus on ornamental detail and luxurious materials.</p>
+
+<p>The philosophy behind Art Nouveau was a rejection of industrial mass production and a return to handcrafted beauty. Artists and designers sought to create a new, modern style that celebrated both nature and the individual. The movement’s focus on craftsmanship and the decorative arts was particularly visible in the design of everyday objects, from furniture to textiles, with a focus on combining function and aesthetic appeal.</p>
+
+<p>While Art Nouveau had a relatively short lifespan, it was a precursor to other modernist movements, such as Art Deco and Bauhaus, and it influenced the development of modern design in the early 20th century. Its emphasis on nature, craftsmanship, and the blending of art and life has made it an enduring and influential style in design history.</p>
+
+<p>In summary, Art Nouveau was a revolutionary style that sought to blend art, design, and nature, emphasizing organic forms, intricate patterns, and the importance of craftsmanship. It influenced many aspects of design, from architecture to jewelry, and left a lasting impact on the visual culture of the 20th century.</p>
+</section>
+
+    <section class="famous-artists">
+        <h2>Famous Art Nouveau Artists</h2>
+    
+        <!-- Card: Gustav Klimt -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/klimt.jpg') }}" alt="Gustav Klimt">
+            <h3>Gustav Klimt</h3>
+            <p>An Austrian symbolist painter, Klimt is perhaps best known for his golden, decorative style, combining elements of Byzantine art with the sinuous lines of Art Nouveau.</p>
+            <p><strong>Main Works:</strong> "The Kiss," "Portrait of Adele Bloch-Bauer I," "The Tree of Life."</p>
+            <p><em>Interesting Fact:</em> Klimt's work was heavily influenced by eroticism and symbolism, and he often explored themes of love, death, and regeneration.</p>
+        </div>
+    
+        <!-- Card: Alphonse Mucha -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/mucha.jpg') }}" alt="Alphonse Mucha">
+            <h3>Alphonse Mucha</h3>
+            <p>A Czech painter and graphic designer, Mucha is considered one of the most influential figures in the Art Nouveau movement, particularly known for his intricate posters and illustrations.</p>
+            <p><strong>Main Works:</strong> "The Seasons," "Gismonda," "The Slav Epic."</p>
+            <p><em>Interesting Fact:</em> Mucha's work has a distinctive style featuring flowing lines, floral patterns, and decorative motifs, often incorporating the female form in a mystical, ethereal manner.</p>
+        </div>
+    
+        <!-- Card: Henri Toulouse-Lautrec -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/toulouse.jpg') }}" alt="Henri Toulouse-Lautrec">
+            <h3>Henri Toulouse-Lautrec</h3>
+            <p>Best known for his depictions of Parisian nightlife, Toulouse-Lautrec’s work combined elements of Art Nouveau and Impressionism to depict the modern city in a vibrant and often provocative way.</p>
+            <p><strong>Main Works:</strong> "At the Moulin Rouge," "La Toilette," "The Jockey."</p>
+            <p><em>Interesting Fact:</em> Toulouse-Lautrec, despite his physical limitations due to a disability, became one of the most celebrated artists of his time for his bold, expressive approach to painting and printmaking.</p>
+        </div>
+    
+        <!-- Card: Antoni Gaudí -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/gaudi.jpg') }}" alt="Antoni Gaudí">
+            <h3>Antoni Gaudí</h3>
+            <p>A Spanish architect, Gaudí's distinctive style is characterized by organic forms and intricate tilework. His architectural designs have become some of the most iconic representations of Art Nouveau.</p>
+            <p><strong>Main Works:</strong> "Sagrada Familia," "Park Güell," "Casa Batlló."</p>
+            <p><em>Interesting Fact:</em> Gaudí’s architecture is often inspired by natural forms, using colors, textures, and shapes found in nature to create fantastical, otherworldly designs.</p>
+        </div>
+    
+        <!-- Card: René Lalique -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/lalique.jpg') }}" alt="René Lalique">
+            <h3>René Lalique</h3>
+            <p>A French glass designer, Lalique is renowned for his work in jewelry, glassware, and interior design, with a distinctive style that combines elegance with naturalistic motifs.</p>
+            <p><strong>Main Works:</strong> "Dragonfly Brooch," "Glass Vase with Flowers," "The Oiseaux Glass Vase."</p>
+            <p><em>Interesting Fact:</em> Lalique’s glasswork often featured intricate depictions of flora, fauna, and the female form, combining both art and craftsmanship.</p>
+        </div>
+    
+        <!-- Card: Émile Gallé -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/galle.jpg') }}" alt="Émile Gallé">
+            <h3>Émile Gallé</h3>
+            <p>A French glassmaker and furniture designer, Gallé is known for his contributions to the Art Nouveau movement, particularly his innovative glass techniques and naturalistic forms.</p>
+            <p><strong>Main Works:</strong> "Vases with Flowers," "Dragonfly Vase," "The Art Nouveau Glass Vase."</p>
+            <p><em>Interesting Fact:</em> Gallé was a leader in the development of artistic glasswork, blending natural forms with technology and craftsmanship to create unique, decorative pieces.</p>
+        </div>
+    
+        <!-- Card: Victor Horta -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/horta.jpg') }}" alt="Victor Horta">
+            <h3>Victor Horta</h3>
+            <p>A Belgian architect, Horta is one of the founders of Art Nouveau architecture. His designs feature flowing, organic lines and a deep connection to natural elements.</p>
+            <p><strong>Main Works:</strong> "Horta Museum," "Hotel Tassel," "Hotel Solvay."</p>
+            <p><em>Interesting Fact:</em> Horta’s buildings are often considered the epitome of Art Nouveau architecture, with sinuous, floral motifs that can be seen in everything from wrought-iron railings to ornate interior details.</p>
+        </div>
+    
+        <!-- Card: Charles Rennie Mackintosh -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/mackintosh.jpg') }}" alt="Charles Rennie Mackintosh">
+            <h3>Charles Rennie Mackintosh</h3>
+            <p>A Scottish architect and designer, Mackintosh's work is closely associated with the Glasgow School and Art Nouveau. His designs are known for their elegant, modernist take on the natural world.</p>
+            <p><strong>Main Works:</strong> "The Glasgow School of Art," "Willow Tearooms," "Argyle Street Mansions."</p>
+            <p><em>Interesting Fact:</em> Mackintosh’s designs often incorporated geometric forms and stylized floral patterns, creating a unique combination of simplicity and sophistication.</p>
+        </div>
+    </section>
+    
+    <section class="timeline">
+        <h3>History of Art Nouveau</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-1890s">
+                <h4>1890s</h4>
+                <p>The emergence of Art Nouveau, led by artists such as Gustav Klimt and Alphonse Mucha.</p>
+                <div class="extra-info">
+                    <p>In the 1890s, Art Nouveau began to emerge as a distinct style, influenced by the Arts and Crafts movement and the desire for decorative art that reflected the beauty of the natural world.</p>
+                    <img src="static/images/art_nouveau90s.jpg" alt="Artwork from the 1890s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1900s">
+                <h4>1900s</h4>
+                <p>Art Nouveau reaches its peak, with significant contributions from artists and architects like Antoni Gaudí and Hector Guimard.</p>
+                <div class="extra-info">
+                    <p>During the early 1900s, Art Nouveau flourished across Europe, particularly in cities like Paris and Barcelona, where it influenced architecture, furniture design, and decorative arts.</p>
+                    <img src="static/images/art_nouveau00s.jpg" alt="Artwork from the 1900s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1910s">
+                <h4>1910s</h4>
+                <p>The decline of Art Nouveau as other modernist movements, such as Art Deco, gain popularity.</p>
+                <div class="extra-info">
+                    <p>By the 1910s, Art Nouveau began to fade as new artistic movements, including Art Deco and the early stages of modernism, took over the artistic landscape.</p>
+                    <img src="static/images/art_nouveau10s.jpg" alt="Artwork from the 1910s">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>What is Art Nouveau?</h2>
+            <p>Art Nouveau is an international style of art, architecture, and applied arts that was popular from the late 19th century to the early 20th century. It is characterized by flowing, organic forms and intricate details inspired by nature, with an emphasis on harmony between the design and its surroundings.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией об искусстве Ар Нуво в разных странах
+        var countries = [
+            {
+                name: "Belgium",
+                coordinates: [50.8503, 4.3517],
+                info: "Art Nouveau was born in Belgium, particularly in the works of architect Victor Horta, who developed the style in his designs for houses and public buildings."
+            },
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "In France, Art Nouveau reached its peak in the 1890s, with artists like Henri Toulouse-Lautrec and architect Hector Guimard creating iconic works, including the Paris Metro entrances."
+            },
+            {
+                name: "Austria",
+                coordinates: [47.5162, 14.5501],
+                info: "Austria was a significant center for Art Nouveau, with Gustav Klimt being one of the most famous artists of the movement, known for his ornamental and symbolic works."
+            },
+            {
+                name: "Spain",
+                coordinates: [40.4637, -3.7492],
+                info: "In Spain, Art Nouveau is represented by artists like Antoni Gaudí, whose architectural masterpieces, such as the Sagrada Familia in Barcelona, are celebrated for their natural forms and color."
+            },
+            {
+                name: "United Kingdom",
+                coordinates: [55.3781, -3.4360],
+                info: "In the UK, Art Nouveau was influential in the decorative arts, with artists like Charles Rennie Mackintosh known for his furniture, stained glass, and architectural designs."
+            },
+            {
+                name: "Italy",
+                coordinates: [41.87194, 12.56738],
+                info: "Italy embraced Art Nouveau with the work of artists like Giuseppe Sommaruga, who created intricate architectural designs that incorporated organic, flowing forms."
+            },
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "In Germany, Art Nouveau had an influence on both architecture and the decorative arts, with artists like Peter Behrens contributing to the development of the style."
+            },
+            {
+                name: "Czech Republic",
+                coordinates: [49.8175, 15.4730],
+                info: "In Prague, the Art Nouveau style was popularized by the work of architects like Otto Wagner, whose designs for public buildings and private residences are still admired."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+    <script>
+    document.querySelectorAll('.timeline-event').forEach(event => {
+        event.addEventListener('click', function() {
+            const extraInfo = this.querySelector('.extra-info');
+            
+            if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                extraInfo.style.display = "block"; // Show the additional information
+            } else {
+                extraInfo.style.display = "none"; // Hide the additional information
+            }
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Night Watch - Painting by Rembrandt</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>The Night Watch</h1>
+        <p>Painting by Rembrandt van Rijn</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Rembrandt van Rijn</p>
+        <p><strong>Year of Creation:</strong> 1642</p>
+        <p><strong>Medium:</strong> Oil on canvas</p>
+        <p><strong>Dimensions:</strong> 363 cm × 437 cm</p>
+        <p><strong>Location:</strong> Rijksmuseum, Amsterdam, Netherlands</p>
+        <p><strong>Description:</strong> "The Night Watch" is one of Rembrandt's most famous works, depicting a militia company in Amsterdam. The painting is notable for its dramatic use of light and shadow, as well as its dynamic composition. Unlike traditional group portraits of the time, where figures were arranged in a static, formal manner, Rembrandt captured his subjects in mid-action, giving the work a sense of life and movement. The use of chiaroscuro (the contrast between light and dark) adds to the sense of drama and depth, making it one of the masterpieces of the Dutch Golden Age.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/the_night_watch.jpg') }}" alt="The Night Watch">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>"The Night Watch" is not only one of Rembrandt’s most well-known paintings but also a pivotal work in the history of art. It broke away from the conventions of group portraits by introducing a more lively, dynamic scene. The militia company depicted in the painting was a civic guard in Amsterdam, and the composition reflects the importance of civic responsibility, as well as the power of the individual within society. The strong contrasts of light and shadow, as well as the dramatic, almost cinematic arrangement of the figures, have influenced countless artists and filmmakers over the centuries.</p>
+        <p>The painting’s innovative use of space and movement helped define the Baroque period's emphasis on drama, emotion, and realism. Its impact can still be seen in contemporary art and media. "The Night Watch" continues to be a source of fascination and inspiration, with its complex composition, emotional depth, and technical mastery.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of the Rijksmuseum</h2>
+        <p>If you want to experience "The Night Watch" in its original setting, you can take a virtual tour of the Rijksmuseum in Amsterdam. The museum holds an extensive collection of Dutch Golden Age paintings, and "The Night Watch" is one of the highlights of the museum's collection.</p>
+        <a href="https://www.rijksmuseum.nl/en/rijksstudio" target="_blank">
+            <button>Start the Virtual Tour of the Rijksmuseum</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of The Night Watch</h2>
+            <p>"The Night Watch" was painted by Rembrandt in 1642 and was commissioned by the Amsterdam militia company. The work's dramatic style and innovative composition broke away from the traditional group portraits of the time. The painting’s bold use of light and shadow, combined with its lively depiction of the militia company, makes it one of the most iconic works of the Dutch Golden Age.</p>
+            <p>Over the years, "The Night Watch" has undergone several restorations, including the removal of a large portion of the original painting, which was trimmed when the painting was too large for its new location. Today, it is housed in the Rijksmuseum, where it remains one of the most popular and revered works of art in the world.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([52.3600, 4.8852], 13); // Initial map view centered on the Rijksmuseum with zoom level 13
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to The Night Watch
+        var locations = [
+            {
+                name: "Rijksmuseum, Amsterdam, Netherlands",
+                coordinates: [52.3600, 4.8852],
+                info: "The Night Watch is housed in the Rijksmuseum in Amsterdam, where it is one of the museum’s most popular exhibits. The museum is known for its extensive collection of Dutch Golden Age paintings."
+            },
+            {
+                name: "Amsterdam, Netherlands (Civic Guard)",
+                coordinates: [52.3676, 4.9041],
+                info: "The painting depicts a civic militia company from Amsterdam, which was a popular subject for group portraits during the Dutch Golden Age. Rembrandt’s depiction of the company is unique in its dramatic and dynamic composition."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

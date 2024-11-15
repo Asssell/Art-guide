@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Supper - Painting by Leonardo da Vinci</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>The Last Supper</h1>
+        <p>Painting by Leonardo da Vinci</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Leonardo da Vinci</p>
+        <p><strong>Year of Creation:</strong> 1495–1498</p>
+        <p><strong>Medium:</strong> Tempera and oil on plaster</p>
+        <p><strong>Dimensions:</strong> 460 x 880 cm</p>
+        <p><strong>Location:</strong> Convent of Santa Maria delle Grazie, Milan, Italy</p>
+        <p><strong>Description:</strong> "The Last Supper" is one of the most famous and revered paintings in the world, depicting the moment when Jesus Christ announces that one of his disciples will betray him. The work is known for its composition, use of perspective, and the emotional expressions of the figures. It was commissioned as part of a renovation project for the Convent of Santa Maria delle Grazie. The painting captures the intensity and drama of the moment, with each disciple reacting differently to Christ’s announcement. The scene is an extraordinary example of Renaissance art, blending religious symbolism with psychological depth.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/last_supper.jpg') }}" alt="The Last Supper">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>"The Last Supper" is a masterpiece of composition, narrative, and perspective. Da Vinci’s use of linear perspective is particularly noteworthy, with the vanishing point positioned at the head of Christ, directing the viewer’s focus to the central figure. The emotional intensity of the figures adds psychological depth to the scene, making the moment of Christ’s announcement deeply personal and dramatic. The innovative use of space, composition, and light created a visual harmony that was groundbreaking at the time.</p>
+        <p>The painting's influence on Western art is immense. It has been the subject of countless studies, recreations, and reinterpretations throughout history. Artists from Raphael to Salvador Dalí have been inspired by it, and its impact can still be seen in modern depictions of biblical scenes. "The Last Supper" has become a cultural icon, transcending its religious origins to become a symbol of human emotion and the complexity of the human condition.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of the Convent of Santa Maria delle Grazie</h2>
+        <p>If you want to experience "The Last Supper" in its original context, you can take a virtual tour of the Convent of Santa Maria delle Grazie in Milan, Italy. This will allow you to view the painting in its true location, as well as explore the history of the convent and the surrounding area.</p>
+        <a href="https://www.coopculture.it/en/heritage.cfm?id=73" target="_blank">
+            <button>Start the Virtual Tour</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of The Last Supper</h2>
+            <p>"The Last Supper" was created by Leonardo da Vinci between 1495 and 1498 as part of a renovation project for the Convent of Santa Maria delle Grazie in Milan. The painting was commissioned by Ludovico Sforza, the Duke of Milan, and was meant to decorate the refectory of the convent. The scene depicted shows Jesus Christ and his twelve apostles during the moment when Christ reveals that one of them will betray him. The painting is noted for its dramatic composition, the psychological depth of the figures, and the innovative use of perspective.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([45.4668, 9.1905], 13); // Initial map view centered on Milan with zoom level 13
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to The Last Supper
+        var locations = [
+            {
+                name: "Convent of Santa Maria delle Grazie, Milan, Italy",
+                coordinates: [45.4668, 9.1905],
+                info: "The Convent of Santa Maria delle Grazie in Milan is the location where Leonardo da Vinci’s 'The Last Supper' is housed. The painting has been part of the convent's history for over 500 years and remains a key cultural and religious site."
+            },
+            {
+                name: "Vinci, Italy (Da Vinci’s Birthplace)",
+                coordinates: [43.7708, 10.1430],
+                info: "Leonardo da Vinci was born in Vinci, Italy, in 1452. While not directly related to 'The Last Supper', his birthplace is an important part of the artist’s legacy."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

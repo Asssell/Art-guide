@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressionism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1 class="fade-in">Impressionism</h1>
+        <p class="fade-in">Learn about the Impressionism art style and discover famous paintings.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2 >Description of Impressionism</h2>
+        <p>Impressionism was a revolutionary art movement that emerged in France in the late 19th century, challenging the traditional approaches to painting and ushering in a new era of artistic expression. The term "Impressionism" was coined by a critic who, upon viewing Claude Monet's painting "Impression, Sunrise" (1872), sarcastically remarked that it looked more like an impression than a finished work of art. Despite the negative connotations of the term, the artists who followed this style embraced the label, and it eventually became synonymous with a whole new way of painting that sought to capture the momentary effects of light, color, and atmosphere.</p>
+        
+        <p>One of the defining features of Impressionism is its focus on the transient nature of light and its effects on the world around us. Rather than attempting to capture a scene in a realistic or highly detailed manner, Impressionist painters sought to portray the "impression" of a moment — how light and color interact with the environment. They often painted en plein air, or outdoors, to observe natural light firsthand and to capture the fleeting qualities of the landscape, the sky, and human figures. This was a departure from the academic tradition of studio painting, which emphasized highly controlled lighting and meticulous detail.</p>
+        
+        <p>Impressionists used loose and rapid brushstrokes to create a sense of spontaneity and movement in their works. Instead of focusing on fine details or precise lines, the artists focused on capturing the overall mood and atmosphere of a scene. They also experimented with color, using pure, unmixed hues to create vibrant effects. By applying contrasting colors side by side, they achieved a shimmering, lively effect that conveyed the play of light in a way that traditional techniques could not. For instance, Monet's famous "Water Lilies" series demonstrates this technique, where the reflection of the sky and the movement of the water are captured in bright, undiluted color.</p>
+        
+        <p>Impressionist artists were also concerned with the effects of modernity on society, which is reflected in their choice of subjects. Many of their works depict scenes of urban life, leisure activities, and the changing landscape of the modern world. For example, Pierre-Auguste Renoir’s "Luncheon of the Boating Party" (1881) presents a vibrant scene of a group of people enjoying a meal on a terrace, capturing the energy and sociability of the time. Edgar Degas, another key Impressionist artist, is famous for his depictions of ballet dancers, capturing both their grace and the ephemeral nature of performance.</p>
+        
+        <p>In addition to capturing contemporary life, Impressionism also marked a shift in the way artists thought about time and space. The movement was influenced by new developments in science and technology, particularly the theory of light and color introduced by chemists and physicists. The artists sought to convey the dynamic qualities of time, using the changing light throughout the day to show how the colors and shapes of objects evolved. This resulted in a style that conveyed a sense of immediacy and impermanence, much like the passing moments of life itself.</p>
+        
+        <p>The Impressionists also rejected the hierarchical structure of the art world, which had been dominated by the French Academy. They staged independent exhibitions outside the official Salon, where their work was often met with criticism and hostility. Despite this, their exhibitions attracted growing attention, and over time, their style gained acceptance. Notable Impressionist artists include Claude Monet, Pierre-Auguste Renoir, Edgar Degas, Camille Pissarro, Berthe Morisot, and Édouard Manet, though Manet is often considered a precursor to the movement, bridging the gap between realism and Impressionism.</p>
+        
+        <p>Impressionism had a profound influence on the development of modern art. It inspired later movements such as Post-Impressionism, which further explored the use of color and form, and the Fauves, who embraced bold, expressive color. The movement also led to the development of abstraction, as artists began to focus less on replicating reality and more on conveying subjective emotions and perceptions.</p>
+        
+        <p>Today, Impressionism is considered one of the most important and influential art movements in history. Its emphasis on capturing the fleeting effects of light, color, and atmosphere has had a lasting impact on the way we view the world, and its innovative approach to painting continues to inspire artists and art lovers around the world. The works of the Impressionists are now some of the most celebrated and iconic pieces in the history of art, found in major museums and collections worldwide.</p>
+        </section>
+
+    <section class="famous-artists">
+        <h2>Famous Impressionist Artists</h2>
+    
+        <!-- Card: Claude Monet -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/monet.jpg') }}" alt="Claude Monet">
+            <h3>Claude Monet</h3>
+            <p>Claude Monet is the founder of French Impressionism and one of its most influential figures. His paintings emphasize light, atmosphere, and natural beauty, often featuring water, gardens, and landscapes.</p>
+            <p><strong>Main Works:</strong> "Impression, Sunrise," "Water Lilies," "Woman with a Parasol."</p>
+            <p><em>Interesting Fact:</em> The term "Impressionism" was derived from Monet's painting *Impression, Sunrise*, which critics initially derided, calling it an "impression" rather than a finished work.</p>
+        </div>
+    
+        <!-- Card: Pierre-Auguste Renoir -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/renoir.jpg') }}" alt="Pierre-Auguste Renoir">
+            <h3>Pierre-Auguste Renoir</h3>
+            <p>Renoir is known for his vibrant use of color and his focus on depicting the beauty of life. His works often feature scenes of social gatherings, women, and children, with an emphasis on warmth and light.</p>
+            <p><strong>Main Works:</strong> "Luncheon of the Boating Party," "Dance at Le Moulin de la Galette," "The Swing."</p>
+            <p><em>Interesting Fact:</em> Renoir's later works became more focused on classical figures and even portraiture, showing a shift from the vividness of early Impressionism.</p>
+        </div>
+    
+        <!-- Card: Edgar Degas -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/degas.jpg') }}" alt="Edgar Degas">
+            <h3>Edgar Degas</h3>
+            <p>Edgar Degas is renowned for his work in depicting dancers, ballet performances, and everyday scenes of modern Parisian life. He had a unique approach to Impressionism, often using unusual angles and perspectives.</p>
+            <p><strong>Main Works:</strong> "The Ballet Class," "The Absinthe Drinker," "Dancers at the Barre."</p>
+            <p><em>Interesting Fact:</em> Though associated with Impressionism, Degas preferred to be called a "realist," often choosing to depict human subjects in a more traditional manner, particularly through the medium of pastels.</p>
+        </div>
+    
+        <!-- Card: Camille Pissarro -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/pissarro.jpg') }}" alt="Camille Pissarro">
+            <h3>Camille Pissarro</h3>
+            <p>Pissarro is known for his contributions to both Impressionism and Post-Impressionism. His works feature rural landscapes and urban scenes, capturing the essence of the changing world during the late 19th century.</p>
+            <p><strong>Main Works:</strong> "The Boulevard Montmartre on a Winter Morning," "The Harvest," "Self-Portrait."</p>
+            <p><em>Interesting Fact:</em> Pissarro was a mentor to other Impressionists like Georges Seurat and Paul Cézanne, influencing the direction of modern art.</p>
+        </div>
+    
+        <!-- Card: Berthe Morisot -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/morisot.jpg') }}" alt="Berthe Morisot">
+            <h3>Berthe Morisot</h3>
+            <p>Berthe Morisot was one of the few women to be closely associated with the Impressionist movement. Her works frequently explored domestic life and the role of women in society, using delicate brushwork and a light palette.</p>
+            <p><strong>Main Works:</strong> "The Cradle," "Summer's Day," "The Woman in a Boat."</p>
+            <p><em>Interesting Fact:</em> Morisot’s early works often portrayed her own family, and she was the sister-in-law of Édouard Manet, another leading figure in the Impressionist movement.</p>
+        </div>
+    
+        <!-- Card: Alfred Sisley -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/sisley.jpg') }}" alt="Alfred Sisley">
+            <h3>Alfred Sisley</h3>
+            <p>Alfred Sisley was known for his landscapes, capturing the beauty of the countryside in a way that emphasized atmospheric effects. He was a key figure in the development of Impressionism in England and France.</p>
+            <p><strong>Main Works:</strong> "Flood at Port-Marly," "Snow at Louveciennes," "The Bridge at Moret-sur-Loing."</p>
+            <p><em>Interesting Fact:</em> Sisley remained committed to Impressionism throughout his career, unlike many other artists who later turned to different styles. His works are known for their serene depictions of nature.</p>
+        </div>
+    
+        <!-- Card: Gustave Caillebotte -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/caillebotte.jpg') }}" alt="Gustave Caillebotte">
+            <h3>Gustave Caillebotte</h3>
+            <p>Caillebotte was an important member of the Impressionist group, though he was often more focused on realism and detail than some of his contemporaries. His works offer a unique perspective on Parisian life in the late 19th century.</p>
+            <p><strong>Main Works:</strong> "Paris Street, Rainy Day," "The Floor Scrapers," "The Man at the Window."</p>
+            <p><em>Interesting Fact:</em> Caillebotte was not only a painter but also a photographer and a generous patron of the Impressionist group, purchasing works by Monet, Renoir, and others.</p>
+        </div>
+    
+        <!-- Card: Frédéric Bazille -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/bazille.jpg') }}" alt="Frédéric Bazille">
+            <h3>Frédéric Bazille</h3>
+            <p>Bazille was an early member of the Impressionist movement, and his works combined traditional and modern approaches. He often depicted his friends, including Monet and Renoir, and scenes from his own life.</p>
+            <p><strong>Main Works:</strong> "The Pink Dress," "Studio in the Rue de la Condamine," "Bathers."</p>
+            <p><em>Interesting Fact:</em> Bazille was tragically killed in the Franco-Prussian War at the age of 28, leaving behind a legacy of works that greatly influenced the development of Impressionism.</p>
+        </div>
+    
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h3>History of Impressionism</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-17">
+                <h4>1860s</h4>
+                <p>Beginning of Impressionism, the first experiments by artists with new techniques.</p>
+                <div class="extra-info">
+                    <p>Additional information about the 1860s. Impressionists started painting en plein air, creating works based on changes in light and atmosphere.</p>
+                    <img src="static/images/impressionism60.jpg" alt="Artwork from the 1860s">
+                    <!-- Add more content like text, images, etc. -->
+                </div>
+            </div>
+            <div class="timeline-event" id="event-70">
+                <h4>1870s</h4>
+                <p>The first major exhibition of Impressionists, including works by Claude Monet and Edgar Degas.</p>
+                <div class="extra-info">
+                    <p>Additional information about the 1870s. In 1874, the first Impressionist exhibition was held, which sparked public debates.</p>
+                    <img src="static/images/impressionism70.jpg" alt="Artwork from the 1870s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-80">
+                <h4>1880s</h4>
+                <p>Impressionism gains popularity, and new artists emerge.</p>
+                <div class="extra-info">
+                    <p>Additional information about the 1880s. This period marked the recognition of Impressionism, and many artists began working in this style.</p>
+                    <img src="static/images/impressionism80.jpg" alt="Artwork from the 1880s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-90">
+                <h4>1890s</h4>
+                <p>Impressionism continues to develop but starts to give way to Post-Impressionism.</p>
+                <div class="extra-info">
+                    <p>Additional information about the 1890s. During this period, the influence of Impressionism begins to wane, and new movements like Post-Impressionism start to gain popularity.</p>
+                    <img src="static/images/impressionism90.jpg" alt="Artwork from the 1890s">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>The Garden of Light</h2>
+            <p>Impressionism’s appeal lies in its emphasis on capturing fleeting moments—moments of light, weather, and nature. Artists like Claude Monet transformed everyday scenes into timeless masterpieces, using rapid brushstrokes and vibrant colors. Monet's iconic series, such as *Water Lilies*, sought to depict nature’s beauty without perfect detail but with the essence of its movement. It was the garden of light, as seen through the eyes of the artist, where the brushstrokes danced in sync with the sun.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией о влиянии Импрессионизма в разных странах
+        var countries = [
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "The birthplace of Impressionism, France saw the movement emerge as a rebellion against classical academic painting. Artists like Claude Monet, Pierre-Auguste Renoir, and Edgar Degas rejected the meticulous realism of the time in favor of capturing the natural light and spontaneous beauty of the world around them. The *Salon des Refusés* in 1863 showcased the first Impressionist works, marking the birth of a new era in art."
+            },
+            {
+                name: "United Kingdom",
+                coordinates: [55.3781, -3.4360],
+                info: "While the UK was more traditionally aligned with academic art, the influence of Impressionism was undeniable. British artists like James McNeill Whistler and Walter Sickert adopted Impressionist techniques, focusing on light, color, and the depiction of urban life. Whistler’s *Nocturnes* series captures the quiet, atmospheric beauty of the evening, influenced by Monet’s treatment of light."
+            },
+            {
+                name: "United States",
+                coordinates: [37.0902, -95.7129],
+                info: "In the United States, Impressionism took root in the late 19th and early 20th centuries, especially in cities like New York and Chicago. American artists like Mary Cassatt and Childe Hassam were drawn to the movement's emphasis on capturing the moment. Cassatt, influenced by her time in Paris, created intimate portraits of women and children, using soft brushwork and vibrant colors."
+            },
+            {
+                name: "Japan",
+                coordinates: [36.2048, 138.2529],
+                info: "Japan, while not an origin of Impressionism, became a key influence on the movement. The aesthetics of Japanese prints, with their use of vibrant colors, asymmetry, and focus on everyday life, inspired many Impressionist artists, particularly Edgar Degas and Mary Cassatt. Their works show the fusion of Eastern and Western art forms."
+            },
+            {
+                name: "Australia",
+                coordinates: [-25.2744, 133.7751],
+                info: "Australia saw the arrival of Impressionism in the early 20th century. Australian artists like Tom Roberts and Arthur Streeton were part of the *Heidelberg School*, which embraced plein-air painting, a hallmark of Impressionism. The Australian landscape, with its unique light and color, became a perfect subject for their experimental works."
+            },
+            {
+                name: "Netherlands",
+                coordinates: [52.1326, 5.2913],
+                info: "Dutch artists were heavily influenced by Impressionism, especially during the late 19th and early 20th centuries. Artists like Johan Barthold Jongkind and Piet Mondrian were inspired by the techniques of French Impressionists. Mondrian, though better known for his later abstract works, began his artistic career under the influence of Impressionism, focusing on light and nature."
+            },
+            {
+                name: "Belgium",
+                coordinates: [50.8503, 4.3517],
+                info: "Belgium's connection to Impressionism is often seen through the works of artists like Théo van Rysselberghe, who was influenced by the French movement. He used rapid brushstrokes and vibrant colors to depict scenes of leisure, much like the Impressionists did. His focus was on capturing the essence of modern life and the beauty of nature, reflecting the key ideals of Impressionism."
+            },
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "In Germany, while more associated with expressionist movements later on, Impressionism found fertile ground. Artists such as Max Liebermann and Lovis Corinth incorporated Impressionist techniques, using bold brushwork and an emphasis on capturing natural light, which influenced the development of modern art in Germany."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+    <!-- Скрипт для скрытия и отображения дополнительной информации -->
+    <script>
+    document.querySelectorAll('.timeline-event').forEach(event => {
+        event.addEventListener('click', function() {
+            const extraInfo = this.querySelector('.extra-info');
+            
+            if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                extraInfo.style.display = "block"; // Показываем информацию
+            } else {
+                extraInfo.style.display = "none"; // Скрываем информацию
+            }
+        });
+    });
+    </script>
+
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonardo da Vinci</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Leonardo da Vinci</h1>
+        <p>Learn about the life and works of Leonardo da Vinci, the genius of the Renaissance.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фотография художника -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/da_vinci.jpg') }}" alt="Leonardo da Vinci">
+        </div>
+
+        <!-- Информация о художнике -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Leonardo da Vinci (1452–1519) was an Italian Renaissance artist and polymath, widely considered one of the greatest artists of all time. He is best known for his masterpieces like the Mona Lisa and The Last Supper. Da Vinci was also an inventor, scientist, and engineer, whose notebooks filled with sketches and designs are among the most important documents in the history of science.</p>
+
+            <h3>Famous Paintings</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/mona_lisa.jpg') }}" alt="Mona Lisa">
+                <img src="{{ url_for('static', filename='images/last_supper.jpg') }}" alt="The Last Supper">
+            </div>
+        </div>
+    </section>
+
+    <section class="famous-artists">
+        <h2 class="section-title">Leonardo da Vinci - Famous Paintings</h2>
+        
+        <!-- Card: Mona Lisa -->
+        <div class="painting-card">
+            <h3>Mona Lisa</h3>
+            <img src="{{ url_for('static', filename='images/daVinci1.jpg') }}" alt="Mona Lisa">
+        </div>
+    
+        <!-- Card: The Last Supper -->
+        <div class="painting-card">
+            <h3>The Last Supper</h3>
+            <img src="{{ url_for('static', filename='images/daVinci2.jpg') }}" alt="The Last Supper">
+        </div>
+    
+        <!-- Card: Vitruvian Man -->
+        <div class="painting-card">
+            <h3>Vitruvian Man</h3>
+            <img src="{{ url_for('static', filename='images/daVinci3.jpg') }}" alt="Vitruvian Man">
+        </div>
+    
+        <!-- Card: The Baptism of Christ -->
+        <div class="painting-card">
+            <h3>The Baptism of Christ</h3>
+            <img src="{{ url_for('static', filename='images/daVinci4.jpg') }}" alt="The Baptism of Christ">
+        </div>
+    
+        <!-- Card: Annunciation -->
+        <div class="painting-card">
+            <h3>Annunciation</h3>
+            <img src="{{ url_for('static', filename='images/daVinci5.jpg') }}" alt="Annunciation">
+        </div>
+    
+        <!-- Card: The Adoration of the Magi -->
+        <div class="painting-card">
+            <h3>The Adoration of the Magi</h3>
+            <img src="{{ url_for('static', filename='images/daVinci6.jpg') }}" alt="The Adoration of the Magi">
+        </div>
+    
+        <!-- Card: Saint John the Baptist -->
+        <div class="painting-card">
+            <h3>Saint John the Baptist</h3>
+            <img src="{{ url_for('static', filename='images/daVinci7.jpg') }}" alt="Saint John the Baptist">
+        </div>
+    
+        <!-- Card: The Virgin of the Rocks -->
+        <div class="painting-card">
+            <h3>The Virgin of the Rocks</h3>
+            <img src="{{ url_for('static', filename='images/daVinci8.jpg') }}" alt="The Virgin of the Rocks">
+        </div>
+        <!-- Добавьте другие картины, если необходимо -->
+    </section>
+
+        <h1>Leonardo da Vinci's Locations</h1>
+        <p>Explore the places related to Leonardo da Vinci's life and work.</p>
+ 
+
+    <!-- Main container for map and side panel -->
+    <div class="container" style="display: flex; align-items: stretch;">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Side panel to show information -->
+        <div id="side-panel">
+            <h3 id="place-title">Click a location on the map</h3>
+            <p id="place-description">Select a point on the map to see more details.</p>
+            <img id="place-image" src="" alt="Artwork image" style="width: 100%; max-height: 200px; object-fit: cover;" />
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([43.7384, 11.2558], 6); // Centered on Italy
+
+        // Add a tile layer (background map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations related to Leonardo da Vinci with full information
+        var locations = [
+            {
+                name: "Vinci (Birthplace)",
+                lat: 43.7384,
+                lon: 10.9665,
+                description: "<b>Vinci, Italy</b><br>Birthplace of Leonardo da Vinci. Born on April 15, 1452.",
+                full_description: "Leonardo da Vinci was born in Vinci, a small town in Tuscany. He spent his early years here before moving to Florence. Vinci remains a place of inspiration for his innovative mind and artistic genius.",
+                image: "{{ url_for('static', filename='images/leonardo1.jpg') }}"
+            },
+            {
+                name: "Florence (Artistic Development)",
+                lat: 43.7696,
+                lon: 11.2558,
+                description: "<b>Florence, Italy</b><br>Leonardo moved to Florence in his youth, where he worked for the Medici family and developed his unique style.",
+                full_description: "In Florence, Leonardo worked for the powerful Medici family and collaborated with other artists. It was here that he painted 'The Annunciation' and began to develop his distinct style that would define the Renaissance.",
+                image: "{{ url_for('static', filename='images/leonardo2.jpg') }}"
+            },
+            {
+                name: "Milan (Key Works)",
+                lat: 45.4642,
+                lon: 9.1900,
+                description: "<b>Milan, Italy</b><br>Leonardo painted some of his most famous works in Milan, including 'The Last Supper'.",
+                full_description: "In Milan, Leonardo served as a court artist to Duke Ludovico Sforza. It was here that he painted the iconic 'The Last Supper'. He also created important studies in anatomy, engineering, and flight during his time in Milan.",
+                image: "{{ url_for('static', filename='images/leonardo3.jpg') }}"
+            },
+            {
+                name: "Amboise (Last Years)",
+                lat: 47.4128,
+                lon: 0.9820,
+                description: "<b>Amboise, France</b><br>Leonardo spent his last years in the Château du Clos Lucé in Amboise, where he died in 1519.",
+                full_description: "In his later years, Leonardo moved to France at the invitation of King Francis I. He spent his final years at the Château du Clos Lucé in Amboise, where he continued to work on his studies and artworks until his death in 1519.",
+                image: "{{ url_for('static', filename='images/leonardo4.jpg') }}"
+            }
+        ];
+
+        // Add markers and popup events
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+
+            // Add a click event for each marker to update the side panel
+            marker.on('click', function() {
+                // Update the content in the side panel
+                document.getElementById('place-title').innerHTML = location.name;
+                document.getElementById('place-description').innerHTML = location.full_description;
+                document.getElementById('place-image').src = location.image;
+            });
+        });
+    </script>
+
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guernica - Painting by Pablo Picasso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Guernica</h1>
+        <p>Painting by Pablo Picasso</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Pablo Picasso</p>
+        <p><strong>Year of Creation:</strong> 1937</p>
+        <p><strong>Medium:</strong> Oil on canvas</p>
+        <p><strong>Dimensions:</strong> 349 x 776 cm</p>
+        <p><strong>Location:</strong> Museo Reina Sofía, Madrid</p>
+        <p><strong>Description:</strong> "Guernica" is one of Picasso’s most iconic and powerful works, created in response to the bombing of the Basque town of Guernica during the Spanish Civil War. The large-scale painting is known for its stark black-and-white palette and its emotional depiction of the horrors of war, featuring fragmented and distorted figures that convey the anguish and chaos caused by the bombing. "Guernica" is not just a historical document but also a universal condemnation of violence and war.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/guernica.jpg') }}" alt="Guernica">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>"Guernica" was painted as a reaction to the brutal bombing of the town of Guernica in Spain by German and Italian warplanes in 1937. The painting’s emotional intensity, use of distorted forms, and its monochromatic palette make it a striking example of Picasso’s anti-war stance and his ability to capture the human cost of conflict.</p>
+        <p>The work became a symbol of the suffering caused by the Spanish Civil War and later a universal symbol of the tragic consequences of war. Picasso’s cubist influence is evident in the fragmented forms, while the overall composition conveys a sense of horror, helplessness, and despair. The painting remains a powerful political statement, often invoked in discussions about the impact of war on civilian populations.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of Museo Reina Sofía</h2>
+        <p>If you want to see "Guernica" in its true context, you can take a virtual tour of the Museo Reina Sofía in Madrid, where the painting is currently displayed. The museum offers an opportunity to view Picasso’s masterpiece in high resolution, as well as explore other works of modern art.</p>
+        <a href="https://www.museoreinasofia.es/en" target="_blank">
+            <button>Start the Virtual Tour</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of Guernica</h2>
+            <p>"Guernica" was painted in 1937 in response to the bombing of the Basque town of Guernica by Nazi German and Italian fascist air forces. The bombing occurred during the Spanish Civil War and left the town in ruins. Picasso, deeply moved by the event, created "Guernica" as a political statement against war and fascism. The painting was first displayed at the Spanish Pavilion of the 1937 Paris International Exposition, where it attracted worldwide attention.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([40.4168, -3.7038], 5); // Initial map view centered on Madrid with zoom level 5
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to Guernica
+        var locations = [
+            {
+                name: "Guernica, Spain (Bombing Location)",
+                coordinates: [43.3, -2.7],
+                info: "The town of Guernica in the Basque Country was bombed by German and Italian air forces during the Spanish Civil War. The attack, on April 26, 1937, was a pivotal moment in the conflict, leading to Picasso’s creation of 'Guernica' as a response to the devastation."
+            },
+            {
+                name: "Museo Reina Sofía, Madrid, Spain",
+                coordinates: [40.4168, -3.7038],
+                info: "'Guernica' has been housed in the Museo Reina Sofía in Madrid since 1992. It is one of the museum’s most important pieces and remains a symbol of anti-war sentiment."
+            },
+            {
+                name: "Paris, France (Exposition Location)",
+                coordinates: [48.8566, 2.3522],
+                info: "The painting was first displayed in the Spanish Pavilion at the 1937 Paris International Exposition, where it garnered international attention and became a symbol of the suffering caused by war."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

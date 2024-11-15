@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pierre-Auguste Renoir</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Pierre-Auguste Renoir</h1>
+        <p>Discover the vibrant world of Pierre-Auguste Renoir, celebrated for his portraits and scenes of Parisian life.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фото художника слева -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/renoir.jpg') }}" alt="Pierre-Auguste Renoir">
+        </div>
+
+        <!-- Информация о художнике справа -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Pierre-Auguste Renoir (1841–1919) was a French Impressionist artist, best known for his vivid and lively portraits, including works like Luncheon of the Boating Party. Renoir's works often capture the joy of life and the beauty of everyday moments, especially focusing on Parisian social scenes.</p>
+
+            <h3>Famous Works</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/luncheon_of_the_boating_party.jpg') }}" alt="Luncheon of the Boating Party">
+                <img src="{{ url_for('static', filename='images/ball_at_moulin_de_la_galette.jpg') }}" alt="Ball at Moulin de la Galette">
+            </div>
+        </div>
+    </section>
+    <section class="famous-artists"> 
+        <h2 class="section-title">Pierre-Auguste Renoir - Famous Paintings</h2>
+        
+        <!-- Card: Dance at Le Moulin de la Galette -->
+        <div class="painting-card">
+            <h3>Dance at Le Moulin de la Galette</h3>
+            <img src="{{ url_for('static', filename='images/renoir11.jpg') }}" alt="Dance at Le Moulin de la Galette">
+        </div>
+        
+        <!-- Card: Luncheon of the Boating Party -->
+        <div class="painting-card">
+            <h3>Luncheon of the Boating Party</h3>
+            <img src="{{ url_for('static', filename='images/renoir12.jpg') }}" alt="Luncheon of the Boating Party">
+        </div>
+        
+        <!-- Card: The Swing -->
+        <div class="painting-card">
+            <h3>The Swing</h3>
+            <img src="{{ url_for('static', filename='images/renoir13.jpg') }}" alt="The Swing">
+        </div>
+        
+        <!-- Card: The Umbrellas -->
+        <div class="painting-card">
+            <h3>The Umbrellas</h3>
+            <img src="{{ url_for('static', filename='images/renoir14.jpg') }}" alt="The Umbrellas">
+        </div>
+        
+        <!-- Card: The Large Bathers -->
+        <div class="painting-card">
+            <h3>The Large Bathers</h3>
+            <img src="{{ url_for('static', filename='images/renoir15.jpg') }}" alt="The Large Bathers">
+        </div>
+        
+        <!-- Card: Julie Manet with Cat -->
+        <div class="painting-card">
+            <h3>Julie Manet with Cat</h3>
+            <img src="{{ url_for('static', filename='images/renoir16.jpg') }}" alt="Julie Manet with Cat">
+        </div>
+        
+        <!-- Card: The Theater Box -->
+        <div class="painting-card">
+            <h3>The Theater Box</h3>
+            <img src="{{ url_for('static', filename='images/renoir17.jpg') }}" alt="The Theater Box">
+        </div>
+        
+        <!-- Card: Portrait of a Woman -->
+        <div class="painting-card">
+            <h3>Portrait of a Woman</h3>
+            <img src="{{ url_for('static', filename='images/renoir18.jpg') }}" alt="Portrait of a Woman">
+        </div>
+    </section>
+    
+        <h1>Pierre-Auguste Renoir's Locations</h1>
+        <p>Explore the places related to Renoir's life and work.</p>
+    
+
+    <!-- Main container for map and side panel -->
+    <div class="container" style="display: flex; align-items: stretch;">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Side panel to show information -->
+        <div id="side-panel">
+            <h3 id="place-title">Click a location on the map</h3>
+            <p id="place-description">Select a point on the map to see more details.</p>
+            <img id="place-image" src="" alt="Artwork image" style="width: 100%; max-height: 200px; object-fit: cover;" />
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([48.8566, 2.3522], 6); // Centered on France
+
+        // Add a tile layer (background map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations related to Renoir with full information
+        var locations = [
+            {
+                name: "Limoges (Birthplace)",
+                lat: 45.8667,
+                lon: 1.2600,
+                description: "<b>Limoges, France</b><br>Renoir was born here on February 25, 1841.",
+                full_description: "Pierre-Auguste Renoir was born in Limoges, a city in central France, in 1841. He began his artistic education in Limoges before moving to Paris to study at the École des Beaux-Arts.",
+                image: "{{ url_for('static', filename='images/renoir1.jpg') }}"
+            },
+            {
+                name: "Paris (Major Works and Fame)",
+                lat: 48.8566,
+                lon: 2.3522,
+                description: "<b>Paris, France</b><br>Renoir spent much of his life in Paris, creating iconic works like 'Dance at Le Moulin de la Galette'.",
+                full_description: "Paris was the artistic hub where Renoir produced many of his masterpieces. It was here that he became a central figure in the Impressionist movement, capturing scenes of everyday life, celebrations, and landscapes with his distinctive style.",
+                image: "{{ url_for('static', filename='images/renoir2.jpg') }}"
+            },
+            {
+                name: "Cagnes-sur-Mer (Later Years)",
+                lat: 43.6600,
+                lon: 7.1430,
+                description: "<b>Cagnes-sur-Mer, France</b><br>Renoir spent his final years here, creating works filled with bright colors and vibrant life.",
+                full_description: "In his later years, Renoir moved to Cagnes-sur-Mer, a town on the French Riviera, where he continued painting. His work during this time became more focused on portraits and still lifes, and his use of vibrant colors and light was influenced by the stunning landscapes around him.",
+                image: "{{ url_for('static', filename='images/renoir3.jpg') }}"
+            }
+        ];
+
+        // Add markers and popup events
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+
+            // Add a click event for each marker to update the side panel
+            marker.on('click', function() {
+                // Update the content in the side panel
+                document.getElementById('place-title').innerHTML = location.name;
+                document.getElementById('place-description').innerHTML = location.full_description;
+                document.getElementById('place-image').src = location.image;
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

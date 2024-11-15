@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract Art</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Abstract Art</h1>
+        <p>Learn about the Abstract Art style and discover famous paintings.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Abstract Art</h2>
+<p>Abstract art, which emerged in the early 20th century, is a revolutionary style that focuses on conveying emotions, ideas, and concepts through shapes, colors, lines, and forms, rather than representing the physical world directly. Unlike traditional art forms that aim to replicate the appearance of objects or scenes from reality, abstract art transcends this limitation and explores the boundaries of artistic expression.</p>
+
+<p>The roots of abstract art can be traced back to the works of pioneers such as Wassily Kandinsky, Kazimir Malevich, and Piet Mondrian, who sought to move away from the figurative representation of nature and instead use visual elements to evoke emotional responses. These artists were influenced by developments in philosophy, science, and technology, as well as the growing complexity of modern life in the early 20th century.</p>
+
+<p>One of the most significant aspects of abstract art is its emphasis on the subjective experience of the viewer. By stripping away recognizable imagery, abstract art allows individuals to interpret the work in a personal and unique way. The absence of clear forms or recognizable subjects creates a sense of ambiguity, inviting the viewer to focus on the colors, textures, and dynamic relationships between shapes and lines. This creates a space where imagination and emotion can thrive, making abstract art a deeply introspective experience for both the artist and the viewer.</p>
+
+<p>Rather than seeking to depict the world as we see it, abstract art aims to capture the essence of the world, exploring concepts such as movement, rhythm, energy, and spirituality. For example, in Kandinsky’s work, the use of color and form is meant to represent the inner emotional state of the artist, while Mondrian’s grid-like compositions are intended to reflect universal harmony and order. The abstraction of forms in these works does not mean that the artists were rejecting reality, but rather that they were presenting it in a new, more conceptual way.</p>
+
+<p>Over the years, abstract art has evolved into various subgenres and styles, from geometric abstraction and color field painting to lyrical abstraction and minimalism. Each of these movements has contributed to the rich diversity of abstract art, offering new ways of thinking about space, form, and the relationship between the artist and the viewer.</p>
+
+<p>In essence, abstract art breaks free from conventional artistic standards, offering a space where emotions, thoughts, and new perceptions can be expressed through the pure language of color, form, and texture. It encourages a deeper exploration of what art can be, allowing both the artist and the audience to engage in an ongoing dialogue about meaning, perception, and the nature of creativity itself.</p>
+
+    </section>
+
+    <section class="famous-artists">
+        <h2>Famous Abstract Artists</h2>
+    
+        <!-- Card: Wassily Kandinsky -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/kandinsky.jpg') }}" alt="Wassily Kandinsky">
+            <h3>Wassily Kandinsky</h3>
+            <p>Often called the father of abstract art, Kandinsky believed that art could evoke emotions through color and form alone, without the need for recognizable objects.</p>
+            <p><strong>Main Works:</strong> "Composition VIII," "Yellow-Red-Blue," "Several Circles."</p>
+            <p><em>Interesting Fact:</em> Kandinsky was originally trained as a lawyer, but he turned to art at the age of 30, pioneering abstract art as a spiritual and expressive form.</p>
+        </div>
+    
+        <!-- Card: Piet Mondrian -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/mondrian.jpg') }}" alt="Piet Mondrian">
+            <h3>Piet Mondrian</h3>
+            <p>Known for his distinct style of geometric abstraction, Mondrian's work with primary colors and black gridlines became a defining feature of the De Stijl movement.</p>
+            <p><strong>Main Works:</strong> "Composition with Red, Blue and Yellow," "Broadway Boogie Woogie," "Victory Boogie Woogie."</p>
+            <p><em>Interesting Fact:</em> Mondrian believed his art represented universal harmony and sought to express a sense of order through balanced compositions.</p>
+        </div>
+    
+        <!-- Card: Kazimir Malevich -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/malevich.jpg') }}" alt="Kazimir Malevich">
+            <h3>Kazimir Malevich</h3>
+            <p>A pioneer of the Suprematist movement, Malevich emphasized the supremacy of pure feeling in creative art, using basic shapes and a limited color palette.</p>
+            <p><strong>Main Works:</strong> "Black Square," "White on White," "Suprematist Composition."</p>
+            <p><em>Interesting Fact:</em> Malevich’s "Black Square" was considered radical at the time, challenging conventional art with its stark simplicity.</p>
+        </div>
+    
+        <!-- Card: Jackson Pollock -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/pollock.jpg') }}" alt="Jackson Pollock">
+            <h3>Jackson Pollock</h3>
+            <p>An American painter known for his "drip painting" technique, Pollock’s energetic style of pouring and splattering paint helped define the abstract expressionism movement.</p>
+            <p><strong>Main Works:</strong> "No. 5, 1948," "Autumn Rhythm," "Blue Poles."</p>
+            <p><em>Interesting Fact:</em> Pollock’s unique technique involved laying the canvas on the ground and pouring paint from above, which he described as being "in" the painting.</p>
+        </div>
+    
+        <!-- Card: Mark Rothko -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/rothko.jpg') }}" alt="Mark Rothko">
+            <h3>Mark Rothko</h3>
+            <p>Known for his large fields of color, Rothko aimed to evoke deep emotion through color alone, often using soft, rectangular forms and hazy edges.</p>
+            <p><strong>Main Works:</strong> "No. 61 (Rust and Blue)," "No. 14," "Untitled (Black on Grey)."</p>
+            <p><em>Interesting Fact:</em> Rothko insisted that his work be displayed at eye level and in low lighting to create an intimate experience for viewers.</p>
+        </div>
+    
+        <!-- Card: Helen Frankenthaler -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/frankenthaler.jpg') }}" alt="Helen Frankenthaler">
+            <h3>Helen Frankenthaler</h3>
+            <p>A key figure in color field painting, Frankenthaler used a "soak-stain" technique, pouring paint onto unprimed canvas to create ethereal, flowing compositions.</p>
+            <p><strong>Main Works:</strong> "Mountains and Sea," "The Bay," "Flood."</p>
+            <p><em>Interesting Fact:</em> Her innovative soak-stain technique influenced many artists, marking a transition from abstract expressionism to color field painting.</p>
+        </div>
+    
+        <!-- Card: Joan Miró -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/miro.jpg') }}" alt="Joan Miró">
+            <h3>Joan Miró</h3>
+            <p>Miró's abstract art combines surrealism and vivid colors, often incorporating whimsical, childlike forms and symbols into his compositions.</p>
+            <p><strong>Main Works:</strong> "The Farm," "Blue II," "Harlequin's Carnival."</p>
+            <p><em>Interesting Fact:</em> Miró once said he wanted to "assassinate painting" to move away from conventional representation and create an innovative, personal style.</p>
+        </div>
+    
+        <!-- Card: Franz Kline -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/kline.jpg') }}" alt="Franz Kline">
+            <h3>Franz Kline</h3>
+            <p>Known for his bold black-and-white abstractions, Kline’s work emphasized dynamic movement and was inspired by cityscapes, structures, and human emotions.</p>
+            <p><strong>Main Works:</strong> "Mahoning," "Chief," "Painting Number 2."</p>
+            <p><em>Interesting Fact:</em> Kline’s stark black brushstrokes were often compared to calligraphy, though he did not intend to imitate it.</p>
+        </div>
+    </section>
+    
+
+    <section class="timeline">
+        <h3>History of Abstract Art</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-1910s">
+                <h4>1910s</h4>
+                <p>The birth of Abstract Art, with pioneers like Wassily Kandinsky and Kazimir Malevich.</p>
+                <div class="extra-info">
+                    <p>In the 1910s, Abstract Art emerged as a break from traditional representational art, exploring color, shape, and form as independent elements.</p>
+                    <img src="static/images/abstract_art10s.jpg" alt="Artwork from the 1910s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1920s">
+                <h4>1920s</h4>
+                <p>Abstract Art gains traction, with artists like Piet Mondrian and František Kupka contributing to the movement.</p>
+                <div class="extra-info">
+                    <p>During the 1920s, Abstract Art developed further, with a focus on geometric forms and the expression of universal truths through non-objective imagery.</p>
+                    <img src="static/images/abstract_art20s.jpg" alt="Artwork from the 1920s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1940s">
+                <h4>1940s</h4>
+                <p>Abstract Art becomes more diverse, with Abstract Expressionism emerging in the United States.</p>
+                <div class="extra-info">
+                    <p>The 1940s saw Abstract Expressionism rise to prominence, with artists like Jackson Pollock and Mark Rothko leading the way in New York.</p>
+                    <img src="static/images/abstract_art40s.jpg" alt="Artwork from the 1940s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1950s">
+                <h4>1950s</h4>
+                <p>Abstract Art continues to evolve, influencing various artistic movements and cultures.</p>
+                <div class="extra-info">
+                    <p>The 1950s marked a period of continued experimentation, with Abstract Art influencing many movements across the globe.</p>
+                    <img src="static/images/abstract_art50s.jpg" alt="Artwork from the 1950s">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>What is Abstract Art?</h2>
+            <p>Abstract art is a style that departs from realistic representations of objects and seeks to express ideas through shapes, colors, and lines. This art movement became popular in the early 20th century and influenced painting, sculpture, and other art forms.</p>
+        </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией об абстракционном искусстве в разных странах
+        var countries = [
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "Abstract art began to develop in Germany, thanks to artists like Wassily Kandinsky, who is considered one of the founders of abstraction."
+            },
+            {
+                name: "USA",
+                coordinates: [37.0902, -95.7129],
+                info: "The USA became a hub for abstract art in the 1940s and 50s, with one of the most famous American abstract artists being Jackson Pollock."
+            },
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "France played a significant role in the development of abstract art, with artists like Robert Delaunay and Jean Arp, who used geometric forms and vibrant colors."
+            },
+            {
+                name: "Russia",
+                coordinates: [55.7558, 37.6176],
+                info: "Russia, particularly through artist Kazimir Malevich, had a major impact on the development of abstract art, especially with his famous ‘Black Square.’"
+            },
+            {
+                name: "Netherlands",
+                coordinates: [52.3676, 4.9041],
+                info: "The Netherlands contributed to abstract art through the De Stijl movement, founded by Piet Mondrian, who is known for his use of geometric shapes and primary colors."
+            },
+            {
+                name: "Spain",
+                coordinates: [40.4637, -3.7492],
+                info: "Spain also played a role in the development of abstract art with artists such as Juan Gris, who contributed to Cubism and abstraction."
+            },
+            {
+                name: "United Kingdom",
+                coordinates: [55.3781, -3.4360],
+                info: "The United Kingdom embraced abstract art, with artists like Ben Nicholson and Happy Clifford pushing the boundaries of abstraction in painting."
+            },
+            {
+                name: "Italy",
+                coordinates: [41.87194, 12.56738],
+                info: "Italy influenced abstract art with artists like Lucio Fontana, who created abstract works that often broke traditional forms and explored new mediums."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+    <script>
+    document.querySelectorAll('.timeline-event').forEach(event => {
+        event.addEventListener('click', function() {
+            const extraInfo = this.querySelector('.extra-info');
+            
+            if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                extraInfo.style.display = "block"; // Show the additional information
+            } else {
+                extraInfo.style.display = "none"; // Hide the additional information
+            }
+        });
+    });
+    </script>
+</body>
+</html>

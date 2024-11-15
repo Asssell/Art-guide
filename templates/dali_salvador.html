@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dali Salvador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Salvador Dali</h1>
+        <p>Learn about the life and work of Salvador Dali.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фотография художника -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/dali.jpg') }}" alt="Salvador Dali">
+        </div>
+
+        <!-- Информация о художнике -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Salvador Dali (1904–1989) was a Spanish surrealist artist known for his eccentric and imaginative works. He became famous for his surrealist paintings that explored dream-like scenes, often featuring melting clocks and distorted figures. Dali’s work was influenced by Freudian theory and his own vivid dreams.</p>
+
+            <h3>Famous Paintings</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/the_persistence_of_memory.jpg') }}" alt="The Persistence of Memory">
+                <img src="{{ url_for('static', filename='images/the_weaning_of_venus.jpg') }}" alt="The Weaning of Venus">
+                <!-- Add more images here -->
+            </div>
+        </div>
+    </section>
+    <section class="famous-artists"> 
+        <h2 class="section-title">Salvador Dalí - Famous Paintings</h2>
+        
+        <!-- Card: The Persistence of Memory -->
+        <div class="painting-card">
+            <h3>The Persistence of Memory</h3>
+            <img src="{{ url_for('static', filename='images/dali11.jpg') }}" alt="The Persistence of Memory">
+        </div>
+        
+        <!-- Card: The Elephants -->
+        <div class="painting-card">
+            <h3>The Elephants</h3>
+            <img src="{{ url_for('static', filename='images/dali12.jpg') }}" alt="The Elephants">
+        </div>
+        
+        <!-- Card: The Sacrament of the Last Supper -->
+        <div class="painting-card">
+            <h3>The Sacrament of the Last Supper</h3>
+            <img src="{{ url_for('static', filename='images/dali13.jpg') }}" alt="The Sacrament of the Last Supper">
+        </div>
+        
+        <!-- Card: Swans Reflecting Elephants -->
+        <div class="painting-card">
+            <h3>Swans Reflecting Elephants</h3>
+            <img src="{{ url_for('static', filename='images/dali14.jpg') }}" alt="Swans Reflecting Elephants">
+        </div>
+        
+        <!-- Card: The Great Masturbator -->
+        <div class="painting-card">
+            <h3>The Great Masturbator</h3>
+            <img src="{{ url_for('static', filename='images/dali15.jpg') }}" alt="The Great Masturbator">
+        </div>
+        
+        <!-- Card: The Temptation of Saint Anthony -->
+        <div class="painting-card">
+            <h3>The Temptation of Saint Anthony</h3>
+            <img src="{{ url_for('static', filename='images/dali16.jpg') }}" alt="The Temptation of Saint Anthony">
+        </div>
+        
+        <!-- Card: Metamorphosis of Narcissus -->
+        <div class="painting-card">
+            <h3>Metamorphosis of Narcissus</h3>
+            <img src="{{ url_for('static', filename='images/dali17.jpg') }}" alt="Metamorphosis of Narcissus">
+        </div>
+        
+        <!-- Card: Dream Caused by the Flight of a Bee Around a Pomegranate a Second Before Awakening -->
+        <div class="painting-card">
+            <h3>Dream Caused by the Flight of a Bee Around a Pomegranate a Second Before Awakening</h3>
+            <img src="{{ url_for('static', filename='images/dali18.jpg') }}" alt="Dream Caused by the Flight of a Bee Around a Pomegranate a Second Before Awakening">
+        </div>
+    
+    </section>
+    
+    
+        <h1>Salvador Dalí's Locations</h1>
+        <p>Explore the places related to Salvador Dalí's life and work.</p>
+    
+
+    <!-- Main container for map and side panel -->
+    <div class="container" style="display: flex; align-items: stretch;">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Side panel to show information -->
+        <div id="side-panel">
+            <h3 id="place-title">Click a location on the map</h3>
+            <p id="place-description">Select a point on the map to see more details.</p>
+            <img id="place-image" src="" alt="Artwork image" style="width: 100%; max-height: 200px; object-fit: cover;" />
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([42.2738, 3.1017], 6); // Centered on Catalonia, Spain
+
+        // Add a tile layer (background map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations related to Salvador Dalí with full information
+        var locations = [
+            {
+                name: "Figueres (Birthplace)",
+                lat: 42.2675,
+                lon: 3.0195,
+                description: "<b>Figueres, Spain</b><br>Birthplace of Salvador Dalí. Born on May 11, 1904.",
+                full_description: "Salvador Dalí was born in Figueres, a town in Catalonia. His early years were filled with the exploration of his eccentric talents. The town is home to the Dalí Theatre-Museum, one of his most famous creations.",
+                image: "{{ url_for('static', filename='images/dali1.jpg') }}"
+            },
+            {
+                name: "Barcelona (Art Education)",
+                lat: 41.3784,
+                lon: 2.1926,
+                description: "<b>Barcelona, Spain</b><br>Dalí studied at the Royal Academy of Fine Arts of San Fernando.",
+                full_description: "Dalí moved to Barcelona to study art at the Royal Academy of Fine Arts of San Fernando, where he was exposed to the avant-garde artistic movements of the time, particularly Surrealism. The city is crucial to his artistic development.",
+                image: "{{ url_for('static', filename='images/dali2.jpg') }}"
+            },
+            {
+                name: "Port Lligat (Home and Studio)",
+                lat: 42.2670,
+                lon: 3.2090,
+                description: "<b>Port Lligat, Spain</b><br>Dalí’s home and studio, where he spent many of his productive years.",
+                full_description: "Dalí lived in Port Lligat, a small fishing village on the Costa Brava, where he created many of his masterpieces. His house is now a museum dedicated to his life and work. This location was pivotal in his surrealist paintings.",
+                image: "{{ url_for('static', filename='images/dali3.jpg') }}"
+            },
+            {
+                name: "Cadaqués (Artistic Inspiration)",
+                lat: 42.3217,
+                lon: 3.1956,
+                description: "<b>Cadaqués, Spain</b><br>This small coastal town inspired many of Dalí’s works.",
+                full_description: "Cadaqués, with its dramatic coastline and serene beauty, inspired Dalí to explore his creative genius. He painted many works here, and the town became a central part of his artistic identity.",
+                image: "{{ url_for('static', filename='images/dali4.jpg') }}"
+            },
+            {
+                name: "Castell de Pubol (Last Years and Death)",
+                lat: 41.9633,
+                lon: 3.1050,
+                description: "<b>Castell de Pubol, Spain</b><br>Dalí spent his last years here before passing away in 1989.",
+                full_description: "Dalí spent his final years at the Castell de Pubol, a castle he had restored and dedicated to his wife, Gala. The castle became a sanctuary where Dalí spent his last days, and it is now a museum dedicated to their life together.",
+                image: "{{ url_for('static', filename='images/dali5.jpg') }}"
+            }
+        ];
+
+        // Add markers and popup events
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+
+            // Add a click event for each marker to update the side panel
+            marker.on('click', function() {
+                // Update the content in the side panel
+                document.getElementById('place-title').innerHTML = location.name;
+                document.getElementById('place-description').innerHTML = location.full_description;
+                document.getElementById('place-image').src = location.image;
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raphael</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Raphael</h1>
+        <p>Discover the work of Raphael, one of the masters of the High Renaissance.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фото художника слева -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/raphael.jpg') }}" alt="Raphael">
+        </div>
+
+        <!-- Информация о художнике справа -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Raphael (1483–1520) was an Italian painter and architect, widely known for his harmonious and balanced compositions. His Madonnas and the fresco *The School of Athens* are among his most famous works, showcasing his mastery in both religious and classical themes.</p>
+
+            <h3>Famous Paintings</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/school_of_athens.jpg') }}" alt="The School of Athens">
+                <img src="{{ url_for('static', filename='images/madonna.jpg') }}" alt="Madonna Portraits">
+            </div>
+        </div>
+    </section>
+    <section class="famous-artists"> 
+        <h2 class="section-title">Raphael - Famous Paintings</h2>
+        
+        <!-- Card: The School of Athens -->
+        <div class="painting-card">
+            <h3>The School of Athens</h3>
+            <img src="{{ url_for('static', filename='images/raphael11.jpg') }}" alt="The School of Athens">
+        </div>
+        
+        <!-- Card: The Sistine Madonna -->
+        <div class="painting-card">
+            <h3>The Sistine Madonna</h3>
+            <img src="{{ url_for('static', filename='images/raphael12.jpg') }}" alt="The Sistine Madonna">
+        </div>
+        
+        <!-- Card: The Transfiguration -->
+        <div class="painting-card">
+            <h3>The Transfiguration</h3>
+            <img src="{{ url_for('static', filename='images/raphael13.jpg') }}" alt="The Transfiguration">
+        </div>
+        
+        <!-- Card: The Marriage of the Virgin -->
+        <div class="painting-card">
+            <h3>The Marriage of the Virgin</h3>
+            <img src="{{ url_for('static', filename='images/raphael14.jpg') }}" alt="The Marriage of the Virgin">
+        </div>
+        
+        <!-- Card: Madonna del Prato -->
+        <div class="painting-card">
+            <h3>Madonna del Prato</h3>
+            <img src="{{ url_for('static', filename='images/raphael15.jpg') }}" alt="Madonna del Prato">
+        </div>
+        
+        <!-- Card: St. George and the Dragon -->
+        <div class="painting-card">
+            <h3>St. George and the Dragon</h3>
+            <img src="{{ url_for('static', filename='images/raphael16.jpg') }}" alt="St. George and the Dragon">
+        </div>
+        
+        <!-- Card: The Vision of Ezekiel -->
+        <div class="painting-card">
+            <h3>The Vision of Ezekiel</h3>
+            <img src="{{ url_for('static', filename='images/raphael17.jpg') }}" alt="The Vision of Ezekiel">
+        </div>
+        
+        <!-- Card: The Madonna of the Goldfinch -->
+        <div class="painting-card">
+            <h3>The Madonna of the Goldfinch</h3>
+            <img src="{{ url_for('static', filename='images/raphael18.jpg') }}" alt="The Madonna of the Goldfinch">
+        </div>
+    
+    </section>
+    
+        <h1>Raphael's Locations</h1>
+        <p>Explore the places related to Raphael's life and work.</p>
+ 
+
+    <!-- Main container for map and side panel -->
+    <div class="container" style="display: flex; align-items: stretch;">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Side panel to show information -->
+        <div id="side-panel">
+            <h3 id="place-title">Click a location on the map</h3>
+            <p id="place-description">Select a point on the map to see more details.</p>
+            <img id="place-image" src="" alt="Artwork image" style="width: 100%; max-height: 200px; object-fit: cover;" />
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([43.6167, 12.6167], 6); // Centered on Italy, near Urbino
+
+        // Add a tile layer (background map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations related to Raphael with full information
+        var locations = [
+            {
+                name: "Urbino (Birthplace)",
+                lat: 43.7328,
+                lon: 12.6167,
+                description: "<b>Urbino, Italy</b><br>Raphael was born here in 1483.",
+                full_description: "Raphael was born in Urbino, a city in central Italy known for its rich artistic heritage. His early exposure to art in Urbino, where his father was a painter, deeply influenced his later works. He was tutored by his father and other local artists.",
+                image: "{{ url_for('static', filename='images/raphael1.jpg') }}"
+            },
+            {
+                name: "Perugia (Early Training)",
+                lat: 43.1127,
+                lon: 12.3888,
+                description: "<b>Perugia, Italy</b><br>Raphael studied here under Pietro Perugino.",
+                full_description: "Raphael moved to Perugia at a young age to study under the renowned painter Pietro Perugino. His time in Perugia was formative, and it was here that Raphael developed his distinctive style, combining the graceful and idealized forms of the Renaissance with a mastery of perspective.",
+                image: "{{ url_for('static', filename='images/raphael2.jpg') }}"
+            },
+            {
+                name: "Rome (Major Works and Fames)",
+                lat: 41.9028,
+                lon: 12.4964,
+                description: "<b>Rome, Italy</b><br>Raphael worked in Rome, creating some of his greatest masterpieces.",
+                full_description: "Raphael moved to Rome in 1508, where he was commissioned by Pope Julius II to decorate the papal apartments in the Vatican. One of his most famous works, 'The School of Athens', was created here. He also worked on the decoration of St. Peter's Basilica, and became an important figure in the city's artistic circles.",
+                image: "{{ url_for('static', filename='images/raphael3.jpg') }}"
+            },
+            {
+                name: "Vatican (Work on Papal Apartments)",
+                lat: 41.9029,
+                lon: 12.4534,
+                description: "<b>Vatican City, Italy</b><br>Raphael worked on the decoration of the Vatican Museums.",
+                full_description: "In the Vatican, Raphael created his famous frescoes, including 'The School of Athens', 'The Disputation of the Holy Sacrament', and many others. He also designed architecture for the Vatican, including contributions to St. Peter's Basilica. His work in the Vatican represents the peak of his career, blending classical ideals with Christian themes.",
+                image: "{{ url_for('static', filename='images/raphael4.jpg') }}"
+            }
+        ];
+
+        // Add markers and popup events
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+
+            // Add a click event for each marker to update the side panel
+            marker.on('click', function() {
+                // Update the content in the side panel
+                document.getElementById('place-title').innerHTML = location.name;
+                document.getElementById('place-description').innerHTML = location.full_description;
+                document.getElementById('place-image').src = location.image;
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

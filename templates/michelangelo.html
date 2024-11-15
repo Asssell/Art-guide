@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michelangelo Buonarroti</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Michelangelo Buonarroti</h1>
+        <p>Explore the legacy of Michelangelo, the master of Renaissance sculpture and painting.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фото художника слева -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/michelangelo.jpg') }}" alt="Michelangelo Buonarroti">
+        </div>
+
+        <!-- Информация о художнике справа -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Michelangelo Buonarroti (1475–1564) was an Italian sculptor, painter, and architect, widely considered one of the greatest artists of all time. He is best known for his masterpieces such as the ceiling of the Sistine Chapel and the iconic statue of David. Michelangelo's works had a profound influence on the development of Western art.</p>
+
+            <h3>Famous Works</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/sistine_chapel.jpg') }}" alt="Sistine Chapel Ceiling">
+                <img src="{{ url_for('static', filename='images/david.jpg') }}" alt="David">
+            </div>
+        </div>
+    </section>
+    <section class="famous-artists"> 
+        <h2 class="section-title">Michelangelo Buonarroti - Famous Paintings</h2>
+        
+        <!-- Card: The Creation of Adam -->
+        <div class="painting-card">
+            <h3>The Creation of Adam</h3>
+            <img src="{{ url_for('static', filename='images/michelangelo11.jpg') }}" alt="The Creation of Adam">
+        </div>
+        
+        <!-- Card: The Last Judgment -->
+        <div class="painting-card">
+            <h3>The Last Judgment</h3>
+            <img src="{{ url_for('static', filename='images/michelangelo12.jpg') }}" alt="The Last Judgment">
+        </div>
+        
+        <!-- Card: The Sistine Chapel Ceiling -->
+        <div class="painting-card">
+            <h3>The Sistine Chapel Ceiling</h3>
+            <img src="{{ url_for('static', filename='images/michelangelo13.jpg') }}" alt="The Sistine Chapel Ceiling">
+        </div>
+        
+        <!-- Card: The Crucifixion of St. Peter -->
+        <div class="painting-card">
+            <h3>The Crucifixion of St. Peter</h3>
+            <img src="{{ url_for('static', filename='images/michelangelo14.jpg') }}" alt="The Crucifixion of St. Peter">
+        </div>
+        
+        <!-- Card: Doni Tondo -->
+        <div class="painting-card">
+            <h3>Doni Tondo</h3>
+            <img src="{{ url_for('static', filename='images/michelangelo15.jpg') }}" alt="Doni Tondo">
+        </div>
+        
+        <!-- Card: The Deposition -->
+        <div class="painting-card">
+            <h3>The Deposition</h3>
+            <img src="{{ url_for('static', filename='images/michelangelo16.jpg') }}" alt="The Deposition">
+        </div>
+        
+        <!-- Card: The Torlonia Relief -->
+        <div class="painting-card">
+            <h3>The Torlonia Relief</h3>
+            <img src="{{ url_for('static', filename='images/michelangelo17.jpg') }}" alt="The Torlonia Relief">
+        </div>
+        
+        <!-- Card: The Entombment of Christ -->
+        <div class="painting-card">
+            <h3>The Entombment of Christ</h3>
+            <img src="{{ url_for('static', filename='images/michelangelo18.jpg') }}" alt="The Entombment of Christ">
+        </div>
+    
+    </section>
+    
+        <h1>Michelangelo Buonarroti's Locations</h1>
+        <p>Explore the places related to Michelangelo Buonarroti's life and work.</p>
+
+    <!-- Main container for map and side panel -->
+    <div class="container" style="display: flex; align-items: stretch;">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Side panel to show information -->
+        <div id="side-panel">
+            <h3 id="place-title">Click a location on the map</h3>
+            <p id="place-description">Select a point on the map to see more details.</p>
+            <img id="place-image" src="" alt="Artwork image" style="width: 100%; max-height: 200px; object-fit: cover;" />
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([43.7715, 11.2558], 6); // Centered on Florence, Italy
+
+        // Add a tile layer (background map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations related to Michelangelo Buonarroti with full information
+        var locations = [
+            {
+                name: "Caprese (Birthplace)",
+                lat: 43.7763,
+                lon: 11.6791,
+                description: "<b>Caprese, Italy</b><br>Michelangelo was born here in 1475.",
+                full_description: "Michelangelo Buonarroti was born in Caprese, a small village in Tuscany. Though his family moved to Florence soon after his birth, Caprese is where the great artist began his journey. He later became one of the most influential figures of the Italian Renaissance, creating masterpieces in sculpture, painting, and architecture.",
+                image: "{{ url_for('static', filename='images/michelangelo1.jpg') }}"
+            },
+            {
+                name: "Florence (Career and Masterpieces)",
+                lat: 43.7696,
+                lon: 11.2558,
+                description: "<b>Florence, Italy</b><br>Where Michelangelo created the iconic statue of David.",
+                full_description: "Florence was the central hub of Michelangelo’s artistic career. It is here that he sculpted the 'David', one of his most famous works, and created the 'Pietà' for St. Peter's Basilica. Florence was also the place where he received commissions for several key projects and was recognized as one of the leading artists of the Renaissance.",
+                image: "{{ url_for('static', filename='images/michelangelo2.jpg') }}"
+            },
+            {
+                name: "Vatican (The Sistine Chapel Ceiling)",
+                lat: 41.9029,
+                lon: 12.4534,
+                description: "<b>Vatican City</b><br>Michelangelo painted the Sistine Chapel ceiling here.",
+                full_description: "In Vatican City, Michelangelo worked on one of his most iconic masterpieces: the Sistine Chapel ceiling. Between 1508 and 1512, he painted over 5,000 square feet of frescoes, depicting scenes from the Bible, including 'The Creation of Adam'. This project, commissioned by Pope Julius II, remains one of the greatest achievements in Western art.",
+                image: "{{ url_for('static', filename='images/michelangelo3.jpg') }}"
+            },
+            {
+                name: "Rome (Last Years of Life)",
+                lat: 41.9026,
+                lon: 12.4964,
+                description: "<b>Rome, Italy</b><br>Where Michelangelo spent his final years.",
+                full_description: "Michelangelo lived in Rome in the final years of his life. Here, he continued to work, including his contributions to the construction of St. Peter's Basilica. He also worked on the design of the tomb for Pope Julius II, as well as other architectural projects, leaving an indelible mark on the city.",
+                image: "{{ url_for('static', filename='images/michelangelo4.jpg') }}"
+            }
+        ];
+
+        // Add markers and popup events
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+
+            // Add a click event for each marker to update the side panel
+            marker.on('click', function() {
+                // Update the content in the side panel
+                document.getElementById('place-title').innerHTML = location.name;
+                document.getElementById('place-description').innerHTML = location.full_description;
+                document.getElementById('place-image').src = location.image;
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

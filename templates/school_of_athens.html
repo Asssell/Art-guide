@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The School of Athens - Painting by Raphael</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>The School of Athens</h1>
+        <p>Painting by Raphael</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Raphael</p>
+        <p><strong>Year of Creation:</strong> 1509–1511</p>
+        <p><strong>Medium:</strong> Fresco</p>
+        <p><strong>Dimensions:</strong> 500 x 770 cm</p>
+        <p><strong>Location:</strong> Vatican Museums, Vatican City</p>
+        <p><strong>Description:</strong> "The School of Athens" is one of the most celebrated works of Renaissance art, depicting an assembly of the great philosophers and scholars of the ancient world. The fresco is part of Raphael's decoration of the Vatican's Stanza della Segnatura. It showcases notable philosophers, including Plato and Aristotle, at the center of the composition, with other figures such as Socrates, Pythagoras, and Euclid surrounding them. The painting represents the ideal of intellectual pursuit and the fusion of ancient Greek philosophy with Renaissance humanism, a key theme of the period.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/school_of_athens.jpg') }}" alt="The School of Athens">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>"The School of Athens" is a monumental fresco that embodies the intellectual spirit of the Renaissance. Raphael’s use of perspective, with the vanishing point placed near the central figures of Plato and Aristotle, draws the viewer’s eye toward the core of the composition. The figures are depicted in dynamic poses, reflecting the philosophical debates and the exchange of ideas between the great minds of antiquity. The clarity of form and the use of space is masterful, and Raphael’s synthesis of classical philosophy with Renaissance ideals is evident in the way the figures engage with one another.</p>
+        <p>The painting has had a lasting influence on Western art, symbolizing the triumph of reason and intellectual inquiry. It also serves as a visual representation of the Renaissance humanist ideal, merging art, philosophy, and science into a cohesive narrative. The composition has been studied by generations of artists and scholars, and its influence is still felt in modern depictions of intellectual exchange and scholarly pursuit.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of the Vatican Museums</h2>
+        <p>To experience "The School of Athens" in its original setting, you can take a virtual tour of the Vatican Museums. The fresco is located in the Stanza della Segnatura, and the tour will give you a closer look at this iconic painting as well as other masterpieces housed in the Vatican.</p>
+        <a href="https://www.museivaticani.va/content/museivaticani/en.html" target="_blank">
+            <button>Start the Virtual Tour</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of The School of Athens</h2>
+            <p>"The School of Athens" was painted by Raphael between 1509 and 1511, commissioned by Pope Julius II as part of a project to decorate the rooms of the Vatican Palace. The fresco represents a gathering of great philosophers and scientists from antiquity, with the central figures being Plato and Aristotle. The work is part of a larger decorative scheme in the Stanza della Segnatura, which includes other themes like theology, law, and poetry, emphasizing the intellectual scope of the Renaissance humanist movement.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([41.9029, 12.4534], 13); // Initial map view centered on Vatican City with zoom level 13
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to The School of Athens
+        var locations = [
+            {
+                name: "Vatican Museums, Vatican City",
+                coordinates: [41.9029, 12.4534],
+                info: "The Vatican Museums, located in Vatican City, house Raphael’s 'The School of Athens' in the Stanza della Segnatura. The fresco is one of the most important examples of Renaissance art and an iconic symbol of intellectual pursuit."
+            },
+            {
+                name: "Florence, Italy (Leonardo da Vinci's and Raphael's Influence)",
+                coordinates: [43.7696, 11.2558],
+                info: "Florence was the heart of the Renaissance, where Raphael, Leonardo da Vinci, and other great artists flourished. While not directly related to 'The School of Athens,' the city had a significant influence on Raphael's work."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

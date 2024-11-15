@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Lilies - Painting by Claude Monet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Water Lilies</h1>
+        <p>Painting Series by Claude Monet</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Claude Monet</p>
+        <p><strong>Year of Creation:</strong> 1896-1926 (Series spanning three decades)</p>
+        <p><strong>Medium:</strong> Oil on canvas</p>
+        <p><strong>Dimensions:</strong> Varying (individual canvases range from 65 x 81 cm to 200 x 400 cm)</p>
+        <p><strong>Location:</strong> Various museums, including the Musée de l'Orangerie, Paris</p>
+        <p><strong>Description:</strong> "Water Lilies" is a series of approximately 250 oil paintings by Claude Monet, created during the last three decades of his life. The series depicts Monet’s flower garden at his home in Giverny, particularly the water lily pond. The paintings are known for their large scale, use of vibrant colors, and the exploration of light and reflection. Monet’s goal was not to capture the details of the lilies but to express the sensation of a moment in time. The series reflects his artistic development, moving away from traditional landscape painting and towards abstraction.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/water_lilies.jpg') }}" alt="Water Lilies">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>The "Water Lilies" series is one of the most celebrated and iconic works of Impressionism. It exemplifies Monet’s fascination with light, color, and the changing moods of nature. In these paintings, Monet moved away from the precision of earlier landscape works, embracing a more fluid and expressive form of painting. The series marks a transition from Impressionism to a more abstract approach to capturing the natural world. Monet’s focus on the play of light, reflections on water, and the atmosphere of his garden created a unique visual language that has had a lasting impact on modern art.</p>
+        <p>Monet's work influenced generations of artists, particularly the Abstract Expressionists, who were inspired by the emotive use of color and the absence of clear forms. The fluidity and abstraction of "Water Lilies" paved the way for later developments in art, challenging traditional ideas of representation in painting.</p>
+        <p>The series also had a profound impact on the art world’s perception of nature, where Monet’s focus shifted from specific details to the overall perception and experience of a scene. "Water Lilies" is a prime example of how Impressionism sought to capture fleeting moments and subjective perceptions, an approach that would influence artists across movements.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of the Musée de l'Orangerie</h2>
+        <p>If you want to experience Monet's "Water Lilies" in their true context, you can take a virtual tour of the Musée de l'Orangerie in Paris, where the series is displayed in two oval rooms. The immersive experience of viewing these large-scale works in their dedicated space is one of the highlights of visiting the museum.</p>
+        <a href="https://www.musee-orangerie.fr/en" target="_blank">
+            <button>Start the Virtual Tour of the Musée de l'Orangerie</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of Water Lilies</h2>
+            <p>Claude Monet's "Water Lilies" was a series of paintings created between 1896 and 1926, focusing on the water lily pond at Monet's home in Giverny, France. Over the years, Monet’s garden became his favorite subject, and the pond with its water lilies became a focal point of his artistic exploration. The paintings reflect his deep emotional connection to nature, and his use of light and color in these works is unparalleled in the history of art.</p>
+            <p>Monet’s garden in Giverny was specifically designed to provide a constant source of inspiration for his art. The water lilies and the surrounding flora offered him a dynamic subject matter, which he revisited in different lighting conditions, times of day, and seasons. The "Water Lilies" series includes several major compositions, with Monet often working on multiple canvases at once and refining the pieces over time. His paintings of water lilies were a groundbreaking contribution to modern art, influencing the development of both abstraction and the relationship between art and nature.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([49.0875, 1.5330], 13); // Initial map view centered on Giverny, France (Monet's home and garden)
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to Water Lilies
+        var locations = [
+            {
+                name: "Giverny, France (Monet's Garden and Water Lily Pond)",
+                coordinates: [49.0875, 1.5330],
+                info: "Monet’s home and garden in Giverny, where he created the famous Water Lily Pond. This location became the focal point of the Water Lilies series."
+            },
+            {
+                name: "Musée de l'Orangerie, Paris, France",
+                coordinates: [48.8621, 2.3217],
+                info: "The Musée de l'Orangerie in Paris houses a stunning collection of Monet's Water Lilies, displayed in two oval rooms designed specifically to showcase the series."
+            },
+            {
+                name: "Musée Marmottan, Paris, France",
+                coordinates: [48.8694, 2.2785],
+                info: "The Musée Marmottan in Paris contains a significant collection of Monet’s works, including several pieces from the Water Lilies series."
+            },
+            {
+                name: "The Metropolitan Museum of Art, New York, USA",
+                coordinates: [40.7792, -73.9630],
+                info: "The Met holds a number of Monet’s works, including pieces from the Water Lilies series. This museum offers an alternative space to view Monet’s masterpieces outside of France."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

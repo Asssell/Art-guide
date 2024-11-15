@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expressionism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Expressionism</h1>
+        <p>Learn about the Expressionism art style and discover famous paintings.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Expressionism</h2>
+        <p>Expressionism was an art movement that developed in the early 20th century, characterized by the emphasis on representing raw, emotional experience rather than physical reality. It emerged in response to the industrialization and urbanization of Europe, as well as the social and political upheavals of the time. Expressionist art often distorts reality to express subjective emotions, with the goal of evoking an emotional response from the viewer, rather than representing the world in a realistic or objective manner.</p>
+        
+        <p>The roots of Expressionism can be traced back to earlier movements such as Romanticism and Symbolism, which also emphasized the emotional and subjective aspects of life. However, Expressionism took these ideas to new extremes, with artists focusing on portraying feelings of alienation, anxiety, and inner turmoil. The movement was not confined to any one medium and had a significant influence on visual arts, literature, theater, film, architecture, and music.</p>
+        
+        <p>Expressionism is often divided into two main branches: Die Brücke ("The Bridge") and Der Blaue Reiter ("The Blue Rider"). Die Brücke was a group of young German artists, including Ernst Ludwig Kirchner, Fritz Bleyl, and Erich Heckel, who sought to create art that was deeply personal and emotional. They used distorted forms, vivid colors, and dynamic compositions to convey their inner experiences and reactions to the rapidly changing world around them. Their works often depicted scenes of urban life, but with a focus on the psychological and emotional undercurrents of their subjects.</p>
+        
+        <p>Der Blaue Reiter, led by Wassily Kandinsky and Franz Marc, was another important group in the Expressionist movement. Unlike Die Brücke, which focused on figurative subjects, Der Blaue Reiter embraced abstraction, using colors and forms to express the spiritual and mystical aspects of human existence. Kandinsky's work, in particular, explored the relationship between color and emotion, with his non-representational compositions aiming to evoke specific feelings in the viewer.</p>
+        
+        <p>One of the defining characteristics of Expressionist art is its intense use of color and distortion of form. Artists often used vibrant, sometimes clashing colors to convey strong emotional states, and figures in their works were frequently exaggerated or distorted to reflect the artist’s subjective view of the world. This distortion was not meant to be a realistic portrayal of the subject, but rather an interpretation of the emotional experience associated with it.</p>
+        
+        <p>In addition to visual art, Expressionism had a significant impact on theater and cinema. Expressionist theater, such as the plays of German playwrights Georg Kaiser and Ernst Toller, often featured distorted sets, exaggerated performances, and an emphasis on the inner psychological states of characters. In cinema, Expressionist films, such as Fritz Lang's "Metropolis" and Robert Wiene's "The Cabinet of Dr. Caligari," used exaggerated lighting, distorted sets, and angular compositions to create a sense of unease and psychological tension.</p>
+        
+        <p>Expressionism also played a key role in the development of abstract art. Artists like Kandinsky, who was influenced by spiritualism and theosophy, sought to move beyond the depiction of the material world and create art that communicated a deeper, transcendent meaning. His work is often considered a precursor to abstract art, as it explored the emotional and symbolic potential of color and form.</p>
+        
+        <p>Expressionism as an art movement had a lasting impact on many subsequent developments in modern art. It helped pave the way for Abstract Expressionism, which emerged in the United States in the 1940s, as well as other movements that explored the emotional and psychological dimensions of art. The raw emotion and personal intensity of Expressionism continue to influence artists today, with its legacy found in various forms of contemporary art, theater, and cinema.</p>
+        
+        <p>In summary, Expressionism was an artistic response to the alienation and turmoil of modern life. Its focus on emotional intensity, distorted forms, and vivid colors created works that were deeply personal, psychological, and often unsettling. Whether through painting, literature, theater, or film, Expressionism sought to convey the inner emotional experiences of the artist and the human condition in an increasingly fragmented world.</p>
+        
+    </section>
+
+    
+    <section class="famous-artists">
+        <h2>Famous Expressionist Artists</h2>
+    
+        <!-- Card: Edvard Munch -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/munch.jpg') }}" alt="Edvard Munch">
+            <h3>Edvard Munch</h3>
+            <p>Edvard Munch is often considered the father of Expressionism, with his works deeply reflecting the emotional experience of anxiety, death, and existential dread.</p>
+            <p><strong>Main Works:</strong> "The Scream," "The Madonna," "The Sick Child."</p>
+            <p><em>Interesting Fact:</em> "The Scream," his most famous work, was inspired by a panic attack Munch had while walking through Oslo, which he later described as hearing a "great unearthly scream."</p>
+        </div>
+    
+        <!-- Card: Wassily Kandinsky -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/kandinsky.jpg') }}" alt="Wassily Kandinsky">
+            <h3>Wassily Kandinsky</h3>
+            <p>Kandinsky, one of the pioneers of abstract art, was influenced by Expressionism in his exploration of color and form as a means to express inner emotions.</p>
+            <p><strong>Main Works:</strong> "Composition VIII," "Yellow-Red-Blue," "Improvisation 31 (Sea Battle)."</p>
+            <p><em>Interesting Fact:</em> Kandinsky believed that color could evoke emotional responses, and he was one of the first to use non-representational art to express these feelings.</p>
+        </div>
+    
+        <!-- Card: Ernst Ludwig Kirchner -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/kirchner.jpg') }}" alt="Ernst Ludwig Kirchner">
+            <h3>Ernst Ludwig Kirchner</h3>
+            <p>Kirchner was a leading figure of the German Expressionist movement and a founding member of the artist group Die Brücke. His works focused on human psychology and urban life.</p>
+            <p><strong>Main Works:</strong> "Street, Berlin," "Self-Portrait as a Soldier," "The Red Tower."</p>
+            <p><em>Interesting Fact:</em> Kirchner’s works often depicted distorted figures to express the anxiety and alienation felt in modern urban life, often as a reaction to the horrors of World War I.</p>
+        </div>
+    
+        <!-- Card: Egon Schiele -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/schiele.jpg') }}" alt="Egon Schiele">
+            <h3>Egon Schiele</h3>
+            <p>Schiele was an Austrian painter known for his raw, provocative, and often disturbing depictions of the human form, capturing emotional intensity through distorted, exaggerated lines and poses.</p>
+            <p><strong>Main Works:</strong> "Self-Portrait with Physalis," "The Family," "Death and the Maiden."</p>
+            <p><em>Interesting Fact:</em> Schiele’s works were often banned or censored due to their erotic nature, and his untimely death at age 28 cemented his legacy as a tragic figure in art history.</p>
+        </div>
+    
+        <!-- Card: Franz Marc -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/marc.jpg') }}" alt="Franz Marc">
+            <h3>Franz Marc</h3>
+            <p>Franz Marc was a German painter and one of the key figures in the German Expressionist movement, particularly known for his vibrant and emotional animal paintings.</p>
+            <p><strong>Main Works:</strong> "Blue Horse I," "The Yellow Cow," "Fate of the Animals."</p>
+            <p><em>Interesting Fact:</em> Marc believed that animals were purer than humans and often used bright, unnatural colors to express their spiritual and emotional lives.</p>
+        </div>
+    
+        <!-- Card: Oskar Kokoschka -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/kokoschka.jpg') }}" alt="Oskar Kokoschka">
+            <h3>Oskar Kokoschka</h3>
+            <p>Austrian painter and playwright, Kokoschka was a prominent figure in Expressionism, known for his intense and dramatic portraiture and landscapes.</p>
+            <p><strong>Main Works:</strong> "The Bride of the Wind," "Portrait of the Poet Peter Altenberg," "Self-Portrait."</p>
+            <p><em>Interesting Fact:</em> Kokoschka’s controversial relationship with Alma Mahler, the widow of composer Gustav Mahler, influenced much of his emotionally charged portrait work.</p>
+        </div>
+    
+        <!-- Card: Emil Nolde -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/nolde.jpg') }}" alt="Emil Nolde">
+            <h3>Emil Nolde</h3>
+            <p>Nolde was a German-Danish painter and printmaker known for his emotive and dramatic use of color. He was a member of Die Brücke and a key figure in German Expressionism.</p>
+            <p><strong>Main Works:</strong> "The Prophet," "The Last Supper," "Dancer."</p>
+            <p><em>Interesting Fact:</em> Nolde’s works, often depicting intense religious and mythological themes, were criticized by the Nazis as “degenerate art” and many of his works were removed from museums.</p>
+        </div>
+    
+        <!-- Card: Marc Chagall -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/chagall.jpg') }}" alt="Marc Chagall">
+            <h3>Marc Chagall</h3>
+            <p>Chagall, a Russian-French artist, is often considered an Expressionist for his use of vivid colors and fantastical, dreamlike imagery to convey emotions and narrative.</p>
+            <p><strong>Main Works:</strong> "I and the Village," "The Birthday," "The Fiddler."</p>
+            <p><em>Interesting Fact:</em> Chagall’s unique style mixed Jewish folklore, his Russian heritage, and the influence of Cubism, and he was deeply affected by both World Wars, which can be seen in his emotional depictions of conflict and love.</p>
+        </div>
+    
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h3>History of Expressionism</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-1900s">
+                <h4>1900s</h4>
+                <p>The early development of Expressionism, especially in Germany, with key artists like Edvard Munch and Wassily Kandinsky.</p>
+                <div class="extra-info">
+                    <p>The movement began as a reaction to the urbanization and industrialization of Europe. Artists aimed to depict not just the world as it appeared, but how it felt emotionally.</p>
+                    <img src="static/images/expressionism_1900s.jpg" alt="Expressionism in the 1900s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1910s">
+                <h4>1910s</h4>
+                <p>Expressionism reaches its peak with the formation of various groups, such as Die Brücke and Der Blaue Reiter.</p>
+                <div class="extra-info">
+                    <p>During this period, Expressionism found expression in both painting and theater, with works such as 'The Scream' by Edvard Munch and 'Composition VII' by Wassily Kandinsky.</p>
+                    <img src="static/images/expressionism_1910s.jpg" alt="Expressionism in the 1910s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1920s">
+                <h4>1920s</h4>
+                <p>Expressionism begins to lose its dominance as other movements, such as Surrealism and Dadaism, emerge.</p>
+                <div class="extra-info">
+                    <p>Though Expressionism declined in the 1920s, its impact on modern art was profound, influencing later developments in abstract art and emotional representation.</p>
+                    <img src="static/images/expressionism_1920s.jpg" alt="Expressionism in the 1920s">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>Expressionism?</h2>
+            <p>Expressionism was an art movement that originated in the early 20th century, emphasizing the emotional experience over the physical reality. Artists sought to convey the subjective emotions and responses that objects and events aroused in them, often using distorted forms and vibrant colors. Expressionism deeply influenced not only visual arts but also theater, literature, film, architecture, and music. Its core was the desire to express the human condition and reflect the turmoil and psychological intensity of the modern world.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией о влиянии Экспрессионизма в разных странах
+        var countries = [
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "Germany is where Expressionism first emerged, particularly in the form of Die Brücke (The Bridge) and Der Blaue Reiter (The Blue Rider). Artists like Ernst Ludwig Kirchner and Wassily Kandinsky pushed the boundaries of color and form to express intense emotion, often reflecting social and political unrest in their works."
+            },
+            {
+                name: "Austria",
+                coordinates: [47.5162, 14.5501],
+                info: "In Austria, Expressionism flourished with artists such as Egon Schiele and Oskar Kokoschka, whose works conveyed raw emotional intensity. Schiele’s provocative nudes and self-portraits challenged the established norms of beauty and decency in art."
+            },
+            {
+                name: "Norway",
+                coordinates: [60.472, 8.4689],
+                info: "Norwegian artist Edvard Munch is often associated with Expressionism. His iconic painting *The Scream* is a powerful visual representation of existential anxiety, which captures the essence of the movement’s focus on individual emotional expression."
+            },
+            {
+                name: "United States",
+                coordinates: [37.0902, -95.7129],
+                info: "Expressionism influenced American art in the mid-20th century, particularly in the Abstract Expressionism movement. Artists like Jackson Pollock, Mark Rothko, and Willem de Kooning embraced the emotional intensity of expressionism while moving towards abstraction."
+            },
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "Although France was more centered on movements like Surrealism and Cubism, Expressionism still had an impact. Artists like Jean Dubuffet and Georges Rouault brought elements of raw emotionalism and distorted forms into their works, blending expressionist tendencies with other avant-garde styles."
+            },
+            {
+                name: "Switzerland",
+                coordinates: [46.8182, 8.2275],
+                info: "Switzerland played a significant role in the development of Expressionism, particularly in the work of artist Hermann Hesse. His use of vivid, distorted landscapes and figures was influenced by his exploration of the human psyche and spiritual experiences."
+            },
+            {
+                name: "Belgium",
+                coordinates: [50.8503, 4.3517],
+                info: "Belgium’s contribution to Expressionism includes the work of James Ensor, whose paintings often depicted grotesque and disturbing images of society and the human condition. Ensor’s *The Entry of Christ into Brussels* is an iconic work that challenges societal conventions."
+            },
+            {
+                name: "Netherlands",
+                coordinates: [52.3676, 4.9041],
+                info: "Dutch Expressionist artists like Karel Appel were influenced by the movement, creating works that combined abstract forms with strong emotional expression. Appel’s *The Pissing Boy* is one of his most famous works, reflecting the raw, unfiltered emotion of Expressionism."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+    <!-- Скрипт для скрытия и отображения дополнительной информации -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Показываем информацию
+                } else {
+                    extraInfo.style.display = "none"; // Скрываем информацию
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

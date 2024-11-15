@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mona Lisa - Painting by Leonardo da Vinci</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Mona Lisa</h1>
+        <p>Painting by Leonardo da Vinci</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Leonardo da Vinci</p>
+        <p><strong>Year of Creation:</strong> 1503–1506 (possibly until 1517)</p>
+        <p><strong>Medium:</strong> Oil on wood</p>
+        <p><strong>Dimensions:</strong> 77 x 53 cm</p>
+        <p><strong>Location:</strong> Louvre Museum, Paris</p>
+        <p><strong>Description:</strong> "Mona Lisa" is a portrait of a woman with a mysterious smile, which has become an icon of world art. The painting is executed in the sfumato technique, creating smooth transitions between light and shadow. It is an example of Leonardo da Vinci's outstanding craftsmanship, his ability to convey human emotions and psychological states through art.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/monalisa.jpg') }}" alt="Mona Lisa">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>"Mona Lisa" is not just a painting, but a masterpiece that changed the perception of portraits and how people are represented in art. The use of sfumato to create soft transitions between light and shadow was revolutionary at the time. The painting also became a symbol of the evolution of portraiture, emphasizing the psychological depth of the character rather than just their appearance.</p>
+        <p>The smile of Mona Lisa, which has become the subject of numerous interpretations, remains one of the most mysterious features of the painting. It has been the topic of philosophical reflections, scientific studies, and, of course, a source of inspiration for many artists, photographers, and other creative individuals.</p>
+        <p>The influence of the painting is still felt in art through the centuries. Artists like Salvador Dalí used "Mona Lisa" as a motif in their works. Its influence on pop art is also immense, as the painting became a cultural phenomenon.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of the Louvre</h2>
+        <p>If you want to see the "Mona Lisa" in its true context, you can take a virtual tour of the Louvre. This will allow you not only to admire this masterpiece in high resolution but also to explore other works of art displayed at the Louvre.</p>
+        <a href="https://www.louvre.fr/en/visites-en-ligne" target="_blank">
+            <button>Start the Virtual Tour of the Louvre</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of the Mona Lisa</h2>
+            <p>The Mona Lisa, painted by Leonardo da Vinci between 1503 and 1506, is one of the most famous artworks in the world. Originally created in Florence, the painting later traveled to France, where it has been housed in the Louvre Museum since the French Revolution. The painting's mysterious smile and Leonardo's innovative techniques, such as the use of sfumato, have made it an enduring symbol of art and culture.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([48.8606, 2.3376], 5); // Initial map view centered on the Louvre with zoom level 5
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to Mona Lisa
+        var locations = [
+            {
+                name: "Florence, Italy (Creation Location)",
+                coordinates: [43.7696, 11.2558],
+                info: "Leonardo da Vinci began painting the Mona Lisa in Florence around 1503. The painting was initially created for a wealthy patron but was never delivered, staying with da Vinci until his death."
+            },
+            {
+                name: "Louvre Museum, Paris, France",
+                coordinates: [48.8606, 2.3376],
+                info: "The Mona Lisa was brought to France by King Francis I and has been on display at the Louvre Museum since the French Revolution. It is one of the museum's most visited and iconic exhibits."
+            },
+            {
+                name: "Vinci, Italy (Da Vinci's Birthplace)",
+                coordinates: [43.7708, 10.1430],
+                info: "Leonardo da Vinci was born in Vinci, Italy, in 1452. While not directly related to the painting’s location, the artist's birthplace is a significant part of the painting's history."
+            },
+            {
+                name: "Napoleon's Room, Louvre Museum",
+                coordinates: [48.8639, 2.3298],
+                info: "In the 19th century, the Mona Lisa was temporarily moved to Napoleon’s private room in the Louvre, where it was displayed as part of his art collection."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

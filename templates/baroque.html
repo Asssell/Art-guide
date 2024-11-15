@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baroque</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Baroque</h1>
+        <p>Learn about the Baroque art style and discover famous paintings.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Baroque</h2>
+<p>Baroque was a highly decorative and theatrical artistic style that flourished in Europe during the 17th and early 18th centuries. Emerging around 1600 in Italy, it was a response to the Renaissance's classical ideals and the Protestant Reformation. The Baroque period was characterized by dramatic use of light and shadow, bold colors, expressive detail, and a sense of movement in art, architecture, and music. This style was designed to evoke strong emotions, emphasize grandeur, and create an overwhelming sense of awe and magnificence.</p>
+
+<p>The term "Baroque" itself is derived from the Portuguese word "barroco," meaning "irregular pearl," which referred to the ornate and extravagant nature of the art from this period. Baroque art was used by both the Catholic Church and secular rulers to convey power, emotion, and divine authority. It was a time of significant political, religious, and social change, and Baroque artists sought to reflect the drama and complexity of their era.</p>
+
+<p>One of the hallmarks of Baroque art is its use of light and shadow, known as "chiaroscuro." Artists like Caravaggio and Rembrandt made dramatic contrasts between light and dark to create depth and draw attention to specific elements of the composition. This technique added a sense of realism to their work while also enhancing the emotional impact. Baroque artists also employed bold color palettes and complex compositions, filling the canvas with intricate details and figures that conveyed movement and emotion.</p>
+
+<p>Baroque art was not limited to painting. The style had a profound influence on architecture and sculpture. Baroque architecture is marked by sweeping curves, large-scale decorations, and intricate facades. The use of bold, expansive spaces and dramatic contrasts between light and shadow helped create an immersive experience for viewers. Notable examples of Baroque architecture include St. Peter's Basilica in Rome, designed by Gian Lorenzo Bernini, and the Palace of Versailles in France, designed by Louis Le Vau and Jules Hardouin-Mansart. These buildings used Baroque principles to create an atmosphere of grandeur and power.</p>
+
+<p>Sculpture also played a crucial role in Baroque art. Sculptors like Gian Lorenzo Bernini and Francesco Borromini infused their works with dynamic energy, making figures appear as if they were in motion. Bernini’s famous sculpture, "The Ecstasy of Saint Teresa," exemplifies the Baroque’s emphasis on emotional expression, movement, and dramatic effect. His use of space and light in sculpture created a sense of life and vitality, drawing the viewer into a visceral, emotional experience.</p>
+
+<p>The Baroque period also witnessed the development of Baroque music, which is known for its expressiveness, ornamentation, and complexity. Composers such as Johann Sebastian Bach, George Frideric Handel, and Antonio Vivaldi created some of the most iconic works of the Baroque era. The music was characterized by its use of contrast, such as contrasting loud and soft dynamics, as well as the interplay of different musical textures. The Baroque style in music emphasized emotional expression and virtuosity, often creating an overwhelming experience for the listener. The use of the basso continuo, a continuous bass line played by instruments like the cello or harpsichord, became a hallmark of Baroque music.</p>
+
+<p>Baroque art and architecture were deeply intertwined with the Counter-Reformation, the Catholic Church's response to the Protestant Reformation. The Catholic Church used Baroque art to inspire awe and devotion in the faithful, with grand, dramatic imagery designed to convey the glory of God and the Church's power. The grandeur of Baroque art was meant to reflect the magnificence of the divine, and many Baroque works featured religious themes, such as biblical scenes, saints, and the Virgin Mary.</p>
+
+<p>As the Baroque period came to a close in the mid-18th century, it gave way to the more restrained and orderly style of Neoclassicism. However, the influence of Baroque continued to be felt in various art forms, and many of its dramatic techniques and expressive qualities were absorbed into later movements.</p>
+
+<p>In summary, Baroque is an artistic style that emerged in the early 17th century and lasted into the 18th century. Characterized by dramatic use of light and shadow, emotional intensity, and grandeur, Baroque art sought to evoke awe and deep emotional responses. The style had a lasting impact on painting, sculpture, architecture, and music, and its legacy can still be seen in art and culture today.</p>
+
+    </section>
+
+    <section class="famous-artists">
+        <h2>Famous Baroque Artists</h2>
+    
+        <!-- Card: Caravaggio -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/caravaggio.jpg') }}" alt="Caravaggio">
+            <h3>Caravaggio</h3>
+            <p>An Italian painter known for his revolutionary use of light and shadow, Caravaggio’s dramatic style and realistic portrayal of human emotion influenced Baroque art deeply.</p>
+            <p><strong>Main Works:</strong> "Judith Beheading Holofernes," "The Supper at Emmaus," "The Calling of Saint Matthew."</p>
+            <p><em>Interesting Fact:</em> Caravaggio's use of chiaroscuro (strong contrasts of light and dark) was groundbreaking, and his raw, realistic depictions of biblical scenes were often controversial for their time.</p>
+        </div>
+    
+        <!-- Card: Peter Paul Rubens -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/rubens.jpg') }}" alt="Peter Paul Rubens">
+            <h3>Peter Paul Rubens</h3>
+            <p>A Flemish Baroque painter, Rubens is known for his exuberant, dynamic compositions and rich, colorful works, often depicting historical, mythological, and religious subjects.</p>
+            <p><strong>Main Works:</strong> "The Elevation of the Cross," "The Descent from the Cross," "Rape of the Daughters of Leucippus."</p>
+            <p><em>Interesting Fact:</em> Rubens' workshop became one of the largest and most successful in Europe, and he was also a diplomat and scholar in addition to his artistic achievements.</p>
+        </div>
+    
+        <!-- Card: Rembrandt van Rijn -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/rembrandt.jpg') }}" alt="Rembrandt van Rijn">
+            <h3>Rembrandt van Rijn</h3>
+            <p>A Dutch master, Rembrandt’s work is characterized by its innovative use of light and deep emotional content. He was a master of portraiture, history painting, and self-portraits.</p>
+            <p><strong>Main Works:</strong> "The Night Watch," "The Anatomy Lesson of Dr. Nicolaes Tulp," "Self-Portrait with Two Circles."</p>
+            <p><em>Interesting Fact:</em> Rembrandt's later years were marked by personal tragedy and financial difficulties, yet his later works are often considered some of the greatest in art history for their psychological depth and technical mastery.</p>
+        </div>
+    
+        <!-- Card: Diego Velázquez -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/velazquez.jpg') }}" alt="Diego Velázquez">
+            <h3>Diego Velázquez</h3>
+            <p>A Spanish Baroque painter, Velázquez is one of the most important painters of the 17th century, famous for his portraits of the Spanish royal family and his complex, naturalistic style.</p>
+            <p><strong>Main Works:</strong> "Las Meninas," "The Rokeby Venus," "The Spinners."</p>
+            <p><em>Interesting Fact:</em> Velázquez was appointed the court painter to King Philip IV of Spain, and his works are renowned for their mastery of light, perspective, and realism.</p>
+        </div>
+    
+        <!-- Card: Gian Lorenzo Bernini -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/bernini.jpg') }}" alt="Gian Lorenzo Bernini">
+            <h3>Gian Lorenzo Bernini</h3>
+            <p>Italian sculptor and architect, Bernini is often considered the leading artist of Baroque architecture and sculpture, known for his emotive and dynamic works that evoke movement.</p>
+            <p><strong>Main Works:</strong> "The Ecstasy of Saint Teresa," "Fountain of the Four Rivers," "David."</p>
+            <p><em>Interesting Fact:</em> Bernini was not only a sculptor but also a talented architect, and his work on St. Peter's Square in the Vatican is considered one of his greatest architectural achievements.</p>
+        </div>
+    
+        <!-- Card: Johannes Vermeer -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/vermeer.jpg') }}" alt="Johannes Vermeer">
+            <h3>Johannes Vermeer</h3>
+            <p>A Dutch Baroque painter, Vermeer is renowned for his exquisite handling of light and color. He is best known for his interior genre scenes that depict moments of quiet domestic life.</p>
+            <p><strong>Main Works:</strong> "Girl with a Pearl Earring," "The Milkmaid," "The Art of Painting."</p>
+            <p><em>Interesting Fact:</em> Vermeer produced only around 34 known paintings in his lifetime, making him a relatively obscure figure during his time, though his works are now celebrated for their serene beauty and technical skill.</p>
+        </div>
+    
+        <!-- Card: Artemisia Gentileschi -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/gentileschi.jpg') }}" alt="Artemisia Gentileschi">
+            <h3>Artemisia Gentileschi</h3>
+            <p>An Italian Baroque painter, Gentileschi is known for her powerful depictions of women from biblical and mythological stories, often portrayed with strength and resolve.</p>
+            <p><strong>Main Works:</strong> "Judith Slaying Holofernes," "Susanna and the Elders," "Self-Portrait as the Allegory of Painting."</p>
+            <p><em>Interesting Fact:</em> Artemisia was one of the first women to gain recognition in the male-dominated world of Baroque art, and her work was deeply influenced by her personal experiences of trauma.</p>
+        </div>
+    
+        <!-- Card: Nicolas Poussin -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/poussin.jpg') }}" alt="Nicolas Poussin">
+            <h3>Nicolas Poussin</h3>
+            <p>A French Baroque painter, Poussin is known for his classical style that blends mythology, history, and religious themes, characterized by clarity, order, and rationality.</p>
+            <p><strong>Main Works:</strong> "Et in Arcadia Ego," "The Rape of the Sabine Women," "The Death of Germanicus."</p>
+            <p><em>Interesting Fact:</em> Poussin’s work was admired for its intellectual rigor and adherence to classical principles, and he is often regarded as one of the leading proponents of the Baroque classical style.</p>
+        </div>
+    </section>
+    
+
+    <section class="timeline">
+        <h3>History of Baroque</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-1600s">
+                <h4>1600s</h4>
+                <p>The birth of Baroque, a style that began in Italy and spread across Europe.</p>
+                <div class="extra-info">
+                    <p>In the early 1600s, Baroque art emerged in Italy as a response to the Mannerist style, with artists like Caravaggio revolutionizing the use of light and shadow to evoke emotion.</p>
+                    <img src="static/images/baroque1600s.jpg" alt="Artwork from the 1600s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1700s">
+                <h4>1700s</h4>
+                <p>Baroque reaches its peak and begins to influence architecture and music, with prominent figures like Peter Paul Rubens and Gian Lorenzo Bernini.</p>
+                <div class="extra-info">
+                    <p>In the 1700s, Baroque expanded beyond painting, influencing architecture and music. The style was used to evoke grandeur and drama in churches, palaces, and operas.</p>
+                    <img src="static/images/baroque1700s.jpg" alt="Artwork from the 1700s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1800s">
+                <h4>1800s</h4>
+                <p>The decline of Baroque as new artistic movements, such as Rococo and Neoclassicism, gain popularity.</p>
+                <div class="extra-info">
+                    <p>By the 1800s, Baroque started to decline, as artists and architects turned towards the more restrained and symmetrical styles of Rococo and Neoclassicism.</p>
+                    <img src="static/images/baroque1800s.jpg" alt="Artwork from the 1800s">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>What is Baroque Art?</h2>
+            <p>Baroque art is a highly decorative and theatrical style which appeared in the early 17th century in Italy. Characterized by dramatic use of light, bold colors, and extravagant details, Baroque art aimed to evoke emotion and create a sense of awe. It was used to express the power of the church, monarchy, and aristocracy.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией о влиянии Барокко в разных странах
+        var countries = [
+            {
+                name: "Italy",
+                coordinates: [41.87194, 12.56738],
+                info: "Baroque art originated in Italy in the early 17th century, with artists like Caravaggio and Bernini, who influenced both art and architecture with their emotional and dramatic style."
+            },
+            {
+                name: "Spain",
+                coordinates: [40.4637, -3.7492],
+                info: "In Spain, Baroque art was used in the service of the Catholic church, with artists like Diego Velázquez creating masterpieces that depicted both court life and religious themes."
+            },
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "France saw the Baroque style flourish under the reign of Louis XIV, with artists like Nicolas Poussin and architecture such as the Palace of Versailles becoming key examples of the style."
+            },
+            {
+                name: "Netherlands",
+                coordinates: [52.3676, 4.9041],
+                info: "In the Netherlands, Baroque art was prominent in both painting and architecture, with artists like Rembrandt creating works that focused on realism, light, and shadows."
+            },
+            {
+                name: "Austria",
+                coordinates: [47.5162, 14.5501],
+                info: "In Austria, Baroque art was evident in churches and palaces, particularly in Vienna, with architectural works like St. Charles's Church and paintings by artists such as Johann Michael Rottmayr."
+            },
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "Germany adopted Baroque architecture and art in the 17th century, with artists like Peter Paul Rubens and Johann Bernhard Fischer von Erlach contributing to the style."
+            },
+            {
+                name: "Poland",
+                coordinates: [51.9194, 19.1451],
+                info: "In Poland, Baroque architecture became prominent, especially in churches and royal palaces, with the contributions of artists like Andrzej Schlüter."
+            },
+            {
+                name: "Portugal",
+                coordinates: [39.3999, -8.2245],
+                info: "Portugal embraced the Baroque style in both religious and civil architecture, with notable examples like the Palace of Mafra and the work of artist Vicente Nunes."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+    <script>
+    document.querySelectorAll('.timeline-event').forEach(event => {
+        event.addEventListener('click', function() {
+            const extraInfo = this.querySelector('.extra-info');
+            
+            if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                extraInfo.style.display = "block"; // Show the additional information
+            } else {
+                extraInfo.style.display = "none"; // Hide the additional information
+            }
+        });
+    });
+    </script>
+</body>
+</html>

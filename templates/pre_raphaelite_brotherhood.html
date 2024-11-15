@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Raphaelite Brotherhood</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Pre-Raphaelite Brotherhood</h1>
+        <p>Learn about the Pre-Raphaelite Brotherhood art style and discover famous paintings.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Pre-Raphaelite Brotherhood</h2>
+<p>The Pre-Raphaelite Brotherhood (PRB) was a group of English artists, poets, and critics founded in 1848 by Dante Gabriel Rossetti, William Holman Hunt, and John Everett Millais. The movement emerged as a response to the academic standards of the Royal Academy of Arts and the prevailing artistic styles of the time, particularly the academic art that was dominated by the teachings of Raphael and his followers. The PRB sought to return to the vibrant colors, intricate details, and symbolic meanings found in earlier art, particularly that of the Early Renaissance before Raphael, hence the name "Pre-Raphaelite." They wanted to break away from the stiff, formulaic nature of academic painting and sought to revive the ideals of naturalism, spirituality, and beauty in their work.</p>
+
+<p>The Pre-Raphaelites were deeply influenced by medieval and Renaissance art, particularly the works of artists like Fra Angelico, Botticelli, and the early Italian Renaissance painters, whose works they admired for their purity, symbolism, and emotional depth. This focus on earlier art periods marked a significant departure from the academic art traditions of the time, which emphasized idealized beauty and classical themes. They rejected the mechanical techniques and dull colors used in academic art and instead sought to revive the intensity and clarity of color and form that had been used by artists in the early Renaissance.</p>
+
+<p>One of the main characteristics of Pre-Raphaelite painting was an emphasis on vibrant color and intricate detail. The artists were known for their painstakingly detailed depictions of nature, including flowers, plants, and other elements from the natural world. They often employed a meticulous technique, using glazes to achieve intense color and depth, which contrasted sharply with the more muted tones and broad brushstrokes of much academic art. Their works were known for their clarity, brightness, and sense of realism, which was achieved through a combination of precise brushwork and the careful study of nature.</p>
+
+<p>In addition to their focus on color and detail, the Pre-Raphaelites were also concerned with symbolism. They often incorporated rich, symbolic meanings into their work, using literary, mythological, and religious themes to explore complex emotional and spiritual states. The themes of love, death, and redemption were frequent subjects in their paintings, as were depictions of women, who were often portrayed as idealized, ethereal figures. The women in Pre-Raphaelite paintings were frequently depicted as figures of purity, grace, and beauty, but also as symbols of danger, temptation, and desire. These women were often presented as tragic or elusive figures, embodying both the ideal and the unattainable.</p>
+
+<p>One of the most famous works of the Pre-Raphaelite Brotherhood is Millais' "Ophelia" (1852), which depicts the tragic death of Shakespeare's Ophelia from the play "Hamlet." The painting is known for its exquisite attention to detail, particularly in the rendering of the flowers and water, as well as its emotional intensity. The painting also demonstrates the group's fascination with nature and its symbolic meanings. The flowers surrounding Ophelia, for example, are meant to symbolize different aspects of her character and fate, from the forget-me-nots (symbolizing remembrance) to the poppies (symbolizing sleep or death).</p>
+
+<p>Another notable work is Rossetti's "The Awakened Conscience" (1854), which explores themes of sin, redemption, and moral conflict. The painting depicts a young woman in the act of contemplating her own moral transgression. The detailed portrayal of the woman's emotions and the symbolic use of the objects surrounding her reflect the Pre-Raphaelites' interest in psychological depth and spiritual themes.</p>
+
+<p>The Pre-Raphaelite Brotherhood was not just an artistic movement, but also a literary and social phenomenon. Many of its members were also poets, and they used their artistic work as a means of exploring their literary and philosophical ideas. Rossetti, for example, was a poet as well as a painter, and his poems often served as a source of inspiration for his paintings. In fact, many Pre-Raphaelite works were based on literary sources, including Shakespeare, Dante, and Tennyson, and they sought to elevate the visual arts by incorporating high literary themes and ideas.</p>
+
+<p>The group was initially met with criticism and ridicule by the mainstream art establishment, but over time, the Pre-Raphaelite style began to gain acceptance. The influence of the PRB was felt not only in the visual arts but also in literature, theater, and decorative arts. Many of the themes explored by the Pre-Raphaelites, including the idealization of nature, the emotional depth of human experience, and the symbolism of everyday life, would go on to influence other art movements, such as Symbolism and Art Nouveau.</p>
+
+<p>Despite their relatively short-lived existence as a formal group (the Brotherhood dissolved in 1853), the Pre-Raphaelites had a lasting impact on the history of art. Their emphasis on vibrant color, detail, and symbolism, as well as their challenge to the academic standards of their time, paved the way for later movements, including the Aesthetic Movement and the Arts and Crafts Movement. Today, the Pre-Raphaelite Brotherhood is recognized as one of the most important and influential artistic groups in 19th-century Britain, and their works continue to captivate audiences with their beauty, emotional depth, and attention to detail.</p>
+
+    </section>
+    
+    <section class="famous-artists">
+        <h2>Famous Pre-Raphaelite Artists</h2>
+    
+        <!-- Card: Dante Gabriel Rossetti -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/rossetti.jpg') }}" alt="Dante Gabriel Rossetti">
+            <h3>Dante Gabriel Rossetti</h3>
+            <p>Dante Gabriel Rossetti was a founding member of the Pre-Raphaelite Brotherhood and one of its most influential figures. His works often focus on themes of love, desire, and the supernatural, using lush, vivid color and intricate detail.</p>
+            <p><strong>Main Works:</strong> "The Awakened Conscience," "The Lady of Shalott," "Beata Beatrix."</p>
+            <p><em>Interesting Fact:</em> Rossetti's poetry and paintings are deeply intertwined, and his works often include strong symbolic elements drawn from his poetic themes.</p>
+        </div>
+    
+        <!-- Card: John Everett Millais -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/millais.jpg') }}" alt="John Everett Millais">
+            <h3>John Everett Millais</h3>
+            <p>John Everett Millais was another key figure in the Pre-Raphaelite Brotherhood, known for his meticulous attention to detail and his use of bright, vivid colors. His works often explore themes of innocence, tragedy, and the human condition.</p>
+            <p><strong>Main Works:</strong> "Ophelia," "The Return of the Dove to the Ark," "Christ in the House of His Parents."</p>
+            <p><em>Interesting Fact:</em> Millais later became an academic painter and president of the Royal Academy, but his early Pre-Raphaelite works remain his most celebrated.</p>
+        </div>
+    
+        <!-- Card: William Holman Hunt -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/hunt.jpg') }}" alt="William Holman Hunt">
+            <h3>William Holman Hunt</h3>
+            <p>William Holman Hunt was a founding member of the Pre-Raphaelite Brotherhood known for his highly detailed, vibrant works often featuring religious and symbolic themes. His works emphasize realism and the moral messages of his subjects.</p>
+            <p><strong>Main Works:</strong> "The Awakening Conscience," "The Light of the World," "The Scapegoat."</p>
+            <p><em>Interesting Fact:</em> Hunt was fascinated by the idea of capturing religious themes with great attention to historical accuracy, and his works often have an allegorical quality.</p>
+        </div>
+    
+        <!-- Card: Elizabeth Siddal -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/siddal.jpg') }}" alt="Elizabeth Siddal">
+            <h3>Elizabeth Siddal</h3>
+            <p>Elizabeth Siddal was both a muse and an artist in her own right, often depicted in the works of her Pre-Raphaelite contemporaries. She was known for her ethereal beauty and her tragic life, which is reflected in the melancholic atmosphere of her art.</p>
+            <p><strong>Main Works:</strong> "The Awakening of Spring," "The Old Violin," "The Seaweed Girl."</p>
+            <p><em>Interesting Fact:</em> Siddal's striking beauty and her role as Rossetti’s lover and muse made her one of the most iconic figures of the Pre-Raphaelite movement.</p>
+        </div>
+    
+        <!-- Card: Edward Burne-Jones -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/burne-jones.jpg') }}" alt="Edward Burne-Jones">
+            <h3>Edward Burne-Jones</h3>
+            <p>Edward Burne-Jones was influenced by the Pre-Raphaelite Brotherhood, particularly in his focus on medieval themes, mystical subjects, and his highly stylized figures. His work reflects the late Victorian interest in the idealized and the supernatural.</p>
+            <p><strong>Main Works:</strong> "The Beguiling of Merlin," "The Golden Stairs," "The Tree of Forgiveness."</p>
+            <p><em>Interesting Fact:</em> Burne-Jones was a close friend and collaborator of Rossetti, and his work had a profound influence on the Arts and Crafts movement.</p>
+        </div>
+    
+        <!-- Card: Dante Gabriel Rossetti -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/rossetti.jpg') }}" alt="William Morris">
+            <h3>William Morris</h3>
+            <p>William Morris was a key figure in the Pre-Raphaelite movement, though he is also known for his work in design and literature. His works often blend mythology, medieval themes, and an interest in nature, with an emphasis on craftsmanship.</p>
+            <p><strong>Main Works:</strong> "The Earthly Paradise," "The Wood Beyond the World," "The Ardennes."</p>
+            <p><em>Interesting Fact:</em> Morris was instrumental in the Arts and Crafts movement, and he founded the decorative arts company Morris & Co. that became famous for its intricate patterns and textiles.</p>
+        </div>
+    
+        <!-- Card: Sir Edward Burne-Jones -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/sir_burne_jones.jpg') }}" alt="Sir Edward Burne-Jones">
+            <h3>Sir Edward Burne-Jones</h3>
+            <p>Sir Edward Burne-Jones was a painter and designer known for his allegorical and symbolic works. His detailed and decorative style was part of the broader Aesthetic movement, which sought beauty above all else in art.</p>
+            <p><strong>Main Works:</strong> "The Mirror of Venus," "The Brazen Head," "The Golden Stairs."</p>
+            <p><em>Interesting Fact:</em> Burne-Jones was a major figure in the Arts and Crafts Movement and influenced many other artists and designers during his career.</p>
+        </div>
+    
+        <!-- Card: John William Waterhouse -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/waterhouse.jpg') }}" alt="John William Waterhouse">
+            <h3>John William Waterhouse</h3>
+            <p>John William Waterhouse, though not officially part of the Pre-Raphaelite Brotherhood, was heavily influenced by its style. His works often depict classical myths and legends, focusing on female beauty and tragic themes.</p>
+            <p><strong>Main Works:</strong> "The Lady of Shalott," "Hylas and the Nymphs," "Ariadne."</p>
+            <p><em>Interesting Fact:</em> Waterhouse was known for his depiction of female subjects, often presenting them as vulnerable or in moments of emotional conflict, echoing the romanticism of the Pre-Raphaelites.</p>
+        </div>
+    
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h3>History of the Pre-Raphaelite Brotherhood</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-1848">
+                <h4>1848: Formation of the Brotherhood</h4>
+                <p>In 1848, seven young artists, including Dante Gabriel Rossetti, John Everett Millais, and William Holman Hunt, founded the Pre-Raphaelite Brotherhood in opposition to the academic standards of the Royal Academy.</p>
+                <div class="extra-info">
+                    <p>The Brotherhood’s manifesto called for a return to the true principles of art, which they believed were lost after Raphael's influence. They favored meticulous attention to detail and vibrant color.</p>
+                    <img src="static/images/pre_raphaelite_1848.jpg" alt="Formation of the Pre-Raphaelite Brotherhood">
+                    <img src="static/images/pre_raphaelite_18481.jpg" alt="Formation of the Pre-Raphaelite Brotherhood">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1850s">
+                <h4>1850s: The Growth of the Movement</h4>
+                <p>Throughout the 1850s, the Brotherhood grew in influence, and its members began to gain recognition for their unique style. Many of their works became known for their emotional intensity and vivid portrayal of nature.</p>
+                <div class="extra-info">
+                    <p>Although the Brotherhood was never large, their impact on the development of Victorian art was profound, influencing later movements such as the Aesthetic Movement.</p>
+                    <img src="static/images/pre_raphaelite_1850s.jpg" alt="The Pre-Raphaelite Movement in the 1850s">
+                    <img src="static/images/pre_raphaelite_18501s.jpg" alt="The Pre-Raphaelite Movement in the 1850s">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>Reviving the Medieval Dream</h2>
+            <p>The Pre-Raphaelite Brotherhood, founded in 1848 in England, was a revolutionary group of artists that sought to return to the vibrant colors and detailed realism of the early Renaissance, before the influence of Raphael. Their works were often filled with medieval and mythological subjects, using symbolic, lush imagery. Their rejection of academic conventions led to a fresh approach in art, which became a precursor to the Symbolist and Arts and Crafts movements.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией о влиянии Братства Прерафаэлитов в разных странах
+        var countries = [
+            {
+                name: "United Kingdom",
+                coordinates: [51.5074, -0.1278],
+                info: "The birthplace of the Pre-Raphaelite Brotherhood in 1848, led by artists like Dante Gabriel Rossetti, William Holman Hunt, and John Everett Millais. They rejected the academic art traditions of their time in favor of vibrant colors, intricate detail, and themes rooted in medievalism, mythology, and religion. Their work challenged the conventional norms of Victorian society."
+            },
+            {
+                name: "Italy",
+                coordinates: [41.87194, 12.56738],
+                info: "While the Pre-Raphaelite Brotherhood was primarily based in England, its members were heavily influenced by Italian Renaissance art. The focus on vibrant colors, detailed textures, and the exploration of religious and mythological themes found resonance in Italian art, inspiring artists like Edward Burne-Jones to embrace the Italian tradition of precision and beauty."
+            },
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "In France, the influence of the Pre-Raphaelite Brotherhood was felt in the Symbolist movement, which shared similar interests in mystical and allegorical themes. Artists like Gustave Moreau were influenced by the use of rich symbolism and narrative depth in the works of the Pre-Raphaelites, blending it with French romanticism and symbolism."
+            },
+            {
+                name: "United States",
+                coordinates: [37.0902, -95.7129],
+                info: "The influence of the Pre-Raphaelite Brotherhood reached the United States through artists like Mary Cassatt and James Whistler. The detailed, romantic style and symbolic subjects resonated with American artists, especially those who were exploring new ways to depict reality and express emotional depth."
+            },
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "In Germany, the Pre-Raphaelite ideals influenced the burgeoning Symbolist movement. Artists like Franz von Stuck adopted the Pre-Raphaelite focus on detailed, mythological scenes and vivid color. Their works helped lay the groundwork for later movements like Expressionism."
+            },
+            {
+                name: "Australia",
+                coordinates: [-25.2744, 133.7751],
+                info: "While the Pre-Raphaelite Brotherhood did not have a direct influence on Australian art, its impact was felt through the works of later Australian artists, particularly in their adoption of detailed, emotional imagery. The exploration of medieval themes and the use of vibrant color palettes inspired the Australian Arts and Crafts movement in the early 20th century."
+            },
+            {
+                name: "Belgium",
+                coordinates: [50.8503, 4.3517],
+                info: "Belgium, known for its Symbolist and Art Nouveau movements, also absorbed the influence of the Pre-Raphaelite Brotherhood. Artists like Fernand Khnopff were drawn to the Pre-Raphaelite focus on beautiful, often otherworldly subjects. The movement's use of vivid colors and intricate detail was seen in Belgian art of the late 19th century."
+            },
+            {
+                name: "Russia",
+                coordinates: [55.7558, 37.6176],
+                info: "In Russia, the Pre-Raphaelite style influenced artists of the Symbolist movement, who shared similar themes of mysticism and emotion. The Russian artist Mikhail Vrubel was particularly drawn to the vivid, dreamlike qualities of the Pre-Raphaelite works, adapting their lush, symbolic imagery in his own artistic practice."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+    <!-- Скрипт для скрытия и отображения дополнительной информации -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Показываем информацию
+                } else {
+                    extraInfo.style.display = "none"; // Скрываем информацию
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

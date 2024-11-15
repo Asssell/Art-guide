@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classicism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+<body>
+    <header class="header">
+        <h1 class="fade-in">Classicism</h1>
+        <p class="fade-in">Learn about the Classicism art style and discover famous paintings.</p>
+    </header>
+    
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Classicism</h2>
+<p>Classicism is an art and cultural movement that emerged in the 17th and 18th centuries, rooted in the ideals of Ancient Greek and Roman art and philosophy. Characterized by harmony, proportion, and restraint, Classicism sought to revive the principles of order, clarity, and symmetry that were central to the classical civilizations of antiquity. This movement embraced the idea of rational beauty, prioritizing balance, proportion, and a refined sense of aesthetics over emotional expression or individuality.</p>
+
+<p>The origins of Classicism can be traced back to the Renaissance, when artists and thinkers rediscovered the ancient cultures of Greece and Rome. However, it fully blossomed during the Enlightenment, a period in European history marked by intellectual exploration, scientific advancement, and a focus on reason and order. Classicism became a dominant artistic and architectural style during the 17th and 18th centuries, particularly in France and Italy, and it had a lasting impact on the visual arts, literature, music, and architecture of Western civilization.</p>
+
+<p>In visual arts, Classicism was defined by an adherence to certain artistic conventions, such as realistic depiction of human figures, clear composition, and the use of perspective. Classical subjects, such as historical events, mythology, and portraits, were common themes. Artists like Nicolas Poussin and Jacques-Louis David are known for their contributions to the Classical style, emphasizing clarity, calmness, and noble subjects. Their works reflected the ideals of virtue, reason, and morality, and often depicted figures in a calm, composed manner, with restrained emotions and a focus on moral lessons.</p>
+
+<p>One of the hallmarks of Classicism in art is the emphasis on balanced proportions, which were thought to reflect the natural order of the universe. Artists sought to create perfect compositions that mirrored the harmony of nature. The use of light and shadow, also known as chiaroscuro, was employed to enhance the three-dimensionality of figures and create a sense of depth, while maintaining a sense of order and clarity in the overall design. The idealized forms of the human body were often represented with mathematical precision, influenced by the study of classical sculpture and anatomy.</p>
+
+
+<h3 class="fade-in">Famous Paintings in Classicism</h3>
+        <div class="artworks">
+            <img class="fade-in" src="{{ url_for('static', filename='images/classicism1.jpg') }}" alt="Classicism Artwork 1">
+            <img class="fade-in" src="{{ url_for('static', filename='images/classicism2.jpg') }}" alt="Classicism Artwork 2">
+            <!-- Add more images here -->
+        </div>
+    </section>
+    
+    <section class="famous-artists">
+        <h2>Famous Classicism Artists</h2>
+    
+        <!-- Card: Jacques-Louis David -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/david.jpg') }}" alt="Jacques-Louis David">
+            <h3>Jacques-Louis David</h3>
+            <p>A French artist and prominent representative of Classicism, known for his historical paintings that embody the ideals of antiquity.</p>
+            <p><strong>Main Works:</strong> "The Oath of the Horatii," "The Death of Socrates," "The Death of Marat."</p>
+            <p><em>Interesting Fact:</em> David was Napoleon’s court painter and actively participated in the political life of France, which influenced his work.</p>
+        </div>
+    
+        <!-- Card: Nicolas Poussin -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/poussin.jpg') }}" alt="Nicolas Poussin">
+            <h3>Nicolas Poussin</h3>
+            <p>A French painter who created idealized, harmonious works inspired by antiquity and mythology.</p>
+            <p><strong>Main Works:</strong> "The Death of Germanicus," "Dance to the Music of Time," "Landscape with Polyphemus."</p>
+            <p><em>Interesting Fact:</em> Poussin is considered the founder of French Classicism, with works marked by strict composition and clarity.</p>
+        </div>
+    
+        <!-- Card: Anton Raphael Mengs -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/mengs.jpg') }}" alt="Anton Raphael Mengs">
+            <h3>Anton Raphael Mengs</h3>
+            <p>A German artist who worked in Spain and Italy, known for his portraits and historical paintings in the Classicism style.</p>
+            <p><strong>Main Works:</strong> "Parnassus," "Portrait of Charles III," "Perseus and Andromeda."</p>
+            <p><em>Interesting Fact:</em> Mengs was a friend and colleague of Johann Winckelmann, who laid the foundations for Classicist theory.</p>
+        </div>
+    
+        <!-- Card: Angelica Kauffman -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/kauffman.jpg') }}" alt="Angelica Kauffman">
+            <h3>Angelica Kauffman</h3>
+            <p>One of the first women artists to gain international recognition, she contributed significantly to the development of Neoclassicism in England and Italy.</p>
+            <p><strong>Main Works:</strong> "Zephyr and Flora," "Bacchus and Ariadne," "Self-Portrait as the Allegory of Painting."</p>
+            <p><em>Interesting Fact:</em> Kauffman was a founding member of the Royal Academy of Arts in London, specializing in allegorical portraits.</p>
+        </div>
+    
+        <!-- Card: Jean-Auguste-Dominique Ingres -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/ingres.jpg') }}" alt="Jean-Auguste-Dominique Ingres">
+            <h3>Jean-Auguste-Dominique Ingres</h3>
+            <p>A French painter and master of portraiture, Ingres is known for his refined technique, attention to anatomical detail, and idealized beauty.</p>
+            <p><strong>Main Works:</strong> "The Grand Odalisque," "The Apotheosis of Homer," "Portrait of Madame Moitessier."</p>
+            <p><em>Interesting Fact:</em> Ingres saw himself as a successor to the ideals of antiquity and often criticized Romanticism, preferring Classical rigor.</p>
+        </div>
+        <!-- Card: Elisabeth Vigée Le Brun -->
+    <div class="artist-card">
+        <img src="{{ url_for('static', filename='images/vigee_lebrun.jpg') }}" alt="Élisabeth Vigée Le Brun">
+        <h3>Élisabeth Vigée Le Brun</h3>
+        <p>A prominent French portrait artist known for her refined, elegant style, capturing the beauty and sophistication of the French nobility.</p>
+        <p><strong>Main Works:</strong> "Portrait of Marie Antoinette," "Madame Grand," "Self-Portrait with Her Daughter."</p>
+        <p><em>Interesting Fact:</em> Vigée Le Brun was the official portraitist of Marie Antoinette, and her work was highly esteemed by the royal court.</p>
+    </div>
+
+    <!-- Card: Antonio Canova -->
+    <div class="artist-card">
+        <img src="{{ url_for('static', filename='images/canova.jpg') }}" alt="Antonio Canova">
+        <h3>Antonio Canova</h3>
+        <p>An Italian sculptor, Canova is known for his marble sculptures that capture the idealized beauty and harmony of Classical art.</p>
+        <p><strong>Main Works:</strong> "Psyche Revived by Cupid's Kiss," "The Three Graces," "Venus Italica."</p>
+        <p><em>Interesting Fact:</em> Canova was often called the "modern Phidias" for his skill in creating life-like marble statues inspired by ancient Greek ideals.</p>
+    </div>
+
+    <!-- Card: Jean-Baptiste Greuze -->
+    <div class="artist-card">
+        <img src="{{ url_for('static', filename='images/greuze.jpg') }}" alt="Jean-Baptiste Greuze">
+        <h3>Jean-Baptiste Greuze</h3>
+        <p>A French painter known for his genre scenes and moralistic themes that often reflect Classical ideals of virtue and emotion.</p>
+        <p><strong>Main Works:</strong> "The Village Bride," "The Broken Pitcher," "Septimius Severus and Caracalla."</p>
+        <p><em>Interesting Fact:</em> Greuze was praised for his emotional depth and attention to detail, often depicting family scenes that embodied Classical virtues.</p>
+    </div>
+
+    
+    </section>
+    
+    <section class="timeline">
+        <h3>History of Classicism</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-17">
+                <h4>17th Century</h4>
+                <p>The beginning of Classicism, inspired by antiquity.</p>
+                <div class="extra-info">
+                    <p>Additional information about the 17th century. Classicism during this period was heavily inspired by antiquity, the art of Ancient Rome and Greece.</p>
+                    <img src="static/images/classicism17.jpg" alt="Artwork from the 17th century">
+                    <!-- Add more content like text, images, etc. -->
+                </div>
+            </div>
+            <div class="timeline-event" id="event-18">
+                <h4>18th Century</h4>
+                <p>The golden age of Classicism, the popularization of the style in Europe.</p>
+                <div class="extra-info">
+                    <p>Additional information about the 18th century. This period became the golden age of Classicism, when the style became widely spread across Europe.</p>
+                    <img src="static/images/classicism18.jpg" alt="Artwork from the 18th century">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-19">
+                <h4>19th Century</h4>
+                <p>Classicism continues to develop but begins to give way to Romanticism.</p>
+                <div class="extra-info">
+                    <p>Additional information about the 19th century. Classicism gradually gives way to Romanticism, but its influence is still felt in architecture.</p>
+                    <img src="static/images/classicism19.jpg" alt="Artwork from the 19th century">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-20">
+                <h4>20th Century</h4>
+                <p>The influence of Classicism remains in architecture and art, but the style undergoes significant changes.</p>
+                <div class="extra-info">
+                    <p>Additional information about the 20th century. The influence of Classicism is still evident, but styles change with the emergence of new trends.</p>
+                    <img src="static/images/classicism20.jpg" alt="Artwork from the 20th century">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>Fun Fact</h2>
+            <p>One of the most famous works that exemplify Classicism is The Declaration of the Rights of Man and Citizen (1789), which was written during the French Revolution and heavily influenced by the classical ideals of justice, democracy, and individual rights derived from ancient philosophy.</p>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+    // Инициализация карты
+    var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+    // Добавление слоя с картой (стиль карт OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Интерактивные маркеры с информацией о классицизме в разных странах
+    var countries = [
+        {
+            name: "France",
+            coordinates: [46.603354, 1.888334],
+            info: "Classicism originated in France, especially in the art of the XVIII century, under the influence of ancient Greece and Rome."
+        },
+        {
+            name: "Italy",
+            coordinates: [41.87194, 12.56738],
+            info: "Italy was the center of the spread of classicism, with artists such as Jacques-Louis David, who was inspired by antiquity."
+        },
+        {
+            name: "Germany",
+            coordinates: [51.1657, 10.4515],
+            info: "In Germany, classicism influenced architecture and painting, especially the work of architect Karl Schinkel."
+        },
+        {
+            name: "Great Britain",
+            coordinates: [55.3781, -3.4360],
+            info: "Great Britain adopted classicism in architecture, where it became the main style in public and private buildings."
+        }
+    ];
+
+    // Добавление маркеров на карту
+    countries.forEach(function(country) {
+        L.marker(country.coordinates)
+            .addTo(map)
+            .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+            .openPopup();
+    });
+    </script>
+
+    
+    <!-- Добавляем скрипт -->
+    <script>
+    document.querySelectorAll('.timeline-event').forEach(event => {
+        event.addEventListener('click', function() {
+            const extraInfo = this.querySelector('.extra-info');
+            
+            if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                extraInfo.style.display = "block"; // Показываем информацию
+            } else {
+                extraInfo.style.display = "none"; // Скрываем информацию
+            }
+        });
+    });
+    </script>
+    
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+</body>
+
+</html>

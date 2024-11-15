@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rembrandt van Rijn</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Rembrandt van Rijn</h1>
+        <p>Explore the depth of Rembrandt’s self-portraits and mastery of light in painting.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фото художника слева -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/rembrandt.jpg') }}" alt="Rembrandt van Rijn">
+        </div>
+
+        <!-- Информация о художнике справа -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Rembrandt van Rijn (1606–1669) was a Dutch Golden Age painter known for his exceptional use of light and shadow, and his profound self-portraits. His works often reflect a deep emotional and psychological exploration of his subjects, making him one of the most influential artists in European art history.</p>
+
+            <h3>Famous Works</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/night_watch.jpg') }}" alt="The Night Watch">
+                <img src="{{ url_for('static', filename='images/self_portrait.jpg') }}" alt="Self-Portrait">
+            </div>
+        </div>
+    </section>
+    <section class="famous-artists"> 
+        <h2 class="section-title">Rembrandt van Rijn - Famous Paintings</h2>
+        
+        <!-- Card: The Night Watch -->
+        <div class="painting-card">
+            <h3>The Night Watch</h3>
+            <img src="{{ url_for('static', filename='images/rembrandt11.jpg') }}" alt="The Night Watch">
+        </div>
+        
+        <!-- Card: The Anatomy Lesson of Dr. Nicolaes Tulp -->
+        <div class="painting-card">
+            <h3>The Anatomy Lesson of Dr. Nicolaes Tulp</h3>
+            <img src="{{ url_for('static', filename='images/rembrandt12.jpg') }}" alt="The Anatomy Lesson of Dr. Nicolaes Tulp">
+        </div>
+        
+        <!-- Card: The Jewish Bride -->
+        <div class="painting-card">
+            <h3>The Jewish Bride</h3>
+            <img src="{{ url_for('static', filename='images/rembrandt13.jpg') }}" alt="The Jewish Bride">
+        </div>
+        
+        <!-- Card: Self-Portrait with Two Circles -->
+        <div class="painting-card">
+            <h3>Self-Portrait with Two Circles</h3>
+            <img src="{{ url_for('static', filename='images/rembrandt14.jpg') }}" alt="Self-Portrait with Two Circles">
+        </div>
+        
+        <!-- Card: The Return of the Prodigal Son -->
+        <div class="painting-card">
+            <h3>The Return of the Prodigal Son</h3>
+            <img src="{{ url_for('static', filename='images/rembrandt15.jpg') }}" alt="The Return of the Prodigal Son">
+        </div>
+        
+        <!-- Card: Bathsheba with King David's Letter -->
+        <div class="painting-card">
+            <h3>Bathsheba with King David's Letter</h3>
+            <img src="{{ url_for('static', filename='images/rembrandt16.jpg') }}" alt="Bathsheba with King David's Letter">
+        </div>
+        
+        <!-- Card: The Blinding of Samson -->
+        <div class="painting-card">
+            <h3>The Blinding of Samson</h3>
+            <img src="{{ url_for('static', filename='images/rembrandt17.jpg') }}" alt="The Blinding of Samson">
+        </div>
+        
+        <!-- Card: The Storm on the Sea of Galilee -->
+        <div class="painting-card">
+            <h3>The Storm on the Sea of Galilee</h3>
+            <img src="{{ url_for('static', filename='images/rembrandt18.jpg') }}" alt="The Storm on the Sea of Galilee">
+        </div>
+    
+    </section>
+    
+        <h1>Rembrandt van Rijn's Locations</h1>
+        <p>Explore the places related to Rembrandt's life and work.</p>
+    
+
+    <!-- Main container for map and side panel -->
+    <div class="container" style="display: flex; align-items: stretch;">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Side panel to show information -->
+        <div id="side-panel">
+            <h3 id="place-title">Click a location on the map</h3>
+            <p id="place-description">Select a point on the map to see more details.</p>
+            <img id="place-image" src="" alt="Artwork image" style="width: 100%; max-height: 200px; object-fit: cover;" />
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([52.374, 4.897], 7); // Centered on the Netherlands
+
+        // Add a tile layer (background map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations related to Rembrandt with full information
+        var locations = [
+            {
+                name: "Leiden (Birthplace)",
+                lat: 52.1583,
+                lon: 4.4981,
+                description: "<b>Leiden, Netherlands</b><br>Rembrandt was born here in 1606.",
+                full_description: "Rembrandt was born in Leiden, a city in the Netherlands, in 1606. He was the ninth child in a family of ten. This is where he began his education in art, and his early works were influenced by the city's artistic environment.",
+                image: "{{ url_for('static', filename='images/rembrandt1.jpg') }}"
+            },
+            {
+                name: "Amsterdam (Major Works and Fame)",
+                lat: 52.3676,
+                lon: 4.9041,
+                description: "<b>Amsterdam, Netherlands</b><br>Rembrandt spent most of his career here, creating masterpieces like 'The Night Watch'.",
+                full_description: "In Amsterdam, Rembrandt achieved great success, producing many of his most famous works, such as 'The Night Watch' and 'The Jewish Bride'. The city was a thriving hub of art and commerce during the 17th century, and Rembrandt became a prominent figure in its artistic community.",
+                image: "{{ url_for('static', filename='images/rembrandt2.jpg') }}"
+            },
+            {
+                name: "Rembrandt House Museum (Final Years)",
+                lat: 52.3731,
+                lon: 4.8956,
+                description: "<b>Rembrandt House, Amsterdam</b><br>Where Rembrandt lived and worked from 1639 until his financial downfall.",
+                full_description: "The Rembrandt House Museum, located in the heart of Amsterdam, is where the artist spent his last years. Rembrandt purchased this house in 1639, where he created many of his most important works. Despite his fame, he faced financial difficulties later in life and eventually went bankrupt. The museum offers a glimpse into his life and creative process.",
+                image: "{{ url_for('static', filename='images/rembrandt3.jpg') }}"
+            }
+        ];
+
+        // Add markers and popup events
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+
+            // Add a click event for each marker to update the side panel
+            marker.on('click', function() {
+                // Update the content in the side panel
+                document.getElementById('place-title').innerHTML = location.name;
+                document.getElementById('place-description').innerHTML = location.full_description;
+                document.getElementById('place-image').src = location.image;
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

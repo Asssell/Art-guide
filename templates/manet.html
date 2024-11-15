@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Édouard Manet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Édouard Manet</h1>
+        <p>Delve into the provocative and modern works of Édouard Manet, a pioneer of Impressionism.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фото художника слева -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/manet.jpg') }}" alt="Édouard Manet">
+        </div>
+
+        <!-- Информация о художнике справа -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Édouard Manet (1832–1883) was a French modernist artist, known for works like <em>Olympia</em> and <em>Le Déjeuner sur l'herbe</em>, challenging traditional artistic norms. His bold style and revolutionary approach were key to the development of Impressionism, even though he never fully embraced the movement.</p>
+
+            <h3>Famous Works</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/olympia.jpg') }}" alt="Olympia">
+                <img src="{{ url_for('static', filename='images/dejeuner_sur_lherbe.jpg') }}" alt="Le Déjeuner sur l'herbe">
+            </div>
+        </div>
+    </section>
+    <section class="famous-artists"> 
+        <h2 class="section-title">Édouard Manet - Famous Paintings</h2>
+        
+        <!-- Card: Olympia -->
+        <div class="painting-card">
+            <h3>Olympia</h3>
+            <img src="{{ url_for('static', filename='images/manet11.jpg') }}" alt="Olympia">
+        </div>
+        
+        <!-- Card: Le Déjeuner sur l'herbe -->
+        <div class="painting-card">
+            <h3>Le Déjeuner sur l'herbe</h3>
+            <img src="{{ url_for('static', filename='images/manet12.jpg') }}" alt="Le Déjeuner sur l'herbe">
+        </div>
+        
+        <!-- Card: A Bar at the Folies-Bergère -->
+        <div class="painting-card">
+            <h3>A Bar at the Folies-Bergère</h3>
+            <img src="{{ url_for('static', filename='images/manet13.jpg') }}" alt="A Bar at the Folies-Bergère">
+        </div>
+        
+        <!-- Card: The Fifer -->
+        <div class="painting-card">
+            <h3>The Fifer</h3>
+            <img src="{{ url_for('static', filename='images/manet14.jpg') }}" alt="The Fifer">
+        </div>
+        
+        <!-- Card: The Railway -->
+        <div class="painting-card">
+            <h3>The Railway</h3>
+            <img src="{{ url_for('static', filename='images/manet15.jpg') }}" alt="The Railway">
+        </div>
+        
+        <!-- Card: The Spanish Singer -->
+        <div class="painting-card">
+            <h3>The Spanish Singer</h3>
+            <img src="{{ url_for('static', filename='images/manet16.jpg') }}" alt="The Spanish Singer">
+        </div>
+        
+        <!-- Card: In the Conservatory -->
+        <div class="painting-card">
+            <h3>In the Conservatory</h3>
+            <img src="{{ url_for('static', filename='images/manet17.jpg') }}" alt="In the Conservatory">
+        </div>
+        
+        <!-- Card: Portrait of Berthe Morisot -->
+        <div class="painting-card">
+            <h3>Portrait of Berthe Morisot</h3>
+            <img src="{{ url_for('static', filename='images/manet18.jpg') }}" alt="Portrait of Berthe Morisot">
+        </div>
+    
+    </section>
+    
+        <h1>Édouard Manet's Locations</h1>
+        <p>Explore the places related to Édouard Manet's life and work.</p>
+    
+
+    <!-- Main container for map and side panel -->
+    <div class="container" style="display: flex; align-items: stretch;">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Side panel to show information -->
+        <div id="side-panel">
+            <h3 id="place-title">Click a location on the map</h3>
+            <p id="place-description">Select a point on the map to see more details.</p>
+            <img id="place-image" src="" alt="Artwork image" style="width: 100%; max-height: 200px; object-fit: cover;" />
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([48.8566, 2.3522], 6); // Centered on Paris, France
+
+        // Add a tile layer (background map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations related to Édouard Manet with full information
+        var locations = [
+            {
+                name: "Paris (Birthplace and Career)",
+                lat: 48.8566,
+                lon: 2.3522,
+                description: "<b>Paris, France</b><br>Birthplace and most of his artistic career.",
+                full_description: "Édouard Manet was born and spent most of his life in Paris. The city was the backdrop for his major works, such as 'Olympia' and 'Le Déjeuner sur l'herbe'. His bold, innovative style challenged traditional conventions and made him one of the central figures in the transition from Realism to Impressionism.",
+                image: "{{ url_for('static', filename='images/manet1.jpg') }}"
+            },
+            {
+                name: "Sainte-Adresse (The Seaside Escape)",
+                lat: 49.4930,
+                lon: 0.9860,
+                description: "<b>Sainte-Adresse, France</b><br>A coastal town where Manet sought inspiration.",
+                full_description: "Manet visited Sainte-Adresse, a coastal village near Le Havre, where he found inspiration for works like 'The Beach at Sainte-Adresse'. This location was significant for Manet's later seascape works and his exploration of light and color.",
+                image: "{{ url_for('static', filename='images/manet2.jpg') }}"
+            },
+            {
+                name: "Barbizon (Influence of Realism)",
+                lat: 48.4134,
+                lon: 2.6990,
+                description: "<b>Barbizon, France</b><br>Where the Realist movement influenced Manet.",
+                full_description: "The village of Barbizon, known for its association with the Realist painters, had a strong influence on Manet's work. Though not an official member of the Barbizon school, Manet was drawn to its naturalistic approach to painting, which contrasted with the academic styles of the time.",
+                image: "{{ url_for('static', filename='images/manet3.jpg') }}"
+            },
+            {
+                name: "Rueil-Malmaison (Final Years)",
+                lat: 48.8650,
+                lon: 2.1889,
+                description: "<b>Rueil-Malmaison, France</b><br>Where Manet spent his final years.",
+                full_description: "Manet spent his last years in Rueil-Malmaison, a suburb of Paris, where he continued to paint despite his declining health. His later works, such as 'A Bar at the Folies-Bergère', reflect his mastery of perspective and modern themes.",
+                image: "{{ url_for('static', filename='images/manet4.jpg') }}"
+            }
+        ];
+
+        // Add markers and popup events
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+
+            // Add a click event for each marker to update the side panel
+            marker.on('click', function() {
+                // Update the content in the side panel
+                document.getElementById('place-title').innerHTML = location.name;
+                document.getElementById('place-description').innerHTML = location.full_description;
+                document.getElementById('place-image').src = location.image;
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

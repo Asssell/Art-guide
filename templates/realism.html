@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Realism</h1>
+        <p>Learn about the Realism art style and discover famous paintings.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Realism</h2>
+<p>Realism was an artistic movement that emerged in France in the mid-19th century as a reaction against the dramatic emotionalism and idealization of earlier artistic styles, such as Romanticism and Neoclassicism. Realist artists sought to portray the world and human experience as they truly were, without exaggeration or romanticizing. The movement emphasized the depiction of ordinary life, focusing on the everyday experiences of people, particularly those from lower and working-class backgrounds, and it sought to present them in a truthful, objective manner, without embellishment or sentimentality.</p>
+
+<p>The Realist movement grew out of a growing dissatisfaction with the idealized and often exaggerated subjects of academic art, which was dominated by mythological, historical, and religious themes. Realism aimed to capture the world as it actually existed, dealing with social issues, poverty, labor, and the struggles of the working class. Realist artists rejected the fantastical and supernatural elements that characterized Romanticism and instead focused on the immediate, observable world, emphasizing the hardships of life and the realities of human existence.</p>
+
+<p>One of the most significant figures in the Realist movement was the French painter Gustave Courbet, whose works often depicted peasants, laborers, and scenes of everyday life with uncompromising honesty. His painting "The Stone Breakers" (1849) is one of the most iconic examples of Realism, showing two laborers engaged in the physically demanding task of breaking stones for road construction. The painting rejected the idealized view of rural life that was common in earlier art, instead focusing on the hard, monotonous labor of ordinary people.</p>
+
+<p>Realist artists sought to portray their subjects with the same attention to detail and precision that would be used in scientific or photographic documentation. They were influenced by the rise of photography, which was becoming popular during this period, and many Realist painters sought to capture the world with the same level of accuracy and objectivity. However, unlike photography, which could be cold and lifeless, Realist painters infused their works with a sense of empathy and social consciousness, bringing attention to the human condition through their depictions of labor, poverty, and social inequality.</p>
+
+<p>In literature, Realism also rejected the romanticized, exaggerated representations of life found in earlier works. Writers like Honoré de Balzac, Gustave Flaubert, and Émile Zola focused on detailed, truthful portrayals of society, examining the lives of ordinary people and the impact of social forces on their behavior. Flaubert’s novel "Madame Bovary" (1857), for example, critiques the limitations of provincial life and the destructive consequences of societal expectations. Zola, in his naturalistic works, sought to examine the darker side of human existence, exploring the effects of poverty, heredity, and environment on the individual.</p>
+
+<p>One of the key tenets of Realism was the emphasis on social issues. Realist art and literature often dealt with issues like poverty, class disparity, labor, and the effects of industrialization. Artists and writers sought to raise awareness about these social problems and bring attention to the lives of those who were often overlooked by traditional art and literature. The Realist movement was deeply connected to the rise of socialism and political reform, as many artists and writers believed that the depiction of social injustice could help bring about change.</p>
+
+<p>Realism also rejected the idealized beauty that was central to Romanticism and Neoclassicism. In Realist art, there was no attempt to beautify or romanticize the subjects. Instead, the artists sought to depict people and scenes as they truly were, including their flaws and imperfections. This approach was revolutionary at the time, as it challenged conventional notions of beauty and artistry and sought to make art more relatable and accessible to the general public.</p>
+
+<p>Despite the significant impact of Realism, the movement eventually gave way to the Symbolism and Impressionism in the latter part of the 19th century, as artists began to experiment with new techniques and more subjective representations of reality. However, Realism had a lasting influence on subsequent art movements, and its focus on the everyday and the truthful representation of life continued to shape the direction of modern art.</p>
+
+<p>In conclusion, Realism was an important movement that sought to present life as it truly was, focusing on ordinary people and the harsh realities of existence. Through the use of detailed, unflinching portrayals of everyday life, Realist artists and writers aimed to bring attention to social issues, challenge traditional notions of beauty, and present a more honest, objective view of the world. Its influence can still be seen in contemporary art, literature, and film, where the focus on the everyday and the real remains a powerful tool for social commentary and expression.</p>
+
+    </section>
+    
+    <section class="famous-artists">
+        <h2>Famous Realist Artists</h2>
+    
+        <!-- Card: Gustave Courbet -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/courbet.jpg') }}" alt="Gustave Courbet">
+            <h3>Gustave Courbet</h3>
+            <p>Gustave Courbet was a leading figure in the Realist movement, known for his bold and unflinching depictions of contemporary life. His works rejected Romanticism's idealized subjects, instead focusing on the realities of everyday life.</p>
+            <p><strong>Main Works:</strong> "The Stone Breakers," "A Burial at Ornans," "The Origin of the World."</p>
+            <p><em>Interesting Fact:</em> Courbet's work often challenged the conventions of academic painting and was considered controversial, especially his depiction of nudity in "The Origin of the World."</p>
+        </div>
+    
+        <!-- Card: Jean-François Millet -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/millet.jpg') }}" alt="Jean-François Millet">
+            <h3>Jean-François Millet</h3>
+            <p>Jean-François Millet was a French painter and one of the most prominent figures of the Barbizon School. His works often focus on the lives of peasants and laborers, depicting them with dignity and compassion.</p>
+            <p><strong>Main Works:</strong> "The Gleaners," "The Angelus," "The Sower."</p>
+            <p><em>Interesting Fact:</em> Millet’s depictions of rural life were groundbreaking for their focus on the working class, a theme that had not been explored in such detail before.</p>
+        </div>
+    
+        <!-- Card: Honoré Daumier -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/daumier.jpg') }}" alt="Honoré Daumier">
+            <h3>Honoré Daumier</h3>
+            <p>Honoré Daumier was a French printmaker, caricaturist, and painter known for his political cartoons and satirical works. His works often reflect the social issues and injustices of his time, focusing on the lives of the poor and working-class citizens.</p>
+            <p><strong>Main Works:</strong> "The Third-Class Carriage," "The Stone Breakers," "Don Quixote."</p>
+            <p><em>Interesting Fact:</em> Daumier’s ability to combine humor with social commentary made his caricatures highly influential, especially in the realm of political art.</p>
+        </div>
+    
+        <!-- Card: Édouard Manet -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/manet.jpg') }}" alt="Édouard Manet">
+            <h3>Édouard Manet</h3>
+            <p>Édouard Manet was a pivotal figure in the transition from Realism to Impressionism. Though his work focused on the depiction of contemporary life, he was often seen as a controversial figure for his rejection of traditional artistic conventions.</p>
+            <p><strong>Main Works:</strong> "Olympia," "Luncheon on the Grass," "The Fifer."</p>
+            <p><em>Interesting Fact:</em> Manet’s "Olympia" scandalized the public for its bold portrayal of a nude woman, challenging conventions of female representation in art.</p>
+        </div>
+    
+        <!-- Card: Rosa Bonheur -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/bonheur.jpg') }}" alt="Rosa Bonheur">
+            <h3>Rosa Bonheur</h3>
+            <p>Rosa Bonheur was a French artist best known for her realistic paintings of animals. Her works were celebrated for their technical skill and for capturing the personality and spirit of animals with great precision.</p>
+            <p><strong>Main Works:</strong> "The Horse Fair," "The Lamb," "Plowing in the Nivernais."</p>
+            <p><em>Interesting Fact:</em> Bonheur was one of the few women artists of her time to achieve widespread recognition, and she was awarded a Legion of Honour for her contributions to art.</p>
+        </div>
+    
+        <!-- Card: Thomas Eakins -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/eakins.jpg') }}" alt="Thomas Eakins">
+            <h3>Thomas Eakins</h3>
+            <p>Thomas Eakins was an American realist painter, known for his precision and technical mastery. His works often explore themes of anatomy, the human body, and the complexities of life in modern America.</p>
+            <p><strong>Main Works:</strong> "The Gross Clinic," "The Swimming Hole," "The Agnew Clinic."</p>
+            <p><em>Interesting Fact:</em> Eakins was also a pioneering teacher at the Pennsylvania Academy of the Fine Arts and was known for his commitment to anatomical accuracy in his artwork.</p>
+        </div>
+    
+        <!-- Card: Winslow Homer -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/homer.jpg') }}" alt="Winslow Homer">
+            <h3>Winslow Homer</h3>
+            <p>Winslow Homer was an American painter best known for his realistic depictions of the American landscape and the lives of everyday people. He was particularly focused on scenes of nature and the working class.</p>
+            <p><strong>Main Works:</strong> "The Veteran in a New Field," "Breezing Up (A Fair Wind)," "The Gulf Stream."</p>
+            <p><em>Interesting Fact:</em> Homer’s works are renowned for their deep connection to American identity, especially in his portrayal of rural and coastal life in the 19th century.</p>
+        </div>
+    
+        <!-- Card: Jules Breton -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/breton.jpg') }}" alt="Jules Breton">
+            <h3>Jules Breton</h3>
+            <p>Jules Breton was a French realist painter who focused on rural life, particularly the lives of peasants. His work is known for its focus on the beauty of nature and the human connection to the land.</p>
+            <p><strong>Main Works:</strong> "The Return of the Harvest," "The Song of the Lark," "The End of the Day."</p>
+            <p><em>Interesting Fact:</em> Breton’s works emphasize the dignity of labor and the beauty of the French countryside, celebrating the ordinary life of the rural working class.</p>
+        </div>
+    
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h3>History of Realism</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-1850s">
+                <h4>1850s: Emergence of Realism</h4>
+                <p>The Realism movement began as a reaction against the excesses of Romanticism. Artists like Gustave Courbet sought to depict ordinary people and the real world with accuracy and detail, challenging the idealized representations of the time.</p>
+                <div class="extra-info">
+                    <p>Courbet's works, such as "The Stone Breakers" (1849), exemplified the shift to realism, showing everyday laborers in a raw and unflattering light.</p>
+                    <img src="static/images/realism_1850s.jpg" alt="The Stone Breakers by Courbet">
+                    <img src="static/images/realism_18501s.jpg" alt="The Stone Breakers by Courbet">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1860s">
+                <h4>1860s: Expansion of Realism</h4>
+                <p>Throughout the 1860s, the Realism movement spread across Europe, influencing artists to depict more mundane subjects like workers, peasants, and the realities of rural life.</p>
+                <div class="extra-info">
+                    <p>Other key figures such as Jean-François Millet and Honoré Daumier also contributed to the movement, painting scenes of labor and social issues with striking honesty.</p>
+                    <img src="static/images/realism_1860s.jpg" alt="The Gleaners by Millet">
+                    <img src="static/images/realism_18601s.jpg" alt="The Gleaners by Millet">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>Realism: Depicting the Everyday Life</h2>
+            <p>Realism, emerging in France during the mid-19th century, was a response to the dramatic and emotional excesses of Romanticism. Realist artists focused on depicting ordinary people, everyday scenes, and the realities of life, often addressing social issues and the hardships of the working class. It was a significant shift away from historical and mythical subjects towards subjects grounded in the real world. Artists like Gustave Courbet and Jean-François Millet were at the forefront of this movement, challenging traditional notions of beauty and focusing on raw, unidealized depictions of life.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией о влиянии Реализма в разных странах
+        var countries = [
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "France was the birthplace of Realism in the mid-19th century. Artists like Gustave Courbet and Jean-François Millet led the charge with paintings that depicted the struggles of everyday life, focusing on the working class and rural life, breaking away from the romanticized and idealized depictions of the past."
+            },
+            {
+                name: "United Kingdom",
+                coordinates: [55.3781, -3.4360],
+                info: "In the UK, Realism influenced artists such as Ford Madox Brown, who depicted the daily lives of working people and social issues. The Pre-Raphaelite Brotherhood, with its focus on detailed realism, also contributed to the spread of the movement across Britain."
+            },
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "In Germany, Realism influenced artists like Adolph Menzel, who focused on everyday life in his works. Menzel's depictions of industrial workers and urban life represented a shift towards portraying contemporary subjects in a way that had not been done before in German art."
+            },
+            {
+                name: "Italy",
+                coordinates: [41.87194, 12.56738],
+                info: "Italian artists like Giovanni Fattori were influenced by Realism, incorporating its principles into their depiction of rural life and natural landscapes. Although Italy was home to many Romantic and academic traditions, Realism found its place in the works of artists seeking to depict the honest, unembellished lives of common people."
+            },
+            {
+                name: "United States",
+                coordinates: [37.0902, -95.7129],
+                info: "In the United States, Realism gained popularity in the 19th century, with artists like Thomas Eakins and Winslow Homer portraying scenes of everyday American life, including rural labor and working-class struggles. Realist art in America reflected the social realities of post-Civil War society."
+            },
+            {
+                name: "Spain",
+                coordinates: [40.4637, -3.7492],
+                info: "Spanish artists like Francisco de Goya and later José Royo influenced Realism through their unflinching depictions of human suffering and social criticism. Goya's later works, particularly those that critiqued war and violence, became an inspiration for later Realist painters."
+            },
+            {
+                name: "Russia",
+                coordinates: [55.7558, 37.6176],
+                info: "In Russia, Realism was embraced by artists like Ilya Repin and the Peredvizhniki group, who depicted the harsh realities of Russian life, focusing on social issues, peasant life, and political unrest. The movement was a significant departure from the idealized portraiture of the Russian nobility."
+            },
+            {
+                name: "Mexico",
+                coordinates: [23.6345, -102.5528],
+                info: "In Mexico, Realism influenced artists like Diego Rivera and José Clemente Orozco, who used the style to address social issues, particularly the plight of the working class and indigenous people. Their murals depicted the struggles of everyday life, as well as Mexico's social and political changes."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+    <!-- Скрипт для скрытия и отображения дополнительной информации -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Показываем информацию
+                } else {
+                    extraInfo.style.display = "none"; // Скрываем информацию
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

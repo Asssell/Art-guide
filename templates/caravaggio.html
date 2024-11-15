@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caravaggio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Caravaggio</h1>
+        <p>Explore the dramatic and intense works of Caravaggio, the master of light and shadow.</p>
+    </header>
+
+    <section class="artist-info">
+        <!-- Фотография художника -->
+        <div class="artist-photo">
+            <img src="{{ url_for('static', filename='images/caravaggio.jpg') }}" alt="Caravaggio">
+        </div>
+
+        <!-- Информация о художнике -->
+        <div class="artist-details">
+            <h2>Biography</h2>
+            <p>Michelangelo Merisi da Caravaggio (1571–1610) was an Italian Baroque painter known for his use of intense light and shadow, and his realistic depictions of religious subjects. His work had a profound impact on the Baroque style and later artists, with his mastery of chiaroscuro (the contrast between light and dark) influencing many painters.</p>
+
+            <h3>Famous Works</h3>
+            <div class="artworks">
+                <img src="{{ url_for('static', filename='images/calling_of_saint_matthew.jpg') }}" alt="The Calling of Saint Matthew">
+                <img src="{{ url_for('static', filename='images/entombment.jpg') }}" alt="The Entombment of Christ">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Скрипт для скрытия и отображения дополнительной информации -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Показываем информацию
+                } else {
+                    extraInfo.style.display = "none"; // Скрываем информацию
+                }
+            });
+        });
+        </script>
+        <section class="famous-artists">
+            <h2 class="section-title">Michelangelo Merisi da Caravaggio - Famous Paintings</h2>
+            
+            <!-- Card: Judith Beheading Holofernes -->
+            <div class="painting-card">
+                <h3>Judith Beheading Holofernes</h3>
+                <img src="{{ url_for('static', filename='images/caravaggio21.jpg') }}" alt="Judith Beheading Holofernes">
+            </div>
+        
+            <!-- Card: The Calling of Saint Matthew -->
+            <div class="painting-card">
+                <h3>The Calling of Saint Matthew</h3>
+                <img src="{{ url_for('static', filename='images/caravaggio22.jpg') }}" alt="The Calling of Saint Matthew">
+            </div>
+        
+            <!-- Card: The Supper at Emmaus -->
+            <div class="painting-card">
+                <h3>The Supper at Emmaus</h3>
+                <img src="{{ url_for('static', filename='images/caravaggio23.jpg') }}" alt="The Supper at Emmaus">
+            </div>
+        
+            <!-- Card: The Entombment of Christ -->
+            <div class="painting-card">
+                <h3>The Entombment of Christ</h3>
+                <img src="{{ url_for('static', filename='images/caravaggio24.jpg') }}" alt="The Entombment of Christ">
+            </div>
+        
+            <!-- Card: The Fortune Teller -->
+            <div class="painting-card">
+                <h3>The Fortune Teller</h3>
+                <img src="{{ url_for('static', filename='images/caravaggio25.jpg') }}" alt="The Fortune Teller">
+            </div>
+            
+            <div class="painting-card">
+                <h3>The Cardsharps</h3>
+                <img src="{{ url_for('static', filename='images/caravaggio26.jpg') }}" alt="The Cardsharps">
+            </div>
+
+            <div class="painting-card">
+                <h3>Saint Francis of Assisi in Ecstasy-Caravaggio</h3>
+                <img src="{{ url_for('static', filename='images/caravaggio27.jpg') }}" alt="Saint Francis of Assisi in Ecstasy-Caravaggio">
+            </div>
+
+            <div class="painting-card">
+                <h3>Still Life with Flowers and Fruit</h3>
+                <img src="{{ url_for('static', filename='images/caravaggio28.jpg') }}" alt="Still Life with Flowers and Fruit">
+            </div>
+            <!-- Добавьте другие картины, если необходимо -->
+        </section>
+        
+
+            <h1>Michelangelo Merisi da Caravaggio's Locations</h1>
+            <p>Explore the places related to Michelangelo Merisi da Caravaggio's life and work.</p>
+    
+        <!-- Main container for map and side panel -->
+        <div class="container" style="display: flex; align-items: stretch;">
+            <!-- Map container -->
+            <div id="map"></div>
+    
+            <!-- Side panel to show information -->
+            <div id="side-panel">
+                <h3 id="place-title">Click a location on the map</h3>
+                <p id="place-description">Select a point on the map to see more details.</p>
+                <img id="place-image" src="" alt="Artwork image" style="width: 100%; max-height: 200px; object-fit: cover;" />
+            </div>
+        </div>
+    
+        <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+        <script>
+            // Initialize the map
+            var map = L.map('map').setView([41.9028, 12.4964], 6); // Centered on Italy
+    
+            // Add a tile layer (background map)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+    
+            // Locations related to Caravaggio with full information
+            var locations = [
+                {
+                    name: "Milan (Birthplace)",
+                    lat: 45.4642,
+                    lon: 9.1900,
+                    description: "<b>Milan, Italy</b><br>Birthplace of Michelangelo Merisi da Caravaggio. Born on September 29, 1571.",
+                    full_description: "Caravaggio was born in Milan in 1571. He spent his early years in this city before moving to Rome. Milan's vibrant culture influenced the development of his artistic style, which would later transform Western art.",
+                    image: "{{ url_for('static', filename='images/caravaggio1.jpg') }}"
+                },
+                {
+                    name: "Rome (Key Works)",
+                    lat: 41.9028,
+                    lon: 12.4964,
+                    description: "<b>Rome, Italy</b><br>Caravaggio's most famous works were painted in Rome, including 'The Supper at Emmaus'.",
+                    full_description: "In Rome, Caravaggio painted many of his masterpieces, such as 'The Supper at Emmaus' and 'Judith Beheading Holofernes'. His dramatic use of light and shadow, known as chiaroscuro, revolutionized art and influenced generations of artists.",
+                    image: "{{ url_for('static', filename='images/caravaggio2.jpg') }}"
+                },
+                {
+                    name: "Naples (Later Works)",
+                    lat: 40.8522,
+                    lon: 14.2681,
+                    description: "<b>Naples, Italy</b><br>Caravaggio painted several key works here during the later years of his life.",
+                    full_description: "After fleeing Rome due to legal issues, Caravaggio spent time in Naples. He painted important works such as 'The Martyrdom of Saint Ursula' and 'The Seven Works of Mercy'. His time in Naples marked a period of innovation and experimentation.",
+                    image: "{{ url_for('static', filename='images/caravaggio3.jpg') }}"
+                },
+                {
+                    name: "Sicily (Final Years)",
+                    lat: 37.5977,
+                    lon: 13.3622,
+                    description: "<b>Sicily, Italy</b><br>Caravaggio spent his final days in Sicily, where he painted 'The Burial of Saint Lucy'.",
+                    full_description: "Caravaggio's final years were spent in Sicily, where he continued painting despite his deteriorating health. He created 'The Burial of Saint Lucy' among other masterpieces. His health, however, worsened, and he died under mysterious circumstances.",
+                    image: "{{ url_for('static', filename='images/caravaggio4.jpg') }}"
+                },
+                {
+                    name: "Porto Ercole (Death Place)",
+                    lat: 42.5722,
+                    lon: 11.0272,
+                    description: "<b>Porto Ercole, Italy</b><br>Caravaggio died here on July 18, 1610, under mysterious circumstances.",
+                    full_description: "In 1610, Caravaggio was heading back to Rome after receiving a pardon, but he fell ill and died in Porto Ercole, Tuscany. His death remains shrouded in mystery, with theories ranging from fever to poisoning.",
+                    image: "{{ url_for('static', filename='images/caravaggio5.jpg') }}"
+                }
+            ];
+    
+            // Add markers and popup events
+            locations.forEach(function(location) {
+                var marker = L.marker([location.lat, location.lon]).addTo(map);
+    
+                // Add a click event for each marker to update the side panel
+                marker.on('click', function() {
+                    // Update the content in the side panel
+                    document.getElementById('place-title').innerHTML = location.name;
+                    document.getElementById('place-description').innerHTML = location.full_description;
+                    document.getElementById('place-image').src = location.image;
+                });
+            });
+        </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

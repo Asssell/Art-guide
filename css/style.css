@@ -1,0 +1,939 @@
+/* Общие стили для сайта */
+body {
+    font-family: 'Merriweather', serif; /* Шрифт Merriweather для исторического стиля */
+    background-color: #f5f3f0; /* Светлый, кремовый фон */
+    color: #2f2f2f; /* Темный текст */
+    margin: 0;
+    padding: 0;
+    font-size: 18px; /* Larger base font size */
+}
+
+/* Заголовки и общий стиль для шапки */
+header {
+    background-image: url('../images/history-background.jpg'); /* Фоновое изображение */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px; /* Увеличил отступы для более выразительной шапки */
+    border-bottom: 5px solid #bda17a;
+    position: relative;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Добавил тень для шапки */
+}
+
+header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный слой для улучшения видимости текста */
+    z-index: -1;
+}
+
+header h1 {
+    font-size: 4em;
+    color: #fff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Тень для текста, чтобы он выделялся */
+    transition: transform 0.5s ease; /* Плавное изменение при прокрутке */
+}
+
+header h1:hover {
+    transform: scale(1.1); /* Эффект увеличения при наведении */
+}
+
+header p {
+    font-size: 1.6em;
+    color: #eae7c7;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.5s ease; /* Плавное исчезновение текста */
+}
+
+header p:hover {
+    opacity: 0.8; /* Эффект при наведении */
+    color: #bda17a; /* Change text color on hover */
+}
+/* Секция жанров */
+.genre-section, .artist-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.genre-cards, .artist-cards, .masterpiece-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.genre-card, .artist-card, .masterpiece-card {
+    background: #fff;
+    border: 1px solid #bda17a;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.genre-card img, .artist-card img, .masterpiece-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.genre-card h3, .artist-card h3, .masterpiece-card h3 {
+    font-size: 1.2em;
+    color: #bda17a;
+    margin-top: 15px;
+}
+
+.genre-card:hover, .artist-card:hover, .masterpiece-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.genre-card.visible, .artist-card.visible, .masterpiece-card.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Стили для кнопки "Back to Home" */
+.back-to-home-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #bda17a, #f2e1c6); /* Градиент от золотистого */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.back-to-home-btn:hover {
+    background: linear-gradient(45deg, #f2e1c6, #bda17a); /* Обратный градиент при наведении */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-home-btn:active {
+    background: linear-gradient(45deg, #bda17a, #f2e1c6);
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Декоративные рамки для разделов */
+section {
+    border: 2px solid #bda17a;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 40px;
+    background: url('../images/old-paper-texture.jpg') no-repeat center center;
+    background-size: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: scale(1.02); /* Легкий эффект увеличения при наведении */
+}
+
+/* Фон для текстуры старинной бумаги */
+footer {
+    background: url('../images/old-paper-texture.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+footer a {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+/* Плавный эффект появления элементов при прокрутке */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация для карточек жанров */
+.genre-card, .artist-card {
+    animation: fadeInUp 0.8s forwards;
+}
+
+.genre-card:nth-child(odd), .artist-card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.genre-card:nth-child(even), .artist-card:nth-child(even) {
+    animation-delay: 0.4s;
+}
+/* Стили для логотипа в верхнем левом углу */
+.logo {
+    width: 50px; /* Размер логотипа, можно отрегулировать */
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Измените на right: 20px для правого угла */
+    z-index: 10; /* Поверх фона и других элементов */
+    border-radius: 50%; /* Скругление, если требуется */
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+/* Styling for the search container */
+#search-container {
+    background: transparent; /* Removes the white background */
+    display: flex;
+    justify-content: center;
+    padding: 10px 0; /* Adjust padding as needed */
+}
+
+/* Styling for the search input */
+#search-input {
+    padding: 8px;
+    border: 1px solid #bda17a; /* Match this color to your theme */
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    color: #2f2f2f;
+}
+
+/* Styling for the search button */
+#search-container button {
+    padding: 8px;
+    border: 1px solid #bda17a;
+    border-radius: 4px;
+    background-color: #bda17a;
+    color: #fff;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#search-container button:hover {
+    background-color: #a08b63; /* Darken the button color on hover */
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.artworks img {
+    border: 4px solid #bda17a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.artworks img:hover {
+    transform: scale(1.05);
+}
+.genre-info {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+}
+.artworks img {
+    position: relative;
+    display: inline-block;
+}
+.artworks img::after {
+    content: "Описание картины";
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 5px;
+}
+.artworks img:hover::after {
+    opacity: 1;
+}
+
+
+
+
+
+/* Стили для галереи изображений */
+.gallery {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Стили для анимации появления */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s, transform 1s;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.extra-info {
+    display: none;
+}
+
+.info-btn:active + .extra-info {
+    display: block;
+}
+
+
+
+
+
+
+
+/* Основной контейнер временной шкалы */
+.timeline {
+    width: 60%; /* Уменьшаем ширину контейнера */
+    margin: 50px auto;
+    padding: 20px 40px; /* Уменьшаем внутренние отступы */
+    background-color: #f4e1c1; /* Тёплый, слегка золотистый кремовый оттенок */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Georgia', serif; /* Классический шрифт */
+    border: 1px solid #b59b6d; /* Легкая граница, с оттенком бронзы */
+}
+
+/* Заголовок временной шкалы */
+.timeline h3 {
+    text-align: center;
+    font-size: 2rem; /* Уменьшаем размер шрифта */
+    color: #3d2b1f; /* Глубокий коричневый цвет, напоминающий оттенки дерева */
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Увеличиваем межбуквенный интервал для классического вида */
+}
+
+/* Контейнер для всех событий */
+.timeline-container {
+    position: relative;
+    padding-left: 30px; /* Уменьшаем отступ слева */
+    border-left: 4px solid #a68e58; /* Золотисто-коричневый оттенок с винтажным акцентом */
+    background-image: url('https://www.transparenttextures.com/patterns/old-map.png'); /* Фон с текстурой старой карты */
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 20px; /* Уменьшаем отступ снизу */
+}
+
+/* Каждое событие временной шкалы */
+.timeline-event {
+    position: relative;
+    padding: 15px 25px; /* Уменьшаем отступы внутри событий */
+    margin: 20px 0; /* Уменьшаем расстояние между событиями */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #a68e58; /* Золотисто-коричневая граница */
+    font-family: 'Georgia', serif;
+}
+
+/* Заголовок каждого события */
+.timeline-event h4 {
+    font-size: 1.4rem; /* Уменьшаем размер заголовка */
+    font-weight: bold;
+    color: #3d2b1f; /* Глубокий коричневый цвет */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+/* Описание события */
+.timeline-event p {
+    font-size: 0.95rem; /* Уменьшаем размер текста */
+    color: #6f4e37; /* Мягкий коричневый оттенок с лёгким винтажным акцентом */
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* Маленькие круглые маркеры для событий */
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -8px; /* Сдвигаем маркер чуть правее */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px; /* Уменьшаем размер маркера */
+    height: 12px;
+    background-color: #a68e58; /* Золотистый оттенок */
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+/* Эффект при наведении на событие */
+.timeline-event:hover {
+    background-color: #f1ebd1; /* Светло-золотистый оттенок для эффекта */
+    transform: translateY(-3px); /* Меньший эффект подъема */
+    transition: all 0.3s ease;
+}
+
+/* Анимация для событий */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.timeline-event {
+    animation: fadeIn 1s ease-out;
+}
+/* Скрытые дополнительные данные */
+.extra-info {
+    display: none; /* По умолчанию скрыто */
+    margin-top: 10px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.extra-info img {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+/* Эффект при наведении */
+.timeline-event:hover {
+    background-color: #f1ebd1; /* Светло-золотистый оттенок */
+    transform: translateY(-3px); /* Меньший эффект подъема */
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+/* Artistic Theme for Login and Registration Forms */
+.login-container, .register-container {
+    background-color: #faf5ef; /* Softer, warmer background color */
+    padding: 25px;
+    border-radius: 8px;
+    width: 320px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+    margin: 20px auto;
+    font-family: 'Cinzel', serif; /* Artistic font for elegance */
+    color: #333;
+    border: 1px solid #d3c7b8; /* Subtle border for a framed look */
+}
+
+/* Show form elements in a graceful layout */
+.login-container input, .register-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #b89b82; /* Warmer border color */
+    border-radius: 6px;
+    font-family: 'Merriweather', serif; /* Classic font for input fields */
+}
+
+.login-container button, .register-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #7c6b52; /* Muted color inspired by classic art tones */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover, .register-container button:hover {
+    background-color: #5d4b3e; /* Darker tone on hover */
+}
+
+/* Artistic styling for links */
+.auth-links a, .login-container a, .register-container a {
+    text-decoration: none;
+    color: #7c6b52; /* Muted, art-inspired link color */
+    margin-left: 15px;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+}
+
+.auth-links a:hover, .login-container a:hover, .register-container a:hover {
+    text-decoration: underline;
+    color: #5d4b3e; /* Darker tone for hover */
+}
+
+/* Additional styling for user greeting, login and registration links */
+.auth-links {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+}
+
+.auth-links a {
+    font-size: 14px;
+    color: #7c6b52;
+}
+
+.auth-links a:hover {
+    color: #5d4b3e;
+}
+
+
+
+/* для скрытия всего кроме ячейки регистрации */
+.hidden {
+    display: none;
+}
+
+#auth-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+}
+
+
+
+/* Artistic styling for login, register, and username areas */
+.user-greeting {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Cinzel', serif;
+    color: #333;
+}
+
+.login-btn, .register-btn, .dropbtn {
+    padding: 8px 20px;
+    border: 1px solid #c1a57b;
+    background-color: #f4f0e6; /* Soft beige inspired by gallery walls */
+    color: #5b4636;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.login-btn:hover, .register-btn:hover, .dropbtn:hover {
+    background-color: #e0d3b8;
+    color: #3c2d1d;
+    border-color: #b79868;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f4f0e6;
+    border: 1px solid #d8c4a4;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    right: 0;
+    min-width: 120px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #5b4636;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #e0d3b8;
+}
+
+
+/* Стили для карточек художников */
+.famous-artists {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.artist-card {
+    display: inline-block;
+    width: 250px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.artist-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.artist-card h3 {
+    margin: 15px 0;
+    color: #333;
+}
+
+.artist-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+
+
+        /* Основной контейнер для карты и боковой панели */
+        .map-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        /* Стиль карты */
+        #map {
+            height: 400px;  /* Уменьшаем размер карты */
+            width: 60%;     /* Карта занимает 60% ширины */
+            border: 3px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Боковая панель */
+        .info-panel {
+            width: 35%;     /* Панель занимает 35% ширины */
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Заголовок в боковой панели */
+        .info-panel h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        /* Текст и изображения в боковой панели */
+        .info-panel p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .info-panel img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+
+       
+       
+        /* Стили для слайдера */
+        .swiper-container {
+            width: 100%;
+            height: 500px;
+        }
+        .swiper-slide {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            width: 300px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            overflow: hidden;
+            color: white;
+        }
+        .slide-description {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        
+
+
+
+
+/* Main container to hold both the map and the side panel */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+
+/* Style for the side panel */
+#side-panel {
+    width: 40%;    /* Set side panel width */
+    height: 50vh; /* Full height of the viewport */
+    background-color: #f4f4f4;
+    overflow-y: auto;
+    padding: 20px;
+    border-left: 2px solid #ccc;
+    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the content inside the side panel */
+#side-panel h3 {
+    margin-top: 0;
+}
+
+#side-panel img {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+}
+
+/* Add some padding and spacing */
+#side-panel p {
+    margin-top: 10px;
+}
+
+
+/* Стиль для обертки, где размещены изображение и информация */
+.artist-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Стиль для фотографии художника */
+.artist-photo {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.artist-photo img {
+    width: 100%;
+    max-width: 350px;  /* Размер изображения */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Стиль для информации */
+.artist-details {
+    flex: 2;
+}
+
+.artist-details h2 {
+    margin-bottom: 15px;
+}
+
+.artist-details p {
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+.artworks {
+    display: flex;
+    gap: 10px;
+}
+
+.artworks img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
+}
+
+
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    max-width: 400px;
+    margin: auto;
+}
+#contactModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+#closeBtn {
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.dropdown-content a {
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+
+
+.section-title {
+    font-size: 24px;
+    text-align: center; /* Центрирование заголовка */
+    margin-bottom: 30px; /* Отступ снизу для заголовка */
+}
+
+/* Стили для карточек художников */
+.famous-artists {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.painting-card {
+    display: inline-block;
+    width: 250px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.painting-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.painting-card h3 {
+    margin: 15px 0;
+    color: #333;
+}
+
+.painting-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+
+.painting-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.painting-info {
+    flex: 1;
+    max-width: 50%;
+}
+
+.painting-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Adjust the layout for smaller screens */
+@media (max-width: 768px) {
+    .painting-description {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .painting-info {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .painting-image img {
+        max-width: 80%;
+    }
+}
+
+
+
+/* Стили для виртуального тура */
+.virtual-tour {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.virtual-tour button {
+    background-color: #8b4513; /* Цвет, напоминающий древесину или старинные рамы */
+    color: white;
+    font-size: 1.3em;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    font-family: 'Georgia', serif;
+}
+
+.virtual-tour button:hover {
+    background-color: #7a3f2c; /* Более тёмный оттенок древесины при наведении */
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romanticism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Romanticism</h1>
+        <p>Learn about the Romanticism art style and discover famous paintings.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Romanticism</h2>
+<p>Romanticism was an artistic, literary, and intellectual movement that began in the late 18th century and flourished throughout the 19th century. It arose as a reaction against the Enlightenment's emphasis on reason, logic, and the scientific method, as well as against the Industrial Revolution’s mechanization of society. Romanticism sought to emphasize emotion, individualism, and the beauty of nature, valuing the personal, imaginative, and spiritual over the rational and structured. The movement spread across Europe, influencing literature, art, music, and philosophy, and it became a defining feature of many cultures during the 19th century.</p>
+
+<p>At its core, Romanticism was a celebration of the individual and the expression of personal emotions. Romantic artists and writers rejected the idea that art should follow rigid rules or adhere to classical principles, instead choosing to depict the full range of human experience, including the sublime, the tragic, and the mysterious. The movement emphasized the importance of imagination and the power of emotion, and it sought to explore the depths of the human soul, often delving into themes of despair, love, and heroism.</p>
+
+<p>One of the central ideas in Romanticism was the glorification of nature. In contrast to the rational and ordered view of the world promoted by the Enlightenment, Romantic artists and poets viewed nature as a powerful, untamed force, capable of evoking strong emotional responses. Many Romantic works feature sweeping landscapes, dramatic skies, and scenes that emphasize the grandeur and majesty of nature. Nature was often depicted as a source of inspiration, beauty, and spirituality, offering a refuge from the industrialized world and a place for individuals to reconnect with their true selves.</p>
+
+<p>In visual art, Romanticism is often characterized by dramatic compositions, bold colors, and an emphasis on light and shadow to convey deep emotional intensity. Famous artists such as J.M.W. Turner, Caspar David Friedrich, and Eugène Delacroix used vivid imagery and dynamic scenes to evoke strong emotional responses in viewers. For example, Turner’s seascapes and landscapes often portrayed the raw power of nature, while Friedrich’s paintings, such as "Wanderer Above the Sea of Fog" (1818), depict individuals standing before vast, awe-inspiring landscapes that convey both the majesty and mystery of nature.</p>
+
+<p>Romantic literature, too, focused on intense emotion and individual experience. Writers like William Wordsworth, Samuel Taylor Coleridge, Lord Byron, Percy Bysshe Shelley, and John Keats explored themes of nature, the supernatural, and the inner workings of the human mind. Their works were often filled with passionate language and vivid descriptions, creating a deep connection between the reader and the subject matter. Wordsworth, for instance, famously celebrated the power of nature to inspire personal growth and spiritual reflection, while Byron’s poetry explored themes of isolation, rebellion, and existential struggle.</p>
+
+<p>The movement also placed a strong emphasis on the mysterious and the supernatural. Romantic thinkers were fascinated by the unknown and sought to explore the realms of dreams, the unconscious, and the spiritual. This fascination with the sublime and the irrational often led to the creation of dark, gothic narratives, such as Mary Shelley’s "Frankenstein" (1818), which examines themes of creation, hubris, and the dangers of unchecked ambition. The supernatural, the eerie, and the strange were all integral aspects of Romanticism’s exploration of the human psyche.</p>
+
+<p>In music, Romanticism is reflected in composers like Ludwig van Beethoven, Franz Schubert, Hector Berlioz, and Richard Wagner, who broke away from classical forms to create more expressive, emotionally charged compositions. These composers sought to evoke deep emotions through their music, often focusing on personal expression, nationalism, and the power of nature. Beethoven’s symphonies, for example, moved away from traditional forms to emphasize grandeur and emotional depth, while Wagner’s operas explored themes of love, fate, and myth.</p>
+
+<p>Romanticism was not just an artistic or literary movement; it was also a response to the rapid changes occurring in society during the 19th century. The Industrial Revolution brought about significant technological advancements and urbanization, which many Romantics saw as dehumanizing and alienating. Romanticism, in part, was a reaction against the rise of industrialization, with its focus on the mechanization of life and the loss of individual freedoms. Romantics often expressed nostalgia for a simpler, more natural world and sought to return to an idealized past, such as the medieval era or an imagined rural paradise.</p>
+
+<p>Romanticism also had a political dimension. Many Romantics were involved in political movements, seeking social change and the liberation of oppressed peoples. The emphasis on individual freedom, personal expression, and rebellion against authority made Romanticism appealing to many revolutionary movements, from the French Revolution to the various uprisings throughout Europe in the 19th century. The Romantic hero, often depicted as an individual standing alone against the forces of society or nature, became a symbol of the struggle for personal liberty and the quest for justice.</p>
+
+<p>In conclusion, Romanticism was a profound movement that sought to reassert the importance of emotion, nature, and individualism in the face of rationalism and industrialization. It reshaped the way people thought about art, literature, music, and philosophy, and it laid the groundwork for many modern artistic movements. By focusing on the sublime, the mysterious, and the personal, Romanticism continues to resonate with audiences today, inspiring a sense of wonder, passion, and reverence for the beauty of the natural world and the complexity of the human spirit.</p>
+
+    </section>
+    
+    <section class="famous-artists">
+        <h2>Famous Romanticism Artists</h2>
+    
+        <!-- Card: Francisco Goya -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/goya.jpg') }}" alt="Francisco Goya">
+            <h3>Francisco Goya</h3>
+            <p>Francisco Goya was a Spanish painter and printmaker, often considered the last of the Old Masters and the first of the moderns. His work spans both the late Baroque and Romantic periods and is characterized by dramatic emotional intensity.</p>
+            <p><strong>Main Works:</strong> "The Third of May 1808," "Saturn Devouring His Son," "The Sleep of Reason Produces Monsters."</p>
+            <p><em>Interesting Fact:</em> Goya’s later works, particularly his series *The Black Paintings*, reflect his disillusionment and dark view of humanity, influenced by the political and social upheaval of his time.</p>
+        </div>
+    
+        <!-- Card: Eugène Delacroix -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/delacroix.jpg') }}" alt="Eugène Delacroix">
+            <h3>Eugène Delacroix</h3>
+            <p>Eugène Delacroix was a French Romantic painter known for his expressive brushwork and his use of color to convey emotion. His work inspired many artists, including the Impressionists and Post-Impressionists.</p>
+            <p><strong>Main Works:</strong> "Liberty Leading the People," "The Death of Sardanapalus," "Women of Algiers in their Apartment."</p>
+            <p><em>Interesting Fact:</em> Delacroix's influence extended beyond painting into the world of literature, with his works frequently serving as the inspiration for writers like Victor Hugo.</p>
+        </div>
+    
+        <!-- Card: J.M.W. Turner -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/turner.jpg') }}" alt="J.M.W. Turner">
+            <h3>J.M.W. Turner</h3>
+            <p>Joseph Mallord William Turner was an English Romantic painter who is best known for his expressive and atmospheric depictions of nature, especially of the sea and sky.</p>
+            <p><strong>Main Works:</strong> "The Fighting Temeraire," "Rain, Steam, and Speed," "The Slave Ship."</p>
+            <p><em>Interesting Fact:</em> Turner’s paintings often blurred the lines between realism and abstraction, and his dramatic use of light and color prefigured the Impressionist movement.</p>
+        </div>
+    
+        <!-- Card: Caspar David Friedrich -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/friedrich.jpg') }}" alt="Caspar David Friedrich">
+            <h3>Caspar David Friedrich</h3>
+            <p>Caspar David Friedrich was a German Romantic landscape painter, considered one of the most important artists of the movement. His works often depict solitary figures in vast, awe-inspiring natural landscapes.</p>
+            <p><strong>Main Works:</strong> "Wanderer Above the Sea of Fog," "The Monk by the Sea," "The Abbey in the Oakwood."</p>
+            <p><em>Interesting Fact:</em> Friedrich’s works often explore themes of spirituality, the sublime, and the human relationship with nature.</p>
+        </div>
+    
+        <!-- Card: Théodore Géricault -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/gericault.jpg') }}" alt="Théodore Géricault">
+            <h3>Théodore Géricault</h3>
+            <p>Théodore Géricault was a French painter and lithographer, best known for his dramatic and emotionally intense works that are considered central to the Romantic movement.</p>
+            <p><strong>Main Works:</strong> "The Raft of the Medusa," "The Charging Chasseur," "Portraits of the Insane."</p>
+            <p><em>Interesting Fact:</em> *The Raft of the Medusa* is one of Géricault's most iconic works, a large-scale painting that depicts the aftermath of a shipwreck and conveys the stark reality of human suffering.</p>
+        </div>
+    
+        <!-- Card: John Constable -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/constable.jpg') }}" alt="John Constable">
+            <h3>John Constable</h3>
+            <p>John Constable was an English Romantic painter known for his landscape paintings, especially his depictions of the English countryside. His work is characterized by a focus on nature and its changing conditions.</p>
+            <p><strong>Main Works:</strong> "The Hay Wain," "Dedham Vale," "Salisbury Cathedral from the Meadows."</p>
+            <p><em>Interesting Fact:</em> Constable’s work was initially rejected by the establishment, but he went on to become one of the most popular landscape artists of his time, influencing future generations of painters.</p>
+        </div>
+    
+        <!-- Card: Franz von Stuck -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/stuck.jpg') }}" alt="Franz von Stuck">
+            <h3>Franz von Stuck</h3>
+            <p>Franz von Stuck was a German painter, sculptor, and architect, whose works often featured symbolic and mythological themes. His style mixed elements of Romanticism and Symbolism.</p>
+            <p><strong>Main Works:</strong> "The Sin," "The Guardian of Paradise," "The White Horse."</p>
+            <p><em>Interesting Fact:</em> Stuck was influential in the development of Symbolism and had a significant impact on the art world in Munich during his time.</p>
+        </div>
+    
+        <!-- Card: Richard Parkes Bonington -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/bonington.jpg') }}" alt="Richard Parkes Bonington">
+            <h3>Richard Parkes Bonington</h3>
+            <p>Richard Parkes Bonington was an English Romantic painter known for his landscapes, seascapes, and marine paintings. He was one of the leading artists of the Romantic period in England.</p>
+            <p><strong>Main Works:</strong> "View of the Bay of Naples," "The Battle of Arcola," "The Lagoon of Venice."</p>
+            <p><em>Interesting Fact:</em> Bonington’s work was highly regarded by his contemporaries, and he had a profound influence on the development of Romanticism in Britain.</p>
+        </div>
+    
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h3>History of Romanticism</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-early-romanticism">
+                <h4>Late 18th Century: The Birth of Romanticism</h4>
+                <p>Romanticism emerged as a reaction against the rationalism of the Enlightenment and the strict rules of Neoclassicism. Artists and thinkers began to focus on emotion, intuition, and the natural world. The movement gained momentum in the early 19th century, especially in Germany and France.</p>
+                <div class="extra-info">
+                    <p>Key figures such as William Blake and Francisco Goya began exploring themes of intense emotion, individualism, and the supernatural in their art.</p>
+                    <img src="static/images/romanticism_early.jpg" alt="The Nightmare by Henry Fuseli">
+                    <img src="static/images/romanticism_early2.jpg" alt="The Nightmare by Henry Fuseli">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-peak-romanticism">
+                <h4>Early 19th Century: Peak of Romanticism</h4>
+                <p>During the early 19th century, Romanticism reached its peak with artists like Eugène Delacroix, Théodore Géricault, and Caspar David Friedrich. Their works were filled with drama, passion, and an exploration of the sublime aspects of nature.</p>
+                <div class="extra-info">
+                    <p>For example, Géricault's "The Raft of the Medusa" (1818–1819) became one of the most iconic pieces of Romantic art, depicting a tragic and emotional scene of shipwrecked men.</p>
+                    <img src="static/images/romanticism_peak.jpg" alt="The Raft of the Medusa by Théodore Géricault">
+                    <img src="static/images/romanticism_peak1.jpg" alt="The Raft of the Medusa by Théodore Géricault">
+                    <img src="static/images/romanticism_peak2.jpg" alt="The Raft of the Medusa by Théodore Géricault">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>Romanticism: Embracing Emotion and Individualism</h2>
+            <p>Romanticism, which began in the late 18th century, was a reaction against the rationalism of the Enlightenment and the industrial revolution. It emphasized emotion, imagination, and the sublime in nature. Artists sought to convey strong personal feelings and to express the beauty and power of the natural world. Romanticism was seen as a liberation from the constraints of classical traditions, and it influenced literature, painting, music, and other forms of art.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией о влиянии Романтизма в разных странах
+        var countries = [
+            {
+                name: "United Kingdom",
+                coordinates: [55.3781, -3.4360],
+                info: "In the United Kingdom, Romanticism was marked by the works of poets like William Wordsworth and Samuel Taylor Coleridge, who emphasized nature, emotion, and the sublime. In painting, artists like J. M. W. Turner captured the grandeur of nature with dramatic seascapes and landscapes."
+            },
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "In France, Romanticism manifested through artists like Eugène Delacroix, whose fiery and passionate paintings explored themes of liberty and human emotion. The movement was also reflected in literature, particularly in the works of Victor Hugo, who depicted the struggles of individual freedom."
+            },
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "Germany's contribution to Romanticism came through the works of poets like Johann Wolfgang von Goethe, who focused on the emotional and philosophical depth of the human condition. In painting, Caspar David Friedrich's landscapes evoked feelings of solitude and awe before nature."
+            },
+            {
+                name: "Spain",
+                coordinates: [40.4637, -3.7492],
+                info: "In Spain, Romanticism was expressed through the paintings of Francisco Goya, who explored themes of war, suffering, and madness. His series of 'Disasters of War' dramatically depicted the horrors of conflict and the human condition, challenging traditional romantic ideals."
+            },
+            {
+                name: "Italy",
+                coordinates: [41.87194, 12.56738],
+                info: "Italy's Romantic period was influenced by the upheavals of the Napoleonic Wars and the rise of nationalism. Artists like Francisco Hayez captured the fervor of revolution, while literature and poetry expressed the longing for freedom and the individual's struggle against oppression."
+            },
+            {
+                name: "United States",
+                coordinates: [37.0902, -95.7129],
+                info: "In the United States, Romanticism was particularly influential in the Hudson River School, where artists like Thomas Cole created sweeping landscapes that reflected the national pride in the American wilderness. The movement was also strong in literature, especially through the works of Edgar Allan Poe and Nathaniel Hawthorne."
+            },
+            {
+                name: "Russia",
+                coordinates: [55.7558, 37.6176],
+                info: "In Russia, Romanticism found expression in the works of poets like Alexander Pushkin, who championed the emotional depth of human experiences. The movement also influenced Russian visual arts, with painters like Ivan Aivazovsky creating dramatic seascapes that captured the beauty and terror of the natural world."
+            },
+            {
+                name: "Switzerland",
+                coordinates: [46.8182, 8.2275],
+                info: "Switzerland's role in Romanticism is best seen through the work of artists like Arnold Böcklin, whose mysterious and symbolic paintings evoked the emotional connection between humans and nature. His works often explore themes of death, the sublime, and the unknown."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+    <!-- Скрипт для скрытия и отображения дополнительной информации -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Показываем информацию
+                } else {
+                    extraInfo.style.display = "none"; // Скрываем информацию
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

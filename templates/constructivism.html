@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructivism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Constructivism</h1>
+        <p>Learn about the Constructivism art style and discover famous paintings.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Constructivism</h2>
+<p>Constructivism was an influential artistic and architectural movement that originated in Russia in the early 20th century, specifically from the aftermath of the October Revolution in 1917. It was closely associated with the avant-garde and sought to create a new type of art that was engaged with the social, political, and economic realities of the time. Constructivism emerged as a reaction against the traditional, decorative forms of art that were prevalent before the Revolution, advocating instead for an art that was functional, utilitarian, and closely tied to the emerging Soviet state.</p>
+
+<p>The movement was spearheaded by key artists such as Vladimir Tatlin, Alexander Rodchenko, and El Lissitzky, who were influenced by ideas from avant-garde movements like Futurism and Suprematism. They believed in the power of art and design to transform society and reflect the principles of modernity, progress, and functionality. Constructivism aimed to create art that was not only beautiful but also practical, with a focus on constructing forms and structures that could be used in real life, such as architecture, industrial design, and propaganda materials.</p>
+
+<p>One of the defining features of Constructivism was its emphasis on the use of modern materials and technologies. Artists and designers often used metal, glass, and concrete to create their works, which included everything from sculptures and paintings to large-scale installations and architectural projects. The movement also introduced innovative techniques, such as photomontage and abstract composition, which were used to convey political and social messages. For instance, El Lissitzky’s “Beat the Whites with the Red Wedge” is a famous example of Constructivist art that uses a geometric, abstract composition to symbolize the struggle between the Red and White armies during the Russian Civil War.</p>
+
+<p>Constructivism was not just an artistic movement; it was also a cultural and social program. The artists involved saw their work as a means of creating a new, revolutionary culture for the Soviet Union. They believed that art should serve the people and be used to promote the ideals of the Bolshevik regime, such as the advancement of socialism, industrialization, and the emancipation of the proletariat. This social engagement led to the development of various design forms, including posters, textiles, and typography, which were used for propaganda and to communicate ideas to a broad audience.</p>
+
+<p>In architecture, Constructivism sought to break away from the ornate and historicist styles that dominated Russian architecture before the Revolution. Instead, Constructivist architects like Konstantin Melnikov and Moisei Ginzburg designed functional, utilitarian buildings that incorporated modern materials and construction techniques. They focused on creating open, flexible spaces that could accommodate the needs of the new socialist society, with an emphasis on efficiency, light, and functionality. The constructivist style is often characterized by its geometric forms, industrial materials, and emphasis on the dynamic relationship between form and function.</p>
+
+<p>Despite its brief existence, Constructivism had a profound impact on the development of modern art and architecture. Its principles of using art for social and political purposes, as well as its innovative approaches to form and materials, influenced many later movements, including Bauhaus, De Stijl, and modernist architecture. The movement’s focus on practicality and functionality continues to resonate in contemporary art and design, where there is an ongoing interest in using art to address social issues and to explore the relationship between form, space, and meaning.</p>
+
+<p>In summary, Constructivism was an avant-garde movement that sought to create a new kind of art and design that was deeply connected to the social, political, and economic changes of the early 20th century. It rejected traditional art forms and embraced modern materials, technologies, and techniques to create works that were functional, utilitarian, and designed to serve the needs of society. Constructivism’s emphasis on the practical and social relevance of art, combined with its innovative use of form and materials, has left a lasting legacy on the development of modern art and architecture.</p>
+</section>
+  
+    <section class="famous-artists">
+        <h2>Famous Constructivist Artists</h2>
+    
+        <!-- Card: Vladimir Tatlin -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/tatlin.jpg') }}" alt="Vladimir Tatlin">
+            <h3>Vladimir Tatlin</h3>
+            <p>Vladimir Tatlin is regarded as the father of Russian Constructivism. His innovative approach to art involved the use of industrial materials and geometric abstraction.</p>
+            <p><strong>Main Works:</strong> "Monument to the Third International," "Tatlin’s Tower," "Counter-Relief."</p>
+            <p><em>Interesting Fact:</em> Tatlin’s most famous work, the "Monument to the Third International," was intended to be a massive, spiraling tower made of steel and glass, symbolizing the new Soviet era.</p>
+        </div>
+    
+        <!-- Card: El Lissitzky -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/lissitzky.jpg') }}" alt="El Lissitzky">
+            <h3>El Lissitzky</h3>
+            <p>A key figure in Constructivism, El Lissitzky combined abstraction with graphic design, creating dynamic compositions that reflected political ideas of the time.</p>
+            <p><strong>Main Works:</strong> "Proun Series," "Beat the Whites with the Red Wedge," "Self-Portrait as Constructor."</p>
+            <p><em>Interesting Fact:</em> Lissitzky’s "Proun" series, combining geometric abstraction and the sense of movement, was a radical departure from traditional artistic forms, aiming to bring art into real-world applications.</p>
+        </div>
+    
+        <!-- Card: Alexander Rodchenko -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/rodchenko.jpg') }}" alt="Alexander Rodchenko">
+            <h3>Aleksandr Rodchenko</h3>
+            <p>Rodchenko was a pioneer of Constructivist art, photography, and design, known for his experimental use of angles and his abstract work in various media.</p>
+            <p><strong>Main Works:</strong> "The Green Stripe," "Workers and Peasants," "Advertising Posters."</p>
+            <p><em>Interesting Fact:</em> Rodchenko’s innovative photography techniques, such as shooting from unusual angles, revolutionized the way visual art was viewed in the Soviet Union.</p>
+        </div>
+    
+        <!-- Card: Varvara Stepanova -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/stepanova.jpg') }}" alt="Varvara Stepanova">
+            <h3>Varvara Stepanova</h3>
+            <p>Stepanova was a prominent Constructivist artist who worked with textiles and graphic design. Her work was deeply integrated with the Soviet utopian vision.</p>
+            <p><strong>Main Works:</strong> "Design for a Textile," "The Victory Over the Sun," "The Woven Fabric."</p>
+            <p><em>Interesting Fact:</em> Stepanova is also known for her work in theatre design and costume design, applying Constructivist principles to stage production.</p>
+        </div>
+    
+        <!-- Card: Lyubov Popova -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/popova.jpg') }}" alt="Lyubov Popova">
+            <h3>Lyubov Popova</h3>
+            <p>Popova’s works exemplified the Constructivist idea of integrating art with industrial society. She combined geometric abstraction with dynamic forms and vibrant colors.</p>
+            <p><strong>Main Works:</strong> "Painterly Architectonics," "The Women at the Loom," "Space-Force Construction."</p>
+            <p><em>Interesting Fact:</em> Popova’s use of color and geometric abstraction influenced the development of Soviet art, and she also embraced the idea of art as a means of transforming everyday life.</p>
+        </div>
+    
+        <!-- Card: Naum Gabo -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/gabo.jpg') }}" alt="Naum Gabo">
+            <h3>Naum Gabo</h3>
+            <p>Naum Gabo was a Russian sculptor and one of the key figures in Constructivism. His sculptures are known for their use of space, light, and movement.</p>
+            <p><strong>Main Works:</strong> "Constructive Head," "Kinetic Construction," "Column." </p>
+            <p><em>Interesting Fact:</em> Gabo was an early proponent of kinetic art, incorporating movement and light into his works, which was a revolutionary approach in the world of sculpture.</p>
+        </div>
+    
+        <!-- Card: Georgy Stenberg -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/stenberg.jpg') }}" alt="Georgy Stenberg">
+            <h3>Georgy Stenberg</h3>
+            <p>Stenberg was a Russian artist and graphic designer who played a major role in the development of Constructivism in graphic design, focusing on abstract visual elements and social realism.</p>
+            <p><strong>Main Works:</strong> "Soviet Propaganda Posters," "Constructivist Designs," "Film Posters."</p>
+            <p><em>Interesting Fact:</em> Stenberg’s posters and graphic work became iconic during the Soviet era, with his compositions creating an impact through striking simplicity and visual clarity.</p>
+        </div>
+    
+        <!-- Card: Tatiana Glebova -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/glebova.jpg') }}" alt="Tatiana Glebova">
+            <h3>Tatiana Glebova</h3>
+            <p>Glebova was a Russian Constructivist artist, architect, and designer who contributed to the movement with her architectural designs, graphic works, and abstract paintings.</p>
+            <p><strong>Main Works:</strong> "Abstract Composition," "Design for an Exhibition Pavilion," "Construction with Color."</p>
+            <p><em>Interesting Fact:</em> Glebova was a lesser-known but significant figure in Constructivist architecture, helping shape the modernist aesthetic that would later influence the design of public spaces in the Soviet Union.</p>
+        </div>
+    
+    </section>
+    
+    <section class="timeline">
+        <h3>History of Constructivism</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-1910s">
+                <h4>1910s</h4>
+                <p>Beginnings of Constructivism. The movement is formed in Russia, focusing on abstract art and practical, functional design.</p>
+                <div class="extra-info">
+                    <p>Constructivism emerged as a response to the political and social upheaval of the time. Artists like Vladimir Tatlin and El Lissitzky emphasized the importance of combining art and industry.</p>
+                    <img src="static/images/constructivism_1910s.jpg" alt="Constructivism in the 1910s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1920s">
+                <h4>1920s</h4>
+                <p>Constructivism reaches its peak in Russia, with a focus on functional design, architecture, and graphics.</p>
+                <div class="extra-info">
+                    <p>During this period, Constructivism greatly influenced architecture and design, with notable works including the designs for public spaces and exhibitions, as well as the iconic 'Tatlin Tower' designed by Vladimir Tatlin.</p>
+                    <img src="static/images/constructivism_1920s.jpg" alt="Constructivism in the 1920s">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1930s">
+                <h4>1930s</h4>
+                <p>Constructivism faces a decline as Stalinist control tightens, and socialist realism becomes the dominant style.</p>
+                <div class="extra-info">
+                    <p>The movement began to fade as Soviet authorities favored Socialist Realism. Many artists associated with Constructivism were silenced or pushed into other fields.</p>
+                    <img src="static/images/constructivism_1930s.jpg" alt="Constructivism in the 1930s">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>What is Constructivism?</h2>
+            <p>Constructivism was an art movement that originated in Russia in the early 20th century. It focused on art as a practice for social purposes and emphasized abstract, geometric forms. It was closely tied to the Russian Revolution and was seen as a visual expression of the ideals of the new Soviet society. Artists like Vladimir Tatlin and El Lissitzky were central figures in this movement.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией о влиянии Конструктивизма в разных странах
+        var countries = [
+            {
+                name: "Russia",
+                coordinates: [55.7558, 37.6173],
+                info: "Constructivism originated in Russia in the early 20th century. The movement was a response to the Russian Revolution and aimed to align art with the values of the new Soviet society."
+            },
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "Constructivism influenced Germany in the 1920s, where it blended with the Bauhaus movement. Artists like El Lissitzky collaborated with German designers and architects."
+            },
+            {
+                name: "United States",
+                coordinates: [37.0902, -95.7129],
+                info: "In the United States, Constructivism influenced modern design and architecture. The movement's geometric abstraction inspired American artists and designers in the mid-20th century."
+            },
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "In France, Constructivism had a notable impact on art and design, with artists such as Amedee Ozenfant integrating constructivist principles into their work."
+            },
+            {
+                name: "Netherlands",
+                coordinates: [52.3676, 4.9041],
+                info: "Constructivism influenced Dutch design, particularly in graphic design and architecture. Artists like Theo van Doesburg contributed to the integration of constructivist principles into their works."
+            },
+            {
+                name: "Poland",
+                coordinates: [51.9194, 19.1451],
+                info: "Constructivism had a significant impact on Polish art, especially in graphic design and industrial art. Artists like Henryk Stazewski embraced abstract geometric forms."
+            },
+            {
+                name: "Italy",
+                coordinates: [41.87194, 12.56738],
+                info: "In Italy, Constructivism influenced the Futurist movement. Artists like Fortunato Depero embraced geometric abstraction and promoted the fusion of art and technology."
+            },
+            {
+                name: "Czech Republic",
+                coordinates: [49.8175, 15.473],
+                info: "The Constructivist movement influenced architecture and design in the Czech Republic, with artists like Karel Teige advocating for the use of abstract and geometric forms in art."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+
+    <!-- Скрипт для скрытия и отображения дополнительной информации -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Показываем информацию
+                } else {
+                    extraInfo.style.display = "none"; // Скрываем информацию
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

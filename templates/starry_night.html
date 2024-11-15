@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starry Night - Painting by Vincent van Gogh</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Starry Night</h1>
+        <p>Painting by Vincent van Gogh</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Vincent van Gogh</p>
+        <p><strong>Year of Creation:</strong> 1889</p>
+        <p><strong>Medium:</strong> Oil on canvas</p>
+        <p><strong>Dimensions:</strong> 73.7 × 92.1 cm</p>
+        <p><strong>Location:</strong> Museum of Modern Art, New York</p>
+        <p><strong>Description:</strong> "Starry Night" is one of the most famous paintings by Vincent van Gogh, depicting a night sky filled with swirling clouds, stars, and a crescent moon, as well as a tranquil village below. The painting is known for its bold brushstrokes and vibrant use of color, with intense blues, yellows, and oranges. It reflects van Gogh’s emotional state during his time in the Saint-Paul-de-Mausole asylum in France.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/starry_night.jpg') }}" alt="Starry Night">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>"Starry Night" is an iconic representation of van Gogh’s unique style, particularly his use of expressive color and emotional depth. The swirling forms and vivid, contrasting colors reflect van Gogh’s inner turmoil and his fascination with the night sky. The painting is often considered a prime example of post-impressionism, a movement that sought to convey emotions and subjective experiences through color and form.</p>
+        <p>The painting’s symbolic qualities and emotional power have made it a subject of various interpretations, from a depiction of the artist’s mental state to a universal representation of nature’s beauty. The influence of "Starry Night" is profound, impacting artists, designers, and popular culture alike.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of the Museum of Modern Art</h2>
+        <p>If you want to explore "Starry Night" in its true context, you can take a virtual tour of the Museum of Modern Art in New York, where the painting is currently housed. This tour will allow you to admire van Gogh's masterpiece in high resolution, as well as discover other works by great artists.</p>
+        <a href="https://www.moma.org" target="_blank">
+            <button>Start the Virtual Tour</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of Starry Night</h2>
+            <p>"Starry Night" was created by Vincent van Gogh in 1889 while he was residing in the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, France. The night sky seen in the painting is a fictionalized view from the window of his asylum room, blending both reality and the artist’s imagination. The swirling patterns and vibrant colors of the sky reflect van Gogh’s emotional state and his interest in the cosmos.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([43.8345, 4.8194], 5); // Initial map view centered on Saint-Rémy-de-Provence with zoom level 5
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to Starry Night
+        var locations = [
+            {
+                name: "Saint-Rémy-de-Provence, France (Creation Location)",
+                coordinates: [43.8345, 4.8194],
+                info: "Vincent van Gogh painted 'Starry Night' while residing in the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, France. The swirling sky depicted in the painting is a view from his window at the asylum, though van Gogh added his own interpretation of the night sky."
+            },
+            {
+                name: "Museum of Modern Art, New York, USA",
+                coordinates: [40.7614, -73.9776],
+                info: "'Starry Night' is currently housed in the Museum of Modern Art (MoMA) in New York. It is one of the most famous and beloved paintings in the museum’s collection."
+            },
+            {
+                name: "Vincent van Gogh’s Birthplace, Zundert, Netherlands",
+                coordinates: [51.4071, 4.5872],
+                info: "Vincent van Gogh was born in Zundert, Netherlands, in 1853. Though not directly related to the painting’s location, the artist’s birthplace is an essential part of his artistic journey."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Birth of Venus - Painting by Sandro Botticelli</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>The Birth of Venus</h1>
+        <p>Painting by Sandro Botticelli</p>
+    </header>
+
+    <section class="painting-description">
+        <div class="painting-info">
+        <h2>About the Painting</h2>
+        <p><strong>Artist:</strong> Sandro Botticelli</p>
+        <p><strong>Year of Creation:</strong> 1484–1486</p>
+        <p><strong>Medium:</strong> Tempera on canvas</p>
+        <p><strong>Dimensions:</strong> 172.5 x 278.9 cm</p>
+        <p><strong>Location:</strong> Uffizi Gallery, Florence, Italy</p>
+        <p><strong>Description:</strong> "The Birth of Venus" is one of the most iconic paintings of the Italian Renaissance, depicting the mythological birth of the goddess Venus. According to the myth, Venus was born from the sea foam and carried to the shore on a shell. Botticelli's representation of the scene captures her arrival at the beach, where she is welcomed by figures from classical mythology. The painting is known for its delicate beauty, graceful figures, and the use of flowing lines and soft color tones. The work is an embodiment of the Renaissance fascination with mythology, beauty, and human form.</p>
+        </div>
+        <div class="painting-image">
+            <img src="{{ url_for('static', filename='images/birth_of_venus.jpg') }}" alt="The Birth of Venus">
+        </div>
+    </section>
+
+    <section class="artistic-context">
+        <h2>Context and Influence on Art</h2>
+        <p>"The Birth of Venus" reflects the Renaissance revival of classical mythology and the beauty of the human form. The painting embodies the idealized female beauty of the time, which was influenced by the classical sculptures of ancient Greece and Rome. Botticelli’s delicate rendering of Venus’s form, combined with the flowing drapery and soft colors, showcases the artist’s skill in creating an ethereal atmosphere. The influence of Neoplatonism, a philosophical movement that sought to reconcile classical thought with Christian teachings, is also evident in the painting's themes of beauty and divine love.</p>
+        <p>The image of Venus as the embodiment of love and beauty became an enduring symbol in Western art. "The Birth of Venus" has inspired countless artists, from the Renaissance to modern times, and has become one of the most famous works of the Italian Renaissance. Its graceful depiction of the human body and its idealized beauty have made it an enduring symbol of art and culture.</p>
+    </section>
+
+    <section class="virtual-tour">
+        <h2>Virtual Tour of the Uffizi Gallery</h2>
+        <p>If you want to experience "The Birth of Venus" in its original setting, you can take a virtual tour of the Uffizi Gallery. The painting is one of the highlights of the museum's collection, and the tour will give you a closer look at this masterpiece and other works by Renaissance artists.</p>
+        <a href="https://www.uffizi.it/en/virtual-tour" target="_blank">
+            <button>Start the Virtual Tour of the Uffizi Gallery</button>
+        </a>
+    </section>
+
+    <section class="map-container">
+        <!-- Map Section -->
+        <div id="map"></div>
+    
+        <!-- Sidebar Panel with Information -->
+        <div class="info-panel">
+            <h2>The History of The Birth of Venus</h2>
+            <p>"The Birth of Venus" was painted by Sandro Botticelli between 1484 and 1486 for the powerful Medici family in Florence. The painting is part of the collection at the Uffizi Gallery in Florence, Italy. The mythological scene depicted in the painting is a symbol of beauty, love, and divine creation, and it is one of the most iconic works of the Renaissance. The painting was commissioned by Lorenzo di Pierfrancesco de' Medici, a cousin of Lorenzo the Magnificent, and it was likely created for a private collection or as part of a series of mythological works.</p>
+        </div>
+    </section>
+    
+    <!-- Leaflet Script for the Map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the Map
+        var map = L.map('map').setView([43.7687, 11.2553], 13); // Initial map view centered on Florence with zoom level 13
+    
+        // Add OpenStreetMap Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Locations and Information related to The Birth of Venus
+        var locations = [
+            {
+                name: "Uffizi Gallery, Florence, Italy",
+                coordinates: [43.7687, 11.2553],
+                info: "The Uffizi Gallery in Florence houses 'The Birth of Venus,' one of Botticelli’s most famous works. The gallery is a renowned museum for Renaissance art, and this painting is one of its most iconic pieces."
+            },
+            {
+                name: "Florence, Italy (Renaissance Art Center)",
+                coordinates: [43.7696, 11.2558],
+                info: "Florence is considered the birthplace of the Renaissance, and Botticelli was one of its key artists. His work, including 'The Birth of Venus,' is emblematic of the ideals of the Renaissance period."
+            }
+        ];
+    
+        // Add Markers for the Locations
+        locations.forEach(function(location) {
+            L.marker(location.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + location.name + "</b><br>" + location.info)
+                .openPopup();
+        });
+    </script>
+    
+    <!-- Script for Showing and Hiding Additional Information (Optional) -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Show the extra information
+                } else {
+                    extraInfo.style.display = "none"; // Hide the extra information
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>    
+</body>
+</html>

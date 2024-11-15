@@ -1,0 +1,62 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        #success-message {
+            display: none; /* Скрываем сообщение по умолчанию */
+            color: green;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Форма для отправки сообщения -->
+<form id="contactForm" method="POST" action="/contact">
+    <label for="message">Your Message:</label><br>
+    <textarea name="message" id="message" rows="5" cols="50" required></textarea><br>
+    <button type="submit">Send Message</button>
+</form>
+
+<!-- Сообщение об успешной отправке -->
+<div id="successMessage" style="display:none; color: green; padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; margin-top: 10px;">
+    Message sent successfully!
+</div>
+
+<!-- JavaScript для отправки формы с AJAX -->
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();  // Предотвращаем отправку формы по умолчанию
+
+        const formData = new FormData(this);  // Получаем данные из формы
+
+        // Отправляем запрос с помощью AJAX
+        fetch('/contact', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())  // Ожидаем JSON-ответ
+        .then(data => {
+            if (data.success) {
+                // Показываем сообщение об успешной отправке
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+                
+                // Скрываем сообщение через 5 секунд
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surrealism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Surrealism</h1>
+        <p>Explore the Surrealism art style and discover famous paintings that challenge reality.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Surrealism</h2>
+<p>Surrealism is an avant-garde cultural movement that emerged in the early 1920s, primarily in Europe. It is best known for its revolutionary approach to visual art, literature, and film, where the ordinary is transformed into the extraordinary and the subconscious mind becomes a major source of creativity. Rooted in the ideas of Sigmund Freud and his exploration of dreams, the unconscious, and repressed desires, Surrealism sought to break free from rational thought and embrace the irrational, chaotic, and bizarre aspects of the human experience. This exploration of the unconscious led to the creation of imagery that was bizarre, dreamlike, and often filled with symbolic meaning.</p>
+
+<p>At its core, Surrealism sought to challenge the boundaries of reality by merging dreamlike sequences with everyday life. Surrealist artists aimed to present an altered version of reality, often evoking disorienting or strange imagery that had no clear connection to the world as we know it. The movement was influenced by Dadaism, a previous avant-garde movement that rejected traditional culture and art, but Surrealism was more focused on the creative power of the subconscious mind rather than the absurdist tendencies of Dada. Through the exploration of dreams, automatic writing, and spontaneous creation, Surrealist artists sought to bypass rationality and tap into a deeper, more authentic form of artistic expression.</p>
+
+<p>One of the most significant contributions of Surrealism to the world of art is its use of visual paradoxes and unexpected juxtapositions. Objects and figures are often placed together in unusual contexts, creating strange and thought-provoking scenes. For example, in Salvador Dalí’s famous painting "The Persistence of Memory" (1931), melting clocks drape over a desolate landscape, challenging the conventional perception of time and reality. Similarly, René Magritte’s "The Son of Man" (1964) features a man with a bowler hat and a face obscured by a floating apple, playing with ideas of identity and perception. These works are not meant to be understood in a literal sense but rather to evoke emotional and psychological responses from the viewer.</p>
+
+<p>Surrealism was not limited to visual arts but extended into other creative fields as well. Surrealist writers, such as André Breton (who is often considered the movement's leader), explored automatic writing and free association techniques to bypass conscious thought and uncover deeper truths about the human psyche. This technique was also applied to visual art, with artists like Max Ernst, Joan Miró, and Yves Tanguy using automatic drawing or painting to let their subconscious guide their hands. Surrealism encouraged artists to embrace chance, intuition, and the unexpected as a means of accessing deeper layers of the mind.</p>
+
+<p>The movement also had a significant impact on cinema, with filmmakers such as Luis Buñuel and Jean Cocteau creating films that echoed Surrealist principles. Buñuel’s "Un Chien Andalou" (1929), co-created with Salvador Dalí, is a hallmark of surrealist cinema, known for its shocking and disorienting imagery, such as the infamous scene where a woman’s eye is slit open by a razor. The goal of Surrealist cinema was not to tell a coherent narrative but to create a visual experience that felt as though it was drawn directly from the subconscious mind, free from the constraints of logic or reason.</p>
+
+<p>Another central theme in Surrealism is the exploration of the irrational and the desire to break away from the constraints of societal norms and rational thought. Surrealist artists believed that by engaging with the unconscious mind and embracing the irrational, they could liberate themselves from conventional ways of thinking and create art that was more reflective of the true, untapped potentials of the human mind. The movement also had political implications, as it was closely tied to revolutionary ideas. Surrealists sought to dismantle the power structures that upheld traditional art forms and societal norms, viewing art as a way to challenge authority and revolutionize culture.</p>
+
+<p>Over the years, Surrealism evolved and influenced a wide range of artists and movements. The surrealists’ focus on the unconscious, dreams, and the irrational influenced later movements such as Abstract Expressionism, Pop Art, and even Conceptual Art. The exploration of the subconscious mind and the irrational continues to be an important part of contemporary art today. Surrealism has left an indelible mark on art history, helping to shape the way we perceive reality, identity, and the boundaries of artistic creation.</p>
+
+<p>In essence, Surrealism is not just an artistic movement but a philosophical inquiry into the human psyche, the nature of reality, and the potential for art to transcend the limitations of logic and reason. It continues to inspire and provoke thought, encouraging artists and viewers alike to embrace the unknown and to challenge their preconceived notions about the world.</p>
+
+    </section>
+    
+    <section class="famous-artists">
+        <h2>Famous Surrealism Artists</h2>
+    
+        <!-- Card: Salvador Dalí -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/dali.jpg') }}" alt="Salvador Dalí">
+            <h3>Salvador Dalí</h3>
+            <p>Salvador Dalí was a Spanish surrealist painter, best known for his eccentric personality and his striking, bizarre, and dreamlike works. Dalí's art is filled with symbolism and explores the unconscious mind, often mixing reality with the fantastic.</p>
+            <p><strong>Main Works:</strong> "The Persistence of Memory," "The Elephants," "The Sacrament of the Last Supper."</p>
+            <p><em>Interesting Fact:</em> Dalí was famous for his mustache, which he modeled after that of 17th-century Spanish master painter Diego Velázquez. His work often included optical illusions and distorted forms.</p>
+        </div>
+    
+        <!-- Card: René Magritte -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/magritte.jpg') }}" alt="René Magritte">
+            <h3>René Magritte</h3>
+            <p>René Magritte was a Belgian surrealist artist known for his witty and thought-provoking paintings that challenge viewers' perceptions of reality. His work often features ordinary objects in unexpected contexts, creating a sense of mystery.</p>
+            <p><strong>Main Works:</strong> "The Son of Man," "The Treachery of Images," "The Lovers."</p>
+            <p><em>Interesting Fact:</em> Magritte often explored the theme of hidden or obscured faces, as in *The Son of Man*, where a man’s face is obscured by a floating apple, symbolizing the unseen nature of the human psyche.</p>
+        </div>
+    
+        <!-- Card: Max Ernst -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/ernst.jpg') }}" alt="Max Ernst">
+            <h3>Max Ernst</h3>
+            <p>Max Ernst was a German surrealist painter, sculptor, and graphic artist. He was one of the pioneers of the Surrealist movement and is known for his innovative techniques and exploration of the unconscious mind.</p>
+            <p><strong>Main Works:</strong> "The Elephant Celebes," "The Robing of the Bride," "Two Children Are Threatened by a Nightingale."</p>
+            <p><em>Interesting Fact:</em> Ernst developed techniques like frottage and grattage, which involved rubbing and scraping paint on canvas, allowing spontaneous images to emerge from the paint itself.</p>
+        </div>
+    
+        <!-- Card: Joan Miró -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/miro.jpg') }}" alt="Joan Miró">
+            <h3>Joan Miró</h3>
+            <p>Joan Miró was a Spanish painter, sculptor, and ceramicist who became a leading figure in Surrealism. His works are filled with vibrant colors and abstract shapes, often evoking a sense of the playful and dreamlike.</p>
+            <p><strong>Main Works:</strong> "The Harlequin's Carnival," "The Farm," "Blue I, II, III."</p>
+            <p><em>Interesting Fact:</em> Miró's style evolved through the years from biomorphic forms to abstract, playful symbols, and he had a lifelong interest in the relationship between form and color.</p>
+        </div>
+    
+        <!-- Card: André Breton -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/breton.jpg') }}" alt="André Breton">
+            <h3>André Breton</h3>
+            <p>André Breton was a French writer, poet, and the founder of the Surrealist movement. Although best known for his theoretical works, Breton's influence as a visual artist shaped the Surrealist movement profoundly.</p>
+            <p><strong>Main Works:</strong> "Manifesto of Surrealism," "Nadja," "The Magnetic Fields."</p>
+            <p><em>Interesting Fact:</em> Breton coined the term "surrealism" in his 1924 manifesto, which helped define the artistic movement and its focus on the unconscious and the dream state.</p>
+        </div>
+    
+        <!-- Card: Yves Tanguy -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/tanguy.jpg') }}" alt="Yves Tanguy">
+            <h3>Yves Tanguy</h3>
+            <p>Yves Tanguy was a French surrealist painter known for his abstract landscapes and otherworldly depictions of imaginary landscapes. His works evoke a sense of isolation and desolation, with strange, organic forms floating in vast, barren spaces.</p>
+            <p><strong>Main Works:</strong> "Indefinite Divisibility," "Mama, Papa is Wounded!," "The Ray."</p>
+            <p><em>Interesting Fact:</em> Tanguy’s works are marked by a deep sense of mystery, and his use of desolate, dreamlike environments has had a lasting impact on the visual language of surrealism.</p>
+        </div>
+    
+        <!-- Card: Frida Kahlo -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/kahlo.jpg') }}" alt="Frida Kahlo">
+            <h3>Frida Kahlo</h3>
+            <p>Frida Kahlo was a Mexican artist whose works often explore themes of pain, suffering, and identity. Her art is deeply surreal, though she often did not consider herself a part of the Surrealist movement. Kahlo's symbolic self-portraits convey her personal struggles and connections to the natural world.</p>
+            <p><strong>Main Works:</strong> "The Two Fridas," "Self-Portrait with Thorn Necklace and Hummingbird," "The Broken Column."</p>
+            <p><em>Interesting Fact:</em> Kahlo’s paintings were influenced by Mexican folk art, and she often used her own life experiences as the basis for her surreal, symbolic works.</p>
+        </div>
+    
+        <!-- Card: Lee Miller -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/miller.jpg') }}" alt="Lee Miller">
+            <h3>Lee Miller</h3>
+            <p>Lee Miller was an American photographer and war correspondent who became a Surrealist photographer. Her photographs often depict surreal elements, challenging conventional understandings of reality and perception.</p>
+            <p><strong>Main Works:</strong> "Self Portrait," "Miller in a Mirror," "Shoe with Fuzzy Slippers."</p>
+            <p><em>Interesting Fact:</em> Miller’s work was recognized as a pioneering contribution to Surrealist photography, and her role as both a muse and a creator makes her an important figure in Surrealism.</p>
+        </div>
+    
+    </section>
+    
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h3>History of Surrealism</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-origin-surrealism">
+                <h4>1920s: The Birth of Surrealism</h4>
+                <p>Surrealism emerged in the early 1920s, largely influenced by the Dada movement and Sigmund Freud's theories on the unconscious mind. Artists and writers, including André Breton and Salvador Dalí, began exploring dream imagery, free association, and the exploration of the irrational to break free from traditional artistic constraints.</p>
+                <div class="extra-info">
+                    <p>One of the key works from this period is Salvador Dalí's "The Persistence of Memory" (1931), which features melting clocks, a hallmark of the movement's exploration of time and perception.</p>
+                    <img src="static/images/surrealism_beginnings.jpg" alt="The Persistence of Memory by Salvador Dalí">
+                    <img src="static/images/surrealism_beginnings1.jpg" alt="The Persistence of Memory by Salvador Dalí">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-surrealism-peak">
+                <h4>Late 1930s: Surrealism at Its Peak</h4>
+                <p>During the late 1930s, surrealism reached its peak, with artists like René Magritte and Max Ernst producing works that pushed the boundaries of imagination. These works were filled with symbolic meanings, juxtaposing elements of reality and fantasy to evoke strange and unsettling feelings.</p>
+                <div class="extra-info">
+                    <p>René Magritte's "The Elephants" (1937) is a good example of the surrealist manipulation of scale and the manipulation of everyday objects into dream-like forms.</p>
+                    <img src="static/images/surrealism_peak.jpg" alt="The Elephants by Salvador Dalí">
+                    <img src="static/images/surrealism_peak1.jpg" alt="The Elephants by Salvador Dalí">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>Surrealism: Beyond Reality</h2>
+            <p>Surrealism, born in the early 20th century, was a movement that sought to release the creative potential of the unconscious mind. It challenged rational thought, blending dream-like, bizarre imagery with real-world elements. The movement was influenced by the rise of psychoanalysis, especially the ideas of Sigmund Freud, and it sought to depict a deeper, irrational reality beyond what could be perceived by the senses.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией о влиянии Сюрреализма в разных странах
+        var countries = [
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "In France, Surrealism was shaped by artists like Salvador Dalí and René Magritte. Dalí's iconic works like 'The Persistence of Memory' challenged viewers to question reality with dreamlike landscapes. France became the center of surrealist thought and the movement's most influential hub."
+            },
+            {
+                name: "Spain",
+                coordinates: [40.4637, -3.7492],
+                info: "Spain was the birthplace of one of Surrealism's most famous artists, Salvador Dalí. His eccentric style and exploration of the subconscious mind became synonymous with the movement. Dalí’s works often featured bizarre imagery and a manipulation of time and space, exemplified in 'The Persistence of Memory'."
+            },
+            {
+                name: "Belgium",
+                coordinates: [50.8503, 4.3517],
+                info: "Belgium was home to René Magritte, whose surreal paintings combined everyday objects in odd, dreamlike settings. His most famous work, 'The Son of Man', presents a man with his face obscured by a floating apple, challenging viewers’ perceptions of reality and identity."
+            },
+            {
+                name: "United States",
+                coordinates: [37.0902, -95.7129],
+                info: "In the United States, Surrealism found fertile ground among artists like Max Ernst and Jackson Pollock. Ernst’s collage-based works incorporated elements of dreams, myth, and the subconscious. Pollock, though primarily associated with Abstract Expressionism, was influenced by Surrealism's use of spontaneous, unconscious expression."
+            },
+            {
+                name: "Italy",
+                coordinates: [41.87194, 12.56738],
+                info: "In Italy, Surrealism took on a unique flavor. Artists like Giorgio de Chirico explored metaphysical landscapes, creating eerie, timeless cityscapes that seemed frozen between reality and dream. His works blurred the boundaries between the conscious and unconscious."
+            },
+            {
+                name: "Mexico",
+                coordinates: [23.6345, -102.5528],
+                info: "Mexico's contribution to Surrealism is marked by Frida Kahlo, whose deeply personal works often explored themes of identity, pain, and dreams. Kahlo’s use of surreal imagery expressed her inner struggles and reflections on gender, race, and culture."
+            },
+            {
+                name: "Switzerland",
+                coordinates: [46.8182, 8.2275],
+                info: "Switzerland played an important role in the Surrealist movement with artists like Jean Arp, whose abstract, organic forms expressed the surrealist ideal of spontaneity. Arp’s work explored the subconscious mind, and his sculptures often appeared to grow naturally, defying conventional expectations."
+            },
+            {
+                name: "United Kingdom",
+                coordinates: [55.3781, -3.4360],
+                info: "In the UK, surrealism was embraced by a number of artists, including the poet and painter, Ithell Colquhoun. Colquhoun’s work often depicted fantastical, symbolic images, exploring the relationship between reality and the unconscious mind. Surrealism in the UK also found expression in the works of artists like Henry Moore."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+    <!-- Скрипт для скрытия и отображения дополнительной информации -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Показываем информацию
+                } else {
+                    extraInfo.style.display = "none"; // Скрываем информацию
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>

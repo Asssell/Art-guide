@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body>
+    <!-- Форма для входа, скрытая по умолчанию -->
+    <div class="login-container" id="loginForm" style="display:none;">
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <a href="javascript:void(0);" onclick="hideForms()">Close</a>
+    </div>
+
+    <!-- Форма для регистрации, скрытая по умолчанию -->
+    <div class="register-container" id="registerForm" style="display:none;">
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <a href="javascript:void(0);" onclick="hideForms()">Close</a>
+    </div>
+
+    <script>
+        // Функция для показа формы входа
+        function showLoginForm() {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('registerForm').style.display = 'none';
+        }
+
+        // Функция для показа формы регистрации
+        function showRegisterForm() {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+            document.getElementById('loginForm').style.display = 'none';
+        }
+
+        // Функция для скрытия обеих форм и показа основного контента
+        function hideForms() {
+            document.getElementById('main-content').style.display = 'block';
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'none';
+        }
+    </script>
+
+    <div id="main-content">
+        <header class="header">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Site Logo" class="logo">
+            <h1>Welcome to Art Guide</h1>
+            <p>Discover the World of Art: Genres, Artists, and Masterpieces</p>
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search on this page..." />
+                <button onclick="searchPage()">Search</button>
+            </div>
+        </header>
+
+        <!-- Приветствие пользователя -->
+<div class="user-greeting">
+    {% if username %}
+        <div class="dropdown">
+            <button class="dropbtn">{{ username }}</button> <!-- Отображаем никнейм как кнопку -->
+            <div class="dropdown-content">
+                <a href="{{ url_for('logout') }}">Logout</a> <!-- Кнопка выхода -->
+                <a href="javascript:void(0);" onclick="openContactForm()">Contact Us</a> <!-- Кнопка для открытия формы контакта -->
+            </div>
+        </div>
+    {% else %}
+        <div class="auth-buttons">
+            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-btn">Login</a>
+            <a href="javascript:void(0);" onclick="showRegisterForm()" class="register-btn">Register</a>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Модальное окно -->
+<div id="contactModal" style="display:none;">
+    <div class="modal-content">
+        <span id="closeBtn">&times;</span>
+        <h2>Contact Us</h2>
+        <form method="POST" action="/contact">
+            <label for="message">Your Message:</label><br>
+            <textarea name="message" id="message" rows="5" cols="50" required></textarea><br>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+<script>
+    const modal = document.getElementById('contactModal');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Открытие формы контакта
+    function openContactForm() {
+        modal.style.display = 'block';
+    }
+
+    // Закрытие модального окна
+    closeBtn.onclick = () => {
+        modal.style.display = 'none';
+    }
+
+    // Закрыть модальное окно, если кликнуть за пределами окна
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+
+
+    <!-- Здесь может быть остальной контент вашего сайта, например, жанры, художники и т.д. -->
+    <!-- Genre Section -->
+    <section class="genre-section">
+        <h2>Explore Artistic Genres</h2>
+        <div class="genre-cards" id="genre-cards">
+            <!-- Ссылка на страницу жанра -->
+            <div class="genre-card">
+                <a href="{{ url_for('classicism') }}">
+                    <img src="{{ url_for('static', filename='images/classicism.jpg') }}" alt="Classicism">
+                    <h3>Classicism</h3>
+                </a>
+                <p>Inspired by ancient Greek and Roman art, focusing on balance, harmony, and idealized forms.</p>
+            </div>
+            <div class="genre-card">
+                <a href="{{ url_for('impressionism') }}">
+                    <img src="{{ url_for('static', filename='images/impressionism.jpg') }}" alt="Impressionism">
+                    <h3>Impressionism</h3>
+                </a>
+                <p>Captures light and color through short brushstrokes, focusing on everyday scenes and atmosphere.</p>
+            </div>
+            <div class="genre-card">
+                <a href="{{ url_for('romanticism') }}">
+                    <img src="{{ url_for('static', filename='images/romanticism.jpg') }}" alt="Romanticism">
+                    <h3>Romanticism</h3>
+                </a>
+                <p>Emphasizes emotion, imagination, and dramatic, often nature-driven themes.</p>
+            </div>
+            
+            <div class="genre-card">
+                <a href="{{ url_for('realism') }}">
+                    <img src="{{ url_for('static', filename='images/realism.jpg') }}" alt="Realism">
+                    <h3>Realism</h3>
+                </a>
+                <p>Depicts subjects as they are, focusing on ordinary life and social issues without idealization.</p>
+            </div>
+            
+            <div class="genre-card">
+                <a href="{{ url_for('surrealism') }}">
+                    <img src="{{ url_for('static', filename='images/surrealism.jpg') }}" alt="Surrealism">
+                    <h3>Surrealism</h3>
+                </a>
+                <p>Explores the unconscious mind and dreams with irrational, bizarre imagery.</p>
+            </div>
+            
+            <div class="genre-card">
+                <a href="{{ url_for('baroque') }}">
+                    <img src="{{ url_for('static', filename='images/baroque.jpg') }}" alt="Baroque">
+                    <h3>Baroque</h3>
+                </a>
+                <p>Known for drama, deep shadows, and grand, emotional expressions, often in religious art.</p>
+            </div>
+            
+            <div class="genre-card">
+                <a href="{{ url_for('expressionism') }}">
+                    <img src="{{ url_for('static', filename='images/expressionism.jpg') }}" alt="Expressionism">
+                    <h3>Expressionism</h3>
+                </a>
+                <p>Focuses on raw emotions and subjective experiences, with distorted forms and bold colors.</p>
+            </div>
+            
+            <div class="genre-card">
+                <a href="{{ url_for('fauvism') }}">
+                    <img src="{{ url_for('static', filename='images/fauvism.jpg') }}" alt="Fauvism">
+                    <h3>Fauvism</h3>
+                </a>
+                <p>Uses vibrant, non-naturalistic colors and bold brushwork to evoke emotion.</p>
+            </div>
+            
+            <div class="genre-card">
+                <a href="{{ url_for('art_nouveau') }}">
+                    <img src="{{ url_for('static', filename='images/art_nouveau.jpg') }}" alt="Art Nouveau">
+                    <h3>Art Nouveau</h3>
+                </a>
+                <p>Features flowing, organic designs inspired by nature, popular in architecture and decorative arts.</p>
+            </div>
+            
+            <div class="genre-card">
+                <a href="{{ url_for('constructivism') }}">
+                    <img src="{{ url_for('static', filename='images/constructivism.jpg') }}" alt="Constructivism">
+                    <h3>Constructivism</h3>
+                </a>
+                <p>Emphasizes abstract, geometric art and industrial materials, focusing on social change.</p>
+            </div>
+            <div class="genre-card">
+                <a href="{{ url_for('abstract_art') }}">
+                    <img src="{{ url_for('static', filename='images/abstract_art.jpg') }}" alt="Abstract Art">
+                    <h3>Abstract Art</h3>
+                </a>
+                <p>Non-representational art that explores shapes, colors, and lines without depicting the real world.</p>
+            </div>
+            
+            <div class="genre-card">
+                <a href="{{ url_for('pre_raphaelite_brotherhood') }}">
+                    <img src="{{ url_for('static', filename='images/pre_raphaelite.jpg') }}" alt="Pre-Raphaelite Brotherhood">
+                    <h3>Pre-Raphaelite Brotherhood</h3>
+                </a>
+                <p>A group of English artists who revived detailed, vibrant Renaissance style, often with medieval or nature themes.</p>
+            </div>
+            
+            <!-- Добавьте другие жанры аналогичным образом -->
+        </div>
+    </section>
+
+<!-- Artist Section -->
+<section class="artist-section">
+    <h2>Famous Artists</h2>
+    <div class="artist-cards" id="artist-cards">
+        <div class="artist-card">
+            <a href="{{ url_for('van_gogh') }}">
+                <img src="{{ url_for('static', filename='images/van-gogh.jpg') }}" alt="Van Gogh">
+                <h3>Vincent Van Gogh</h3>
+            </a>
+            <p>Short biography...</p>
+        </div>
+        <div class="artist-card">
+            <a href="{{ url_for('dali_salvador') }}">
+                <img src="{{ url_for('static', filename='images/dali.jpg') }}" alt="Dali Salvador">
+                <h3>Salvador Dalí</h3>
+            </a>
+            <p>Short biography...</p>
+        </div>
+        <div class="artist-cards">
+            <div class="artist-card">
+                <a href="{{ url_for('da_vinci') }}">
+                    <img src="{{ url_for('static', filename='images/da_vinci.jpg') }}" alt="Leonardo da Vinci">
+                    <h3>Leonardo da Vinci</h3>
+                </a>
+                <p>Known for Mona Lisa and The Last Supper.</p>
+            </div>
+        
+            <div class="artist-card">
+                <a href="{{ url_for('michelangelo') }}">
+                    <img src="{{ url_for('static', filename='images/michelangelo.jpg') }}" alt="Michelangelo Buonarroti">
+                    <h3>Michelangelo Buonarroti</h3>
+                </a>
+                <p>Famous for the ceiling of the Sistine Chapel and David.</p>
+            </div>
+        
+            <div class="artist-card">
+                <a href="{{ url_for('raphael') }}">
+                    <img src="{{ url_for('static', filename='images/raphael.jpg') }}" alt="Raphael">
+                    <h3>Raphael</h3>
+                </a>
+                <p>Known for The School of Athens and numerous Madonna portraits.</p>
+            </div>
+        
+            <div class="artist-card">
+                <a href="{{ url_for('caravaggio') }}">
+                    <img src="{{ url_for('static', filename='images/caravaggio.jpg') }}" alt="Caravaggio">
+                    <h3>Caravaggio</h3>
+                </a>
+                <p>Known for his dramatic use of light and shadow, as seen in The Calling of Saint Matthew.</p>
+            </div>
+        
+            <div class="artist-card">
+                <a href="{{ url_for('rubens') }}">
+                    <img src="{{ url_for('static', filename='images/rubens.jpg') }}" alt="Peter Paul Rubens">
+                    <h3>Peter Paul Rubens</h3>
+                </a>
+                <p>Famous for his dynamic compositions and sensual nudes like The Descent from the Cross.</p>
+            </div>
+        
+            <div class="artist-card">
+                <a href="{{ url_for('rembrandt') }}">
+                    <img src="{{ url_for('static', filename='images/rembrandt.jpg') }}" alt="Rembrandt van Rijn">
+                    <h3>Rembrandt van Rijn</h3>
+                </a>
+                <p>Renowned for his mastery of light and his self-portraits.</p>
+            </div>
+        
+            <div class="artist-card">
+                <a href="{{ url_for('monet') }}">
+                    <img src="{{ url_for('static', filename='images/monet.jpg') }}" alt="Claude Monet">
+                    <h3>Claude Monet</h3>
+                </a>
+                <p>Best known for his series Water Lilies and Impression, Sunrise.</p>
+            </div>
+        
+            <div class="artist-card">
+                <a href="{{ url_for('manet') }}">
+                    <img src="{{ url_for('static', filename='images/manet.jpg') }}" alt="Édouard Manet">
+                    <h3>Édouard Manet</h3>
+                </a>
+                <p>Known for works like Olympia and Le Déjeuner sur l'herbe.</p>
+            </div>
+        
+            <div class="artist-card">
+                <a href="{{ url_for('renoir') }}">
+                    <img src="{{ url_for('static', filename='images/renoir.jpg') }}" alt="Pierre-Auguste Renoir">
+                    <h3>Pierre-Auguste Renoir</h3>
+                </a>
+                <p>Famous for his portraits and scenes of Parisian life, such as Luncheon of the Boating Party.</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- Masterpieces Section -->
+<section class="artist-section">
+    <h2>Famous Masterpieces</h2>
+    <div class="artist-cards" id="artist-cards">
+        <div class="artist-card">
+            <a href="{{ url_for('monalisa') }}">
+                <img src="{{ url_for('static', filename='images/monalisa.jpg') }}" alt="Mona Lisa">
+                <h3>Mona Lisa</h3>
+            </a>
+            <p>Leonardo da Vinci's iconic portrait.</p>
+        </div>
+
+        <div class="artist-card">
+            <a href="{{ url_for('starry_night') }}">
+                <img src="{{ url_for('static', filename='images/starry_night.jpg') }}" alt="Starry Night">
+                <h3>Starry Night</h3>
+            </a>
+            <p>Vincent van Gogh's expressionist masterpiece.</p>
+        </div>
+
+        <div class="artist-card">
+            <a href="{{ url_for('guernica') }}">
+                <img src="{{ url_for('static', filename='images/guernica.jpg') }}" alt="Guernica">
+                <h3>Guernica</h3>
+            </a>
+            <p>Picasso's powerful anti-war painting.</p>
+        </div>
+
+        <div class="artist-card">
+            <a href="{{ url_for('last_supper') }}">
+                <img src="{{ url_for('static', filename='images/last_supper.jpg') }}" alt="The Last Supper">
+                <h3>The Last Supper</h3>
+            </a>
+            <p>Leonardo da Vinci's depiction of Christ's final meal.</p>
+        </div>
+
+        <div class="artist-card">
+            <a href="{{ url_for('school_of_athens') }}">
+                <img src="{{ url_for('static', filename='images/school_of_athens.jpg') }}" alt="The School of Athens">
+                <h3>The School of Athens</h3>
+            </a>
+            <p>Raphael's depiction of ancient Greek philosophers.</p>
+        </div>
+
+        <div class="artist-card">
+            <a href="{{ url_for('birth_of_venus') }}">
+                <img src="{{ url_for('static', filename='images/birth_of_venus.jpg') }}" alt="The Birth of Venus">
+                <h3>The Birth of Venus</h3>
+            </a>
+            <p>Sandro Botticelli's portrayal of Venus emerging from the sea.</p>
+        </div>
+
+        <div class="artist-card">
+            <a href="{{ url_for('the_night_watch') }}">
+                <img src="{{ url_for('static', filename='images/the_night_watch.jpg') }}" alt="The Night Watch">
+                <h3>The Night Watch</h3>
+            </a>
+            <p>Rembrandt's iconic depiction of a militia group in Amsterdam.</p>
+        </div>
+
+        <div class="artist-card">
+            <a href="{{ url_for('water_lilies') }}">
+                <img src="{{ url_for('static', filename='images/water_lilies.jpg') }}" alt="Water Lilies">
+                <h3>Water Lilies</h3>
+            </a>
+            <p>Claude Monet's serene depiction of his garden pond.</p>
+        </div>
+
+        <div class="artist-card">
+            <a href="{{ url_for('the_scream') }}">
+                <img src="{{ url_for('static', filename='images/the_scream.jpg') }}" alt="The Scream">
+                <h3>The Scream</h3>
+            </a>
+            <p>Edvard Munch's expressionist symbol of existential angst.</p>
+        </div>
+
+        <div class="artist-card">
+            <a href="{{ url_for('the_persistence_of_memory') }}">
+                <img src="{{ url_for('static', filename='images/the_persistence_of_memory.jpg') }}" alt="The Persistence of Memory">
+                <h3>The Persistence of Memory</h3>
+            </a>
+            <p>Salvador Dalí's surreal depiction of melting clocks.</p>
+        </div>
+    </div>
+    </section>
+    
+
+    
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+    <script>
+        function searchPage() {
+            // Очистка предыдущих выделений
+            let highlightedElements = document.querySelectorAll('.highlight');
+            highlightedElements.forEach(el => el.classList.remove('highlight'));
+    
+            let searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
+            if (!searchTerm) return;
+    
+            // Проход по текстовым узлам страницы для поиска совпадений
+            function highlightText(node) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    let text = node.textContent;
+                    let regex = new RegExp(`(${searchTerm})`, 'gi');
+                    
+                    if (text.toLowerCase().includes(searchTerm)) {
+                        let span = document.createElement('span');
+                        span.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
+                        node.replaceWith(span);
+                    }
+                } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
+                    // Рекурсивный проход по дочерним элементам
+                    node.childNodes.forEach(highlightText);
+                }
+            }
+    
+            // Вызываем функцию для всего тела документа
+            document.body.childNodes.forEach(highlightText);
+    
+            // Прокрутка к первому совпадению
+            let firstMatch = document.querySelector('.highlight');
+            if (firstMatch) firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    
+        // Добавление CSS для выделенных терминов
+        document.head.insertAdjacentHTML("beforeend", "<style>.highlight { background-color: yellow; color: black; }</style>");
+    </script>
+    <script>
+        // Получаем элемент с классом .dropdown
+        document.querySelector('.dropbtn').addEventListener('click', function() {
+            var dropdownContent = this.nextElementSibling;  // Получаем выпадающее меню
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';  // Переключаем видимость
+        });
+    </script>
+    
+    </div>
+</body>
+</html>
+

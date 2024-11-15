@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fauvism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <h1>Fauvism</h1>
+        <p>Learn about the Fauvism art style and discover famous paintings.</p>
+    </header>
+
+    <!-- Section with information about the genre -->
+    <section class="genre-info">
+        <h2>Description of Fauvism</h2>
+<p>Fauvism was an early 20th-century art movement that emphasized bold, vibrant colors and dramatic brushwork, often at the expense of realistic representation. The term "Fauvism" is derived from the French word "fauves," meaning "wild beasts," a nickname given to the artists by a critic who was shocked by their unconventional use of color and form. Fauvism is considered one of the first movements of modern art, preceding Cubism and paving the way for the further exploration of abstraction in the 20th century.</p>
+
+<p>The movement originated in France around 1904 and was led by artists such as Henri Matisse, André Derain, Maurice de Vlaminck, and Georges Braque, though Braque would later move towards Cubism. These artists sought to break free from the constraints of traditional painting techniques and, in doing so, created a style characterized by the use of unnatural, vivid colors. For example, they might depict a tree in bold red, a face in green, or a landscape in blue, using colors not found in nature, but instead chosen for their emotional and expressive qualities.</p>
+
+<p>One of the main ideas behind Fauvism was that color should not simply serve as a means to represent reality but should be used as a tool to convey emotion. In Fauvist works, the color choices are often exaggerated and used in a non-naturalistic way, emphasizing the emotional power of hues over their realistic appearance. This departure from realistic color was revolutionary and challenged the traditions of 19th-century art, where color was typically used to represent nature accurately.</p>
+
+<p>The brushwork in Fauvist paintings was also bold and energetic, with thick, visible strokes that added to the sense of spontaneity and expression in the work. Artists favored a sense of immediacy, and their works were often painted quickly, focusing on the visceral impact of the scene rather than meticulous detail. The style of painting, with its raw and expressive nature, aimed to capture the essence of the subject rather than an accurate likeness.</p>
+
+<p>One of the most famous works of Fauvism is Matisse's "Woman with a Hat" (1905), which features a portrait of his wife, Amélie, painted in vivid, contrasting colors. The work sparked controversy and led to the movement’s name, as critics were initially shocked by the unconventional use of color. Despite this, Fauvism soon gained recognition as a revolutionary approach to painting, influencing a wide range of artists and movements in the years that followed.</p>
+
+<p>Although Fauvism was a relatively short-lived movement, it had a profound impact on the development of modern art. The boldness and emotional expressiveness of the Fauves inspired later movements such as Expressionism and Abstract art, as well as artists like Ernst Ludwig Kirchner and Wassily Kandinsky. The movement’s emphasis on color and form helped pave the way for a more abstract approach to art in the early 20th century.</p>
+
+<p>Fauvism also encouraged a rejection of traditional academic painting techniques, instead embracing an approach to art that valued personal expression and the exploration of new visual languages. In addition to Matisse and Derain, other important Fauvist artists include Maurice de Vlaminck, Raoul Dufy, and Kees van Dongen, all of whom contributed to the movement's distinctive style.</p>
+
+<p>In summary, Fauvism was a pivotal movement in the history of modern art, known for its expressive use of color, energetic brushwork, and a rejection of naturalistic representation. Although the movement lasted only a few years, its influence on later artistic developments and its challenge to traditional artistic conventions make it a cornerstone of 20th-century art.</p>
+
+    </section>
+    
+    <section class="famous-artists">
+        <h2>Famous Fauvist Artists</h2>
+    
+        <!-- Card: Henri Matisse -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/matisse.jpg') }}" alt="Henri Matisse">
+            <h3>Henri Matisse</h3>
+            <p>Henri Matisse is considered the leader of Fauvism. His use of vibrant color and simple, expressive forms was revolutionary in the early 20th century.</p>
+            <p><strong>Main Works:</strong> "Woman with a Hat," "The Dance," "Blue Nude."</p>
+            <p><em>Interesting Fact:</em> Matisse's use of color was influenced by his interest in both the emotional impact of color and the ancient art of Persia, North Africa, and Asia.</p>
+        </div>
+    
+        <!-- Card: André Derain -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/derain.jpg') }}" alt="André Derain">
+            <h3>André Derain</h3>
+            <p>André Derain was a key figure in the Fauvist movement, known for his bold use of color and his landscapes that depicted nature in vivid hues.</p>
+            <p><strong>Main Works:</strong> "The Turning Road, L'Estaque," "Charing Cross Bridge," "London Bridge."</p>
+            <p><em>Interesting Fact:</em> Derain’s work with Matisse at the Salon d’Automne in 1905 helped define the Fauvist style, with its emphasis on emotional expression through color.</p>
+        </div>
+    
+        <!-- Card: Maurice de Vlaminck -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/vlaminck.jpg') }}" alt="Maurice de Vlaminck">
+            <h3>Maurice de Vlaminck</h3>
+            <p>Vlaminck was one of the most prominent Fauves. His works are characterized by intense, vibrant color and dramatic, gestural brushwork.</p>
+            <p><strong>Main Works:</strong> "The River Seine at Chatou," "The Red Trees," "Portrait of the Artist."</p>
+            <p><em>Interesting Fact:</em> Vlaminck's early works were inspired by his love for music and the energetic rhythms of nature, leading him to express these elements through vivid colors.</p>
+        </div>
+    
+        <!-- Card: Raoul Dufy -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/dufy.jpg') }}" alt="Raoul Dufy">
+            <h3>Raoul Dufy</h3>
+            <p>Raoul Dufy was known for his colorful landscapes and coastal scenes, often using a palette that emphasized brightness and light.</p>
+            <p><strong>Main Works:</strong> "The Yellow Hat," "Regatta at Cowes," "The Eiffel Tower."</p>
+            <p><em>Interesting Fact:</em> Dufy’s work was not only connected to Fauvism, but he also designed textiles and ceramics, showing his diverse creative talents.</p>
+        </div>
+    
+        <!-- Card: Kees van Dongen -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/dongen.jpg') }}" alt="Kees van Dongen">
+            <h3>Kees van Dongen</h3>
+            <p>Van Dongen was known for his use of color and expressive portraiture. His Fauvist portraits often featured vivid, exaggerated hues.</p>
+            <p><strong>Main Works:</strong> "The Corn Poppy," "The Young Girl with the Green Hat," "The Spanish Woman."</p>
+            <p><em>Interesting Fact:</em> Van Dongen was influenced by both the color intensity of Fauvism and the sensuality of his subject matter, often focusing on female nudes and portraits.</p>
+        </div>
+    
+        <!-- Card: Georges Braque -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/braque.jpg') }}" alt="Georges Braque">
+            <h3>Georges Braque</h3>
+            <p>Though later famous for his role in developing Cubism, Georges Braque's early work was influenced by Fauvism, particularly his bold use of color and abstraction.</p>
+            <p><strong>Main Works:</strong> "Houses at L'Estaque," "Violin and Candlestick," "The Portuguese."</p>
+            <p><em>Interesting Fact:</em> Braque was a contemporary of Picasso, and their shared interest in abstraction led to the birth of Cubism, though Braque’s early Fauvist works are often less recognized.</p>
+        </div>
+    
+        <!-- Card: Jean Metzinger -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/metzinger.jpg') }}" alt="Jean Metzinger">
+            <h3>Jean Metzinger</h3>
+            <p>Metzinger was a French painter known for his involvement in the development of Cubism. However, before Cubism, he was influenced by Fauvism’s color theory and bold expression.</p>
+            <p><strong>Main Works:</strong> "Le Gouter," "The Tea Time," "The Soldier with the Pipe."</p>
+            <p><em>Interesting Fact:</em> Metzinger was one of the founding members of the *Section d'Or* group and was an advocate for the theoretical development of Cubism.</p>
+        </div>
+    
+        <!-- Card: Albert Marquet -->
+        <div class="artist-card">
+            <img src="{{ url_for('static', filename='images/marquet.jpg') }}" alt="Albert Marquet">
+            <h3>Albert Marquet</h3>
+            <p>Marquet, a close friend of Matisse, was known for his landscapes and marine scenes, using Fauvist techniques of vibrant color to evoke emotion and light.</p>
+            <p><strong>Main Works:</strong> "The Port of Marseille," "The Seine at Chatou," "Fishing Boats."</p>
+            <p><em>Interesting Fact:</em> While his early works were deeply connected to Fauvism, Marquet later moved towards a more subdued palette, but he retained his focus on light and atmosphere in his paintings.</p>
+        </div>
+    
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h3>History of Fauvism</h3>
+        <div class="timeline-container">
+            <div class="timeline-event" id="event-1905">
+                <h4>1905: The Birth of Fauvism</h4>
+                <p>Fauvism emerged as a dominant movement at the Salon d'Automne in Paris, where artists like Henri Matisse and André Derain exhibited their bold works.</p>
+                <div class="extra-info">
+                    <p>Fauvist artists broke with traditional representation by using vibrant, expressive colors that were far removed from natural hues.</p>
+                    <img src="static/images/fauvism_1905.jpg" alt="Fauvism 1905">
+                    <img src="static/images/fauvism_19051.jpg" alt="Fauvism 1905">
+                </div>
+            </div>
+            <div class="timeline-event" id="event-1907">
+                <h4>1907: Fauvism's Decline</h4>
+                <p>Fauvism began to fade as artists, like Matisse, moved on to other styles, such as Post-Impressionism and Cubism.</p>
+                <div class="extra-info">
+                    <p>Though the movement was short-lived, Fauvism had a significant impact on the development of modern art, influencing future movements like Expressionism.</p>
+                    <img src="static/images/fauvism_1907.jpg" alt="Fauvism 1907">
+                    <img src="static/images/fauvism_19071.jpg" alt="Fauvism 1907">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="map-container">
+        <!-- Карта -->
+        <div id="map"></div>
+
+        <!-- Боковая панель с информацией -->
+        <div class="info-panel">
+            <h2>Fauvism</h2>
+            <p>Fauvism was an early 20th-century art movement characterized by bold, vibrant colors and expressive brushwork. The term "Fauvism" comes from the French word "fauves," meaning "wild beasts," a reference to the wild, untamed colors used by the artists. Fauves rejected the naturalistic use of color and instead used color as an emotional force. The movement was led by artists such as Henri Matisse and André Derain, who aimed to create works that captured the energy and emotion of the moment rather than realistic representations of the world.</p>
+            </div>
+    </div>
+
+    <!-- Подключение скрипта Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Инициализация карты
+        var map = L.map('map').setView([51.505, -0.09], 3); // Устанавливаем начальный центр карты и уровень масштабирования
+
+        // Добавление слоя с картой (стиль карт OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Интерактивные маркеры с информацией о влиянии Фовизма в разных странах
+        var countries = [
+            {
+                name: "France",
+                coordinates: [46.603354, 1.888334],
+                info: "Fauvism was a French movement, with Henri Matisse and André Derain being the leading figures. Matisse’s work, such as *The Red Studio*, is iconic for its use of vibrant color and unconventional representations of space. Fauves aimed to express emotion through color, a departure from traditional realism."
+            },
+            {
+                name: "United Kingdom",
+                coordinates: [55.3781, -3.4360],
+                info: "Although Fauvism was primarily a French movement, its influence spread to the UK, where artists like Duncan Grant and Vanessa Bell embraced bold color choices and expressive brushstrokes, inspired by the Fauvist palette."
+            },
+            {
+                name: "Germany",
+                coordinates: [51.1657, 10.4515],
+                info: "In Germany, Fauvism influenced expressionist artists, blending bold color with emotional intensity. Ernst Ludwig Kirchner, though associated with German Expressionism, was inspired by Fauvist use of color, especially in his early works."
+            },
+            {
+                name: "Switzerland",
+                coordinates: [46.8182, 8.2275],
+                info: "Swiss artists like Albert Gleizes and Maurice de Vlaminck, who were connected with the School of Paris, embraced Fauvism in their early works. Vlaminck’s works, such as *The Red House*, demonstrate the movement's influence on expressionist brushwork and color."
+            },
+            {
+                name: "United States",
+                coordinates: [37.0902, -95.7129],
+                info: "Fauvism influenced American artists in the early 20th century, particularly in the development of Abstract Expressionism. Artists like Georgia O'Keeffe and Arthur Dove were inspired by the Fauvist use of color and its emotional impact on viewers."
+            },
+            {
+                name: "Belgium",
+                coordinates: [50.8503, 4.3517],
+                info: "Belgian artist Rik Wouters was strongly influenced by Fauvism, particularly in his use of vibrant colors and expressive figures. His works, such as *The Woman in the Mirror*, display the boldness of Fauvist technique, with an emphasis on capturing the energy of the moment."
+            },
+            {
+                name: "Italy",
+                coordinates: [41.87194, 12.56738],
+                info: "While Italy was more associated with movements like Futurism, Fauvism influenced Italian artists such as Amedeo Modigliani, whose portrait works showcased a fusion of Fauvist color and expressionism."
+            },
+            {
+                name: "Spain",
+                coordinates: [40.4637, -3.7492],
+                info: "Spanish artist Juan Gris was influenced by Fauvism, particularly in his use of vibrant color palettes in his early works. Though Gris is better known for his later involvement with Cubism, Fauvism played a role in shaping his approach to color and form."
+            }
+        ];
+
+        // Добавление маркеров на карту
+        countries.forEach(function(country) {
+            L.marker(country.coordinates)
+                .addTo(map)
+                .bindPopup("<b>" + country.name + "</b><br>" + country.info)
+                .openPopup();
+        });
+    </script>
+    <!-- Скрипт для скрытия и отображения дополнительной информации -->
+    <script>
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const extraInfo = this.querySelector('.extra-info');
+                
+                if (extraInfo.style.display === "none" || extraInfo.style.display === "") {
+                    extraInfo.style.display = "block"; // Показываем информацию
+                } else {
+                    extraInfo.style.display = "none"; // Скрываем информацию
+                }
+            });
+        });
+    </script>
+    <footer>
+        <a href="/" class="back-to-home-btn">Back to Home</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+</body>
+</html>
